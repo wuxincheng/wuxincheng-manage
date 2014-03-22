@@ -14,26 +14,53 @@ public class BlogInfo implements Serializable {
 
 	/** 博客主键 */
 	private String blogId;
-	
+	/** 标题 */
 	private String blogTitle;
 	/** 博客类型主键 */
 	private String blogType;
-	/**  */
+	/** 类型名称 */
 	private String blogTypeName;
-
+	/** 内容 */
 	private String blogContent;
-
+	/** 创建时间 */
 	private String blogTime;
-
+	/** 阅读次数 */
 	private Integer readCount;
-
+	/** 分享次数 */
 	private Integer shareCount;
-
+	/** 博客状态 */
 	private String blogState;
-
+	/** 图片地址(用于列表显示) */
 	private String picId;
-
+	
+	// ---
+	/** 博客来源 */
+	private String resource; 
+	/** 作者 */
+	private String author;
+	/** 博客简介(用于列表显示) */
+	private String subContent;
+	
 	public BlogInfo() {
+	}
+
+	public BlogInfo(String blogId, String blogTitle, String blogType,
+			String blogTypeName, String blogContent, String blogTime,
+			Integer readCount, Integer shareCount, String blogState,
+			String picId, String resource, String author, String subContent) {
+		this.blogId = blogId;
+		this.blogTitle = blogTitle;
+		this.blogType = blogType;
+		this.blogTypeName = blogTypeName;
+		this.blogContent = blogContent;
+		this.blogTime = blogTime;
+		this.readCount = readCount;
+		this.shareCount = shareCount;
+		this.blogState = blogState;
+		this.picId = picId;
+		this.resource = resource;
+		this.author = author;
+		this.subContent = subContent;
 	}
 
 	public String getBlogId() {
@@ -114,6 +141,30 @@ public class BlogInfo implements Serializable {
 
 	public void setBlogTitle(String blogTitle) {
 		this.blogTitle = blogTitle;
+	}
+
+	public String getResource() {
+		return resource;
+	}
+
+	public void setResource(String resource) {
+		this.resource = resource;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getSubContent() {
+		return subContent;
+	}
+
+	public void setSubContent(String subContent) {
+		this.subContent = subContent;
 	}
 
 }
