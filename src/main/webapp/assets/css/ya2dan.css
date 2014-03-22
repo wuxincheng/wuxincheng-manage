@@ -1,0 +1,39 @@
+/*!
+ * Bootstrap v2.2.2
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+html,body,div,span,object,iframe,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,
+samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,
+tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,
+header,hgroup,menu,nav,section,summary,time,mark,audio,video,input[type=radio],input[type=checkbox]
+{
+	font-family: Arial, Î¢ÈíÑÅºÚ, Verdana, Geneva, Tahoma, sans-serif, ËÎÌå;
+}
+
+.ya2dan-container {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 980px;
+	margin-bottom: 5px;
+}
+
+.ya2dan-modal {
+	margin: auto auto auto -200px;
+	max-width: 400px;
+}
+
+a {
+	color: #5B5B5B;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #484891;
+	text-decoration: none;
+}
