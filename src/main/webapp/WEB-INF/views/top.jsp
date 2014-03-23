@@ -6,17 +6,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 
 <title>后台管理 - 新成博客 - V1.0</title>
 
 <link href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" rel="stylesheet">
-
 <link href="<%=request.getContextPath()%>/assets/css/dashboard.css" rel="stylesheet">
 </head>
 <style type="text/css">
