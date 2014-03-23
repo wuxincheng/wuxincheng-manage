@@ -28,14 +28,14 @@ public class BlogInfo implements Serializable {
 	private Integer readCount;
 	/** 分享次数 */
 	private Integer shareCount;
-	/** 博客状态 */
+	/** 博客状态: 0-正常, 1-不发布 */
 	private String blogState;
 	/** 图片地址(用于列表显示) */
-	private String picId;
+	private String picLocalPath;
 	
 	// ---
 	/** 博客来源 */
-	private String resource; 
+	private String resource;
 	/** 作者 */
 	private String author;
 	/** 博客简介(用于列表显示) */
@@ -47,7 +47,7 @@ public class BlogInfo implements Serializable {
 	public BlogInfo(String blogId, String blogTitle, String blogType,
 			String blogTypeName, String blogContent, String blogTime,
 			Integer readCount, Integer shareCount, String blogState,
-			String picId, String resource, String author, String subContent) {
+			String picLocalPath, String resource, String author, String subContent) {
 		this.blogId = blogId;
 		this.blogTitle = blogTitle;
 		this.blogType = blogType;
@@ -57,7 +57,7 @@ public class BlogInfo implements Serializable {
 		this.readCount = readCount;
 		this.shareCount = shareCount;
 		this.blogState = blogState;
-		this.picId = picId;
+		this.picLocalPath = picLocalPath;
 		this.resource = resource;
 		this.author = author;
 		this.subContent = subContent;
@@ -127,12 +127,12 @@ public class BlogInfo implements Serializable {
 		this.blogState = blogState;
 	}
 
-	public String getPicId() {
-		return picId;
+	public String getPicLocalPath() {
+		return picLocalPath;
 	}
 
-	public void setPicId(String picId) {
-		this.picId = picId;
+	public void setPicLocalPath(String picLocalPath) {
+		this.picLocalPath = picLocalPath;
 	}
 
 	public String getBlogTitle() {

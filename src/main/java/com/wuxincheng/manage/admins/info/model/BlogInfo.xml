@@ -17,10 +17,19 @@
 			i.BLOG_ID, i.BLOG_TITLE, 
 			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
-			i.PIC_ID,t.TYPE_NAME
+			i.PIC_LINK,t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
 			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
 		ORDER BY i.CREATE_TIME
 	</select>
+	
+	<insert id="insert" parameterClass="BlogInfo">
+		INSERT INTO T_BLOG_DETAIL_INFO(
+			BLOG_ID, BLOG_TITLE, BLOG_CONTENT, CREATE_TIME, BLOG_TYPE, READE_COUNT, SHARE_COUNT, 
+			BLOG_STATE, BLOG_RESOURCE, PIC_LINK, AUTHOR, SUB_CONTENT)
+		VALUES(
+			#blogId#, #blogTitle#, #blogContent#, CURRENT_TIMESTAMP, #blogType#, 0, 0, 
+			#blogState#, #resource#, #picLocalPath#, #author#, #subContent#)
+	</insert>
 	
 </sqlMap>

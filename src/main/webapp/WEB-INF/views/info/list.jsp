@@ -18,7 +18,7 @@
 			<input type="text" class="form-control" placeholder="输入博客类别">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="button" class="btn btn-primary btn-sm">重置</button>
-			<a href="<%=request.getContextPath()%>/blogInfo/edit">
+			<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=">
 			<button type="button" class="btn btn-success btn-sm">新增</button>
 			</a>
 		</form>
@@ -44,7 +44,9 @@
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.blogTime}</td>
 						<td>
-							<button type="button" class="btn btn-success btn-sm">修改</button>
+							<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=${blogInfo.blogId}">
+								<button type="button" class="btn btn-success btn-sm">修改</button>
+							</a>
 							<button type="button" class="btn btn-primary btn-sm">预览</button>
 							<button type="button" class="btn btn-warning btn-sm">特殊标记</button>
 							<button type="button" class="btn btn-danger btn-sm">禁用</button>
@@ -71,6 +73,12 @@
 					<div class="alert alert-danger">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 						<strong>提示：</strong>${danger}
+					</div>
+					</c:if>
+					<c:if test="${not empty warning}">
+					<div class="alert alert-warning">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>提示：</strong>${warning}
 					</div>
 					</c:if>
 				</tbody>

@@ -19,4 +19,11 @@ public interface BlogInfoDao {
 	 */
 	public abstract List<BlogInfo> queryAll();
 	
+	/**
+	 * 添加
+	 * 
+	 * @param blogInfo
+	 */
+	public abstract void insert(BlogInfo blogInfo);
+	
 }

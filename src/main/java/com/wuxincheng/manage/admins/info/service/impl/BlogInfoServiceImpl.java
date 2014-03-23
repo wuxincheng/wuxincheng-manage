@@ -26,4 +26,9 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 		return blogInfoDao.queryAll();
 	}
 
+	@Override
+	public void insert(BlogInfo blogInfo) {
+		blogInfoDao.insert(blogInfo);
+	}
+
 }
