@@ -8,11 +8,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wuxincheng.manage.admins.Login;
 import com.wuxincheng.manage.admins.info.model.BlogInfo;
+import com.wuxincheng.manage.admins.info.model.Type;
 import com.wuxincheng.manage.admins.info.service.BlogInfoService;
+import com.wuxincheng.manage.admins.info.service.TypeService;
+import com.wuxincheng.manage.admins.util.Constants;
 
 /**
  * 博客管理
@@ -24,9 +29,10 @@ import com.wuxincheng.manage.admins.info.service.BlogInfoService;
 @RequestMapping("/blogInfo")
 public class BlogInfoController {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(Login.class);
+	private static Logger logger = LoggerFactory.getLogger(Login.class);
 	
 	@Autowired private BlogInfoService blogInfoService;
+	@Autowired private TypeService typeService;
 	
 	/**
 	 * 显示列表
@@ -35,7 +41,7 @@ public class BlogInfoController {
 	 */
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		LOGGER.info("显示博客列表页面");
+		logger.info("显示博客列表页面");
 		
 		List<BlogInfo> blogInfos = blogInfoService.queryAll();
 		try {
@@ -43,10 +49,10 @@ public class BlogInfoController {
 				model.addAttribute("blogInfos", blogInfos);
 			} else {
 				model.addAttribute("blogInfos", Collections.EMPTY_LIST);
-				LOGGER.info("没有查询到博客信息");
+				logger.info("没有查询到博客信息");
 			}
 		} catch (Exception e) {
-			LOGGER.error("在查询博客明细时出现异常", e);
+			logger.error("在查询博客明细时出现异常", e);
 		}
 		
 		return "info/list";
@@ -58,8 +64,19 @@ public class BlogInfoController {
 	 * @return
 	 */
 	@RequestMapping(value = "/edit")
-	public String edit(Model model) {
-		LOGGER.info("显示博客编辑页面");
+	public String edit(@RequestParam String blogId, Model model) {
+		List<Type> types = typeService.queryAll();
+		
+		if (StringUtils.isEmpty(blogId)) { // 
+			logger.info("显示博客新增页面");
+		} else {
+			logger.info("修改博客的编号: " + blogId);
+			
+			logger.info("显示博客修改页面");
+		}
+		
+		model.addAttribute("types", types);
+		
 		return "info/edit";
 	}
 	
@@ -69,10 +86,18 @@ public class BlogInfoController {
 	 * @return
 	 */
 	@RequestMapping(value = "/doEdit")
-	public String doEdit(Model model) {
-		LOGGER.info("处理编辑博客数据");
+	public String doEdit(BlogInfo blogInfo, Model model) {
+		logger.info("处理编辑博客数据");
 		
-		model.addAttribute("success", "博客添加成功");
+		// TODO 添加值的处理
+		
+		try {
+			blogInfoService.insert(blogInfo);
+			model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客添加成功");
+		} catch (Exception e) {
+			logger.error("在编辑博客时出现异常: ", e);
+			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客添加时出现异常");
+		}
 		
 		return list(model);
 	}
