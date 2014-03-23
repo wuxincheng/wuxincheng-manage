@@ -5,9 +5,10 @@
 <head>
 	<meta charset="utf-8">
 	<script src="<%=request.getContextPath()%>/assets/js/ckeditor/ckeditor.js"></script>
+	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
+	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 	
 	<script>
-
 		// The instanceReady event is fired, when an instance of CKEditor has finished
 		// its initialization.
 		CKEDITOR.on( 'instanceReady', function( ev ) {
@@ -20,7 +21,7 @@
 		
 		function InsertHTML() {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 			var value = document.getElementById( 'htmlArea' ).value;
 		
 			// Check the active editing mode.
@@ -36,7 +37,7 @@
 		
 		function InsertText() {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 			var value = document.getElementById( 'txtArea' ).value;
 		
 			// Check the active editing mode.
@@ -52,7 +53,7 @@
 		
 		function SetContents() {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 			var value = document.getElementById( 'htmlArea' ).value;
 		
 			// Set editor contents (replace current contents).
@@ -62,7 +63,7 @@
 		
 		function GetContents() {
 			// Get the editor instance that you want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 		
 			// Get editor contents
 			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
@@ -71,7 +72,7 @@
 		
 		function ExecuteCommand( commandName ) {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 		
 			// Check the active editing mode.
 			if ( editor.mode == 'wysiwyg' )
@@ -86,7 +87,7 @@
 		
 		function CheckDirty() {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 			// Checks whether the current editor contents present changes when compared
 			// to the contents loaded into the editor at startup
 			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-checkDirty
@@ -95,7 +96,7 @@
 		
 		function ResetDirty() {
 			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.editor1;
+			var editor = CKEDITOR.instances.blogContent;
 			// Resets the "dirty state" of the editor (see CheckDirty())
 			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-resetDirty
 			editor.resetDirty();
@@ -103,7 +104,7 @@
 		}
 		
 		function Focus() {
-			CKEDITOR.instances.editor1.focus();
+			CKEDITOR.instances.blogContent.focus();
 		}
 		
 		function onFocus() {
@@ -119,55 +120,42 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h4 class="page-header page-target">博客管理 - 新增博客</h4>
+		<h4 class="page-header page-target">博客管理 - 编辑博客</h4>
 		<form action="<%=request.getContextPath()%>/blogInfo/doEdit" role="form" method="post">
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客标题：</label>
-			    <input type="email" class="form-control" style="width: 585px;" placeholder="请输入博客标题">
+				<label for="blogTitle">博客标题：</label>
+			    <input type="text" name="blogTitle" class="form-control" style="width: 585px;" placeholder="请输入博客标题" />
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客类型：</label><br>
+				<label for="blogType">博客类型：</label><br>
 				<div class="btn-group" data-toggle="buttons">
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option1">新闻
+					<c:forEach items="${types}" var="type" varStatus="s">
+					<label class="btn btn-default">
+						<input type="radio" name="blogType" id="blogType" value="${type.typeId}">${type.typeName}
 					</label>
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option2">美女
-					</label>
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option3">环境
-					</label>
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option3">教育
-					</label>
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option3">文化
-					</label>
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option3">其它
-					</label>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客来源：</label>
-				<input type="text" class="form-control" style="width: 585px;" placeholder="请输入博客来源(默认是原创)">
+				<label for="resource">博客来源：</label>
+				<input type="text" class="form-control" name="resource" id="resource" style="width: 585px;" placeholder="请输入博客来源(默认是原创)">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客作者：</label>
-			    <input type="email" class="form-control" style="width: 170px;" placeholder="请输入作者(默认是您)">
+				<label for="author">博客作者：</label>
+			    <input type="text" class="form-control" name=author id="author" style="width: 170px;" placeholder="请输入作者(默认是您)">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客内容：</label>
-			    <textarea cols="100" id="editor1" name="editor1" rows="10"></textarea>
+				<label for="blogContent">博客内容：</label>
+			    <textarea cols="100" id="blogContent" name="blogContent" rows="10"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">博客状态：</label><br>
 				<div class="btn-group" data-toggle="buttons">
-					<label class="btn btn-info">
-						<input type="radio" name="options" id="option1">已经完成，我要发布
+					<label class="btn btn-default">
+						<input type="radio" name="blogState" id="blogState" value="0">已经完成，我要发布
 					</label>
-					<label class="btn btn-warning">
-						<input type="radio" name="options" id="option2">还未完成，存到草稿箱
+					<label class="btn btn-default">
+						<input type="radio" name="blogState" id="blogState" value="1">还未完成，存到草稿箱
 					</label>
 				</div>
 			</div>
@@ -177,8 +165,8 @@
 	</div>
 
 	<script>
-		// Replace the <textarea id="editor1"> with an CKEditor instance.
-		CKEDITOR.replace( 'editor1', {
+		// Replace the <textarea id="blogContent"> with an CKEditor instance.
+		CKEDITOR.replace( 'blogContent', {
 			on: {
 				focus: onFocus,
 				blur: onBlur,
