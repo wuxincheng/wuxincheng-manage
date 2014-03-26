@@ -120,7 +120,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h4 class="page-header page-target">博客管理 - 编辑博客</h4>
+		<h5 class="page-header page-target">博客管理 - 编辑博客</h5>
 		<form action="<%=request.getContextPath()%>/blogInfo/doEdit" role="form" method="post">
 			<div class="form-group">
 				<label for="blogTitle">博客标题：</label>
@@ -138,11 +138,15 @@
 			</div>
 			<div class="form-group">
 				<label for="resource">博客来源：</label>
-				<input type="text" class="form-control" name="resource" id="resource" style="width: 585px;" placeholder="请输入博客来源(默认是原创)">
+				<input type="text" class="form-control" name="blogLink" id="blogLink" style="width: 585px;" placeholder="请输入博客来源(默认是原创)">
 			</div>
 			<div class="form-group">
 				<label for="author">博客作者：</label>
 			    <input type="text" class="form-control" name=author id="author" style="width: 170px;" placeholder="请输入作者(默认是您)">
+			</div>
+			<div class="form-group">
+				<label for="resource">博客简介：</label>
+				<textarea cols="30" id="subContent" class="form-control" name="subContent" rows="3" style="width: 585px;" placeholder="请输入博客简介"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="blogContent">博客内容：</label>

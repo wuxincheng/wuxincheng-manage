@@ -11,7 +11,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<h4 class="page-header page-target">博客管理</h4>
+		<h5 class="page-header page-target">博客管理</h5>
 		<form class="form-inline" role="form">
 			<input type="text" class="form-control" placeholder="输入博客标题">
 			<input type="text" class="form-control" placeholder="输入博客日期">
@@ -83,7 +83,6 @@
 					</c:if>
 				</tbody>
 			</table>
-			
 			<ul class="pager">
 				<li><a href="#">Previous</a></li>
 				<li><a href="#">1</a></li>
