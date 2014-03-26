@@ -31,4 +31,9 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 		blogInfoDao.insert(blogInfo);
 	}
 
+	@Override
+	public Integer queryMaxId() {
+		return blogInfoDao.queryMaxId();
+	}
+
 }

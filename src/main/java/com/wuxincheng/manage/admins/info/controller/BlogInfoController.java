@@ -92,11 +92,13 @@ public class BlogInfoController {
 		// TODO 添加值的处理
 		
 		try {
+			blogInfo.setBlogId(blogInfoService.queryMaxId());
+			
 			blogInfoService.insert(blogInfo);
 			model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客添加成功");
 		} catch (Exception e) {
 			logger.error("在编辑博客时出现异常: ", e);
-			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客添加时出现异常");
+			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客添加时出现异常，请联系管理员");
 		}
 		
 		return list(model);

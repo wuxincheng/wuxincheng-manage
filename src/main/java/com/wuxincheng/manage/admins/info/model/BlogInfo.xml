@@ -7,14 +7,15 @@
 		<result property="blogId" column="BLOG_ID" />
 		<result property="blogTitle" column="BLOG_TITLE" />
 		<result property="blogContent" column="BLOG_CONTENT" />
+		<result property="subContent" column="SUB_CONTENT" />
 		<result property="blogTime" column="CREATE_TIME" />
-		<result property="picId" column="PIC_ID" />
+		<result property="picLocalPath" column="PIC_LINK" />
 		<result property="blogTypeName" column="TYPE_NAME" />
 	</resultMap>
 	
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
 		SELECT 
-			i.BLOG_ID, i.BLOG_TITLE, 
+			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
 			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
 			i.PIC_LINK,t.TYPE_NAME
@@ -23,13 +24,17 @@
 		ORDER BY i.CREATE_TIME
 	</select>
 	
+	<select id="queryMaxId" resultClass="java.lang.Integer">
+		SELECT MAX(BLOG_ID+1) AS BLOG_ID FROM T_BLOG_DETAIL_INFO
+	</select>
+	
 	<insert id="insert" parameterClass="BlogInfo">
 		INSERT INTO T_BLOG_DETAIL_INFO(
 			BLOG_ID, BLOG_TITLE, BLOG_CONTENT, CREATE_TIME, BLOG_TYPE, READE_COUNT, SHARE_COUNT, 
-			BLOG_STATE, BLOG_RESOURCE, PIC_LINK, AUTHOR, SUB_CONTENT)
+			BLOG_STATE, BLOG_LINK, PIC_LINK, AUTHOR, SUB_CONTENT)
 		VALUES(
 			#blogId#, #blogTitle#, #blogContent#, CURRENT_TIMESTAMP, #blogType#, 0, 0, 
-			#blogState#, #resource#, #picLocalPath#, #author#, #subContent#)
+			#blogState#, #blogLink#, #picLocalPath#, #author#, #subContent#)
 	</insert>
 	
 </sqlMap>

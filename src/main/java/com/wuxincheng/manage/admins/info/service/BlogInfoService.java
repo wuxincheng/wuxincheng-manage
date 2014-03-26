@@ -26,4 +26,11 @@ public interface BlogInfoService {
 	 */
 	public abstract void insert(BlogInfo blogInfo);
 	
+	/**
+	 * 查询最大ID值
+	 * 
+	 * @return
+	 */
+	public abstract Integer queryMaxId();
+	
 }

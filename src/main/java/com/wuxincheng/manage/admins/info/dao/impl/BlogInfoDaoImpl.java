@@ -21,4 +21,9 @@ public class BlogInfoDaoImpl extends BaseDao implements BlogInfoDao {
 		this.getSqlMapClientTemplate().insert("BlogInfo.insert", blogInfo);
 	}
 
+	@Override
+	public Integer queryMaxId() {
+		return (Integer)this.getSqlMapClientTemplate().queryForObject("BlogInfo.queryMaxId");
+	}
+
 }

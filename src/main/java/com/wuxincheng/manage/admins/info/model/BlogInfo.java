@@ -13,7 +13,7 @@ public class BlogInfo implements Serializable {
 	private static final long serialVersionUID = -1305416709459511421L;
 
 	/** 博客主键 */
-	private String blogId;
+	private Integer blogId;
 	/** 标题 */
 	private String blogTitle;
 	/** 博客类型主键 */
@@ -32,6 +32,8 @@ public class BlogInfo implements Serializable {
 	private String blogState;
 	/** 图片地址(用于列表显示) */
 	private String picLocalPath;
+	/** 博客连接 */
+	private String blogLink;
 	
 	// ---
 	/** 博客来源 */
@@ -44,30 +46,11 @@ public class BlogInfo implements Serializable {
 	public BlogInfo() {
 	}
 
-	public BlogInfo(String blogId, String blogTitle, String blogType,
-			String blogTypeName, String blogContent, String blogTime,
-			Integer readCount, Integer shareCount, String blogState,
-			String picLocalPath, String resource, String author, String subContent) {
-		this.blogId = blogId;
-		this.blogTitle = blogTitle;
-		this.blogType = blogType;
-		this.blogTypeName = blogTypeName;
-		this.blogContent = blogContent;
-		this.blogTime = blogTime;
-		this.readCount = readCount;
-		this.shareCount = shareCount;
-		this.blogState = blogState;
-		this.picLocalPath = picLocalPath;
-		this.resource = resource;
-		this.author = author;
-		this.subContent = subContent;
-	}
-
-	public String getBlogId() {
+	public Integer getBlogId() {
 		return blogId;
 	}
 
-	public void setBlogId(String blogId) {
+	public void setBlogId(Integer blogId) {
 		this.blogId = blogId;
 	}
 
@@ -93,6 +76,14 @@ public class BlogInfo implements Serializable {
 
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
+	}
+
+	public String getBlogLink() {
+		return blogLink;
+	}
+
+	public void setBlogLink(String blogLink) {
+		this.blogLink = blogLink;
 	}
 
 	public String getBlogTime() {
