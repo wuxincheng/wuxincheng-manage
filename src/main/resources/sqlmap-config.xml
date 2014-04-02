@@ -4,7 +4,7 @@
 <sqlMapConfig>
 	<settings useStatementNamespaces="true" />
 	
-	<sqlMap resource="com/wuxincheng/manage/admins/info/model/BlogInfo.xml" />
-	<sqlMap resource="com/wuxincheng/manage/admins/info/model/Type.xml" />
+	<sqlMap resource="com/wuxincheng/manage/model/BlogInfo.xml" />
+	<sqlMap resource="com/wuxincheng/manage/model/Type.xml" />
 	
 </sqlMapConfig>
