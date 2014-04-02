@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins.info.model;
+package com.wuxincheng.manage.model;
 
 import java.io.Serializable;
 import java.util.Date;

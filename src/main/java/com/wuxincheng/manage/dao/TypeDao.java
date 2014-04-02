@@ -1,8 +1,8 @@
-package com.wuxincheng.manage.admins.info.dao;
+package com.wuxincheng.manage.dao;
 
 import java.util.List;
 
-import com.wuxincheng.manage.admins.info.model.Type;
+import com.wuxincheng.manage.model.Type;
 
 /**
  * 类型接口

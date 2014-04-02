@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins.util;
+package com.wuxincheng.manage.util;
 
 /**
  * 博客系统常量

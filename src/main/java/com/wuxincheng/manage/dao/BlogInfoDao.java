@@ -1,19 +1,19 @@
-package com.wuxincheng.manage.admins.info.service;
+package com.wuxincheng.manage.dao;
 
 import java.util.List;
 
-import com.wuxincheng.manage.admins.info.model.BlogInfo;
+import com.wuxincheng.manage.model.BlogInfo;
 
 /**
- * 博客信息Service接口
+ * 博客信息Dao接口
  * 
  * @author wuxincheng
  *
  */
-public interface BlogInfoService {
+public interface BlogInfoDao {
 
 	/**
-	 * 查询博客信息
+	 * 查询所有文件信息
 	 * 
 	 * @return
 	 */

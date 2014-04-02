@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins.info.service.impl;
+package com.wuxincheng.manage.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.wuxincheng.manage.admins.info.dao.BlogInfoDao;
-import com.wuxincheng.manage.admins.info.model.BlogInfo;
-import com.wuxincheng.manage.admins.info.service.BlogInfoService;
+import com.wuxincheng.manage.dao.BlogInfoDao;
+import com.wuxincheng.manage.model.BlogInfo;
+import com.wuxincheng.manage.service.BlogInfoService;
 
 /**
  * 博客信息
@@ -28,12 +28,13 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 
 	@Override
 	public void insert(BlogInfo blogInfo) {
+		if (blogInfo != null && !"".equals(blogInfo)) {
+			
+		}
+		
+		blogInfo.setBlogId(blogInfoDao.queryMaxId());
+		
 		blogInfoDao.insert(blogInfo);
-	}
-
-	@Override
-	public Integer queryMaxId() {
-		return blogInfoDao.queryMaxId();
 	}
 
 }

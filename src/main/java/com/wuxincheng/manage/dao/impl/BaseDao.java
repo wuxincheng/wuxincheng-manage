@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins.info.dao.impl;
+package com.wuxincheng.manage.dao.impl;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;

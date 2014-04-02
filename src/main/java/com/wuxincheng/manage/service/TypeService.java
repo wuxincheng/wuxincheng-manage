@@ -1,8 +1,8 @@
-package com.wuxincheng.manage.admins.info.service;
+package com.wuxincheng.manage.service;
 
 import java.util.List;
 
-import com.wuxincheng.manage.admins.info.model.Type;
+import com.wuxincheng.manage.model.Type;
 
 public interface TypeService {
 

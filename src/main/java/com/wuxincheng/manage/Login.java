@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins;
+package com.wuxincheng.manage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +22,9 @@ public class Login {
 		List<String> backgrounds = new ArrayList<String>();
 		
 		backgrounds.add(0, "http://www.bz889.com/uploads/allimg/120723/co120H3131240-0.jpg");
-		backgrounds.add(1, "http://diybbsfile.it168.com/forum/soft/month_1010/10100910290e5bb1f33f3fc11a.jpg");
-		backgrounds.add(2, "http://img.tuku.com/upload/attach/2013/06/94949-7IUzBD6.jpg");
-		backgrounds.add(3, "http://www.bbra.cn/(S(51fqhiuwiheosw45nphrg1nb))/Uploadfiles/imgs/20110215/meinv/031.jpg");
-		backgrounds.add(4, "http://www.mtg.net.cn/up2013/201012/10122508526255.jpg");
-		backgrounds.add(5, "http://www.meiniu.cc/uploads/allimg/111128/1-11112P95201.jpg");
+		backgrounds.add(1, "http://img.tuku.com/upload/attach/2013/06/94949-7IUzBD6.jpg");
+		backgrounds.add(2, "http://www.mtg.net.cn/up2013/201012/10122508526255.jpg");
+		backgrounds.add(3, "http://www.meiniu.cc/uploads/allimg/111128/1-11112P95201.jpg");
 		
 		int randNum = (int) (Math.random() * (backgrounds.size()-1)); // 产生0-1000的整数随机数
 		

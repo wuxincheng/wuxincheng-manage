@@ -1,4 +1,4 @@
-package com.wuxincheng.manage.admins.info.controller;
+package com.wuxincheng.manage.controller;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,12 +12,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.wuxincheng.manage.admins.Login;
-import com.wuxincheng.manage.admins.info.model.BlogInfo;
-import com.wuxincheng.manage.admins.info.model.Type;
-import com.wuxincheng.manage.admins.info.service.BlogInfoService;
-import com.wuxincheng.manage.admins.info.service.TypeService;
-import com.wuxincheng.manage.admins.util.Constants;
+import com.wuxincheng.manage.model.BlogInfo;
+import com.wuxincheng.manage.model.Type;
+import com.wuxincheng.manage.service.BlogInfoService;
+import com.wuxincheng.manage.service.TypeService;
+import com.wuxincheng.manage.util.Constants;
 
 /**
  * 博客管理
@@ -29,7 +28,7 @@ import com.wuxincheng.manage.admins.util.Constants;
 @RequestMapping("/blogInfo")
 public class BlogInfoController {
 
-	private static Logger logger = LoggerFactory.getLogger(Login.class);
+	private static Logger logger = LoggerFactory.getLogger(BlogInfoController.class);
 	
 	@Autowired private BlogInfoService blogInfoService;
 	@Autowired private TypeService typeService;
@@ -89,12 +88,9 @@ public class BlogInfoController {
 	public String doEdit(BlogInfo blogInfo, Model model) {
 		logger.info("处理编辑博客数据");
 		
-		// TODO 添加值的处理
-		
 		try {
-			blogInfo.setBlogId(blogInfoService.queryMaxId());
-			
 			blogInfoService.insert(blogInfo);
+			
 			model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客添加成功");
 		} catch (Exception e) {
 			logger.error("在编辑博客时出现异常: ", e);
