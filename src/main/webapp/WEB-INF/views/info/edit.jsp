@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<script src="<%=request.getContextPath()%>/assets/js/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/ckfinder/ckfinder.js"></script>
 	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 	
@@ -114,6 +115,16 @@
 		function onBlur() {
 			document.getElementById( 'eMessage' ).innerHTML = this.name + ' lost focus';
 		}
+	</script>
+	
+	<script type="text/javascript">
+	    var editor = null;
+	    window.onload = function() {
+	        editor = CKEDITOR.replace( 'blogContent', {
+	            customConfig:'<%=request.getContextPath()%>/assets/js/ckfinder/config.js'
+	        });
+	        CKFinder.setupCKEditor( editor, '<%=request.getContextPath()%>/assets/js/ckfinder/' );
+	    };
 	</script>
 </head>
 <body>
