@@ -17,6 +17,13 @@
 		font-weight: bold;
 		color: #3a7a9f;
 	}
+	.tab-bottom-line {
+		margin: 0 auto 0;
+		border-top: 1px solid #E0E0E0;
+	}
+	.table {
+		margin-bottom: 0px;
+	}
 </style>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -64,6 +71,7 @@
 					<li><a href="#">操作员管理</a></li>
 					<li><a>网站用户管理</a></li>
 				</ul>
+				<hr>
 			</div>
 			
 </body>

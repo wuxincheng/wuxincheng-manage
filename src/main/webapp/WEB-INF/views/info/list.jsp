@@ -83,6 +83,7 @@
 					</c:if>
 				</tbody>
 			</table>
+			<div class="tab-bottom-line"></div>
 			<ul class="pager">
 				<li><a href="#">Previous</a></li>
 				<li><a href="#">1</a></li>
