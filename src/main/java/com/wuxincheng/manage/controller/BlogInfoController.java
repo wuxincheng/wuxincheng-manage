@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wuxincheng.manage.model.BlogInfo;
-import com.wuxincheng.manage.model.Type;
 import com.wuxincheng.manage.service.BlogInfoService;
 import com.wuxincheng.manage.service.TypeService;
 import com.wuxincheng.manage.util.Constants;
@@ -64,17 +63,19 @@ public class BlogInfoController {
 	 */
 	@RequestMapping(value = "/edit")
 	public String edit(@RequestParam String blogId, Model model) {
-		List<Type> types = typeService.queryAll();
+		BlogInfo blogInfo = null;
 		
 		if (StringUtils.isEmpty(blogId)) { // 
 			logger.info("显示博客新增页面");
 		} else {
 			logger.info("修改博客的编号: " + blogId);
 			
+			blogInfo = blogInfoService.queryByBlogId(blogId);
+			
 			logger.info("显示博客修改页面");
 		}
 		
-		model.addAttribute("types", types);
+		model.addAttribute("types", blogInfo);
 		
 		return "info/edit";
 	}
@@ -89,12 +90,12 @@ public class BlogInfoController {
 		logger.info("处理编辑博客数据");
 		
 		try {
-			blogInfoService.insert(blogInfo);
+			blogInfoService.edit(blogInfo);
 			
-			model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客添加成功");
+			model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客编辑成功");
 		} catch (Exception e) {
 			logger.error("在编辑博客时出现异常: ", e);
-			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客添加时出现异常，请联系管理员");
+			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客编辑时出现异常，请联系管理员");
 		}
 		
 		return list(model);

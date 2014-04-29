@@ -4,127 +4,16 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<script src="<%=request.getContextPath()%>/assets/js/ckeditor/ckeditor.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/ckfinder/ckfinder.js"></script>
+	<script src="<%=request.getContextPath()%>/ckeditor/ckeditor.js" type="text/javascript"></script>
+	<script src="<%=request.getContextPath()%>/ckfinder/ckfinder.js" type="text/javascript"></script>
 	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 	<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 	
-	<script>
-		// The instanceReady event is fired, when an instance of CKEditor has finished
-		// its initialization.
-		CKEDITOR.on( 'instanceReady', function( ev ) {
-			// Show the editor name and description in the browser status bar.
-			document.getElementById( 'eMessage' ).innerHTML = 'Instance <code>' + ev.editor.name + '<\/code> loaded.';
-		
-			// Show this sample buttons.
-			document.getElementById( 'eButtons' ).style.display = 'block';
-		});
-		
-		function InsertHTML() {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-			var value = document.getElementById( 'htmlArea' ).value;
-		
-			// Check the active editing mode.
-			if ( editor.mode == 'wysiwyg' )
-			{
-				// Insert HTML code.
-				// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-insertHtml
-				editor.insertHtml( value );
-			}
-			else
-				alert( 'You must be in WYSIWYG mode!' );
-		}
-		
-		function InsertText() {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-			var value = document.getElementById( 'txtArea' ).value;
-		
-			// Check the active editing mode.
-			if ( editor.mode == 'wysiwyg' )
-			{
-				// Insert as plain text.
-				// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-insertText
-				editor.insertText( value );
-			}
-			else
-				alert( 'You must be in WYSIWYG mode!' );
-		}
-		
-		function SetContents() {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-			var value = document.getElementById( 'htmlArea' ).value;
-		
-			// Set editor contents (replace current contents).
-			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-setData
-			editor.setData( value );
-		}
-		
-		function GetContents() {
-			// Get the editor instance that you want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-		
-			// Get editor contents
-			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-getData
-			alert( editor.getData() );
-		}
-		
-		function ExecuteCommand( commandName ) {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-		
-			// Check the active editing mode.
-			if ( editor.mode == 'wysiwyg' )
-			{
-				// Execute the command.
-				// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-execCommand
-				editor.execCommand( commandName );
-			}
-			else
-				alert( 'You must be in WYSIWYG mode!' );
-		}
-		
-		function CheckDirty() {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-			// Checks whether the current editor contents present changes when compared
-			// to the contents loaded into the editor at startup
-			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-checkDirty
-			alert( editor.checkDirty() );
-		}
-		
-		function ResetDirty() {
-			// Get the editor instance that we want to interact with.
-			var editor = CKEDITOR.instances.blogContent;
-			// Resets the "dirty state" of the editor (see CheckDirty())
-			// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-resetDirty
-			editor.resetDirty();
-			alert( 'The "IsDirty" status has been reset' );
-		}
-		
-		function Focus() {
-			CKEDITOR.instances.blogContent.focus();
-		}
-		
-		function onFocus() {
-			document.getElementById( 'eMessage' ).innerHTML = '<b>' + this.name + ' is focused </b>';
-		}
-		
-		function onBlur() {
-			document.getElementById( 'eMessage' ).innerHTML = this.name + ' lost focus';
-		}
-	</script>
-	
 	<script type="text/javascript">
-	    var editor = null;
-	    window.onload = function() {
-	        editor = CKEDITOR.replace( 'blogContent', {
-	            customConfig:'<%=request.getContextPath()%>/assets/js/ckfinder/config.js'
-	        });
-	        CKFinder.setupCKEditor( editor, '<%=request.getContextPath()%>/assets/js/ckfinder/' );
-	    };
+		window.onload = function() {
+			var editor = CKEDITOR.replace('blogContent');
+			CKFinder.setupCKEditor(editor,'/ckeditor/');
+		}
 	</script>
 </head>
 <body>
@@ -182,25 +71,6 @@
 			<input type="button" class="btn btn-primary btn-sm" value="重置" />
 		</form>
 	</div>
-
-	<script>
-		// Replace the <textarea id="blogContent"> with an CKEditor instance.
-		CKEDITOR.replace( 'blogContent', {
-			on: {
-				focus: onFocus,
-				blur: onBlur,
-
-				// Check for availability of corresponding plugins.
-				pluginsLoaded: function( evt ) {
-					var doc = CKEDITOR.document, ed = evt.editor;
-					if ( !ed.getCommand( 'bold' ) )
-						doc.getById( 'exec-bold' ).hide();
-					if ( !ed.getCommand( 'link' ) )
-						doc.getById( 'exec-link' ).hide();
-				}
-			}
-		});
-	</script>
 	
 	<jsp:include page="../bottom.jsp" />
 </body>

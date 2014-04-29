@@ -24,6 +24,15 @@
 		ORDER BY i.CREATE_TIME
 	</select>
 	
+	<select id="queryByBlogId" parameterClass="java.lang.String" resultClass="BlogInfoMapping">
+		SELECT 
+			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
+			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
+			i.PIC_LINK
+		FROM T_BLOG_DETAIL_INFO i 
+		WHERE i.BLOG_ID = #blogId#
+	</select>
+	
 	<select id="queryMaxId" resultClass="java.lang.Integer">
 		SELECT MAX(BLOG_ID+1) AS BLOG_ID FROM T_BLOG_DETAIL_INFO
 	</select>

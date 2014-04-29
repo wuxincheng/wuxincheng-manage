@@ -24,6 +24,14 @@ public interface BlogInfoService {
 	 * 
 	 * @param blogInfo
 	 */
-	public abstract void insert(BlogInfo blogInfo);
+	public abstract void edit(BlogInfo blogInfo);
+	
+	/**
+	 * 根据主键查询
+	 * 
+	 * @param blogId
+	 * @return
+	 */
+	public abstract BlogInfo queryByBlogId(String blogId);
 	
 }

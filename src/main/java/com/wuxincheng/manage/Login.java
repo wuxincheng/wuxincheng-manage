@@ -17,7 +17,7 @@ public class Login {
 	
 	@RequestMapping(value = "/showLoginUI")
 	public String showloginUI(Model model) {
-		logger.info("显示登录页面");
+		logger.info("显示后台管理登录页面");
 		
 		List<String> backgrounds = new ArrayList<String>();
 		

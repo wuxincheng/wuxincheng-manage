@@ -13,4 +13,6 @@ public interface TypeService {
 	 */
 	public abstract List<Type> queryAll();
 	
+	
+	
 }

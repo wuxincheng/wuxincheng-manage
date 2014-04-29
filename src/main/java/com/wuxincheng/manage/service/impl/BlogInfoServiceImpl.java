@@ -27,14 +27,27 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 	}
 
 	@Override
-	public void insert(BlogInfo blogInfo) {
+	public void edit(BlogInfo blogInfo) {
 		if (blogInfo != null && !"".equals(blogInfo)) {
 			
 		}
 		
-		blogInfo.setBlogId(blogInfoDao.queryMaxId());
+		Integer blogId = blogInfo.getBlogId();
 		
-		blogInfoDao.insert(blogInfo);
+		if (blogId != null && !"".equals(blogId)) { // 编辑
+			
+		} else { // 新增
+			blogInfo.setBlogId(blogInfoDao.queryMaxId());
+			
+			
+			
+			blogInfoDao.insert(blogInfo);
+		}
 	}
 
+	@Override
+	public BlogInfo queryByBlogId(String blogId) {
+		return blogInfoDao.queryByBlogId(blogId);
+	}
+	
 }
