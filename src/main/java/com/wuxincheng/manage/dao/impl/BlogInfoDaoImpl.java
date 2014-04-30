@@ -31,4 +31,9 @@ public class BlogInfoDaoImpl extends BaseDao implements BlogInfoDao {
 		return (BlogInfo) this.getSqlMapClientTemplate().queryForObject("BlogInfo.queryByBlogId", blogId);
 	}
 
+	@Override
+	public void update(BlogInfo blogInfo) {
+		// TODO 更新方法
+	}
+
 }

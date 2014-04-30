@@ -54,7 +54,7 @@
 			</div>
 			<div class="form-group">
 				<label for="blogContent">博客内容：</label>
-			    <textarea cols="100" id="blogContent" name="blogContent" rows="10"></textarea>
+			    <textarea id="blogContent" name="blogContent"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">博客状态：</label><br>

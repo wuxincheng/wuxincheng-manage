@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wuxincheng.manage.model.BlogInfo;
+import com.wuxincheng.manage.model.Type;
 import com.wuxincheng.manage.service.BlogInfoService;
 import com.wuxincheng.manage.service.TypeService;
 import com.wuxincheng.manage.util.Constants;
@@ -63,19 +64,22 @@ public class BlogInfoController {
 	 */
 	@RequestMapping(value = "/edit")
 	public String edit(@RequestParam String blogId, Model model) {
-		BlogInfo blogInfo = null;
+		List<Type> types = typeService.queryAll(); // 查询所有类别
 		
 		if (StringUtils.isEmpty(blogId)) { // 
 			logger.info("显示博客新增页面");
 		} else {
+			BlogInfo blogInfo = null;
 			logger.info("修改博客的编号: " + blogId);
 			
 			blogInfo = blogInfoService.queryByBlogId(blogId);
 			
 			logger.info("显示博客修改页面");
+			
+			model.addAttribute("blogInfo", blogInfo);
 		}
 		
-		model.addAttribute("types", blogInfo);
+		model.addAttribute("types", types);
 		
 		return "info/edit";
 	}

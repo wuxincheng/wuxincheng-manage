@@ -1,6 +1,7 @@
 package com.wuxincheng.manage.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * 博客信息
@@ -42,6 +43,13 @@ public class BlogInfo implements Serializable {
 	private String author;
 	/** 博客简介(用于列表显示) */
 	private String subContent;
+	
+	/** 图片连接 */
+	private String picLink;
+	/** 创建时间 */
+	private Date createTime;
+	/** 更新时间 */
+	private Date updateTime;
 	
 	public BlogInfo() {
 	}
@@ -156,6 +164,30 @@ public class BlogInfo implements Serializable {
 
 	public void setSubContent(String subContent) {
 		this.subContent = subContent;
+	}
+
+	public String getPicLink() {
+		return picLink;
+	}
+
+	public void setPicLink(String picLink) {
+		this.picLink = picLink;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 }

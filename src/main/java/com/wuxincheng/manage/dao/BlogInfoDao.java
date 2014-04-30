@@ -40,5 +40,12 @@ public interface BlogInfoDao {
 	 * @return
 	 */
 	public abstract Integer queryMaxId();
+
+	/**
+	 * 更新
+	 * 
+	 * @param blogInfo
+	 */
+	public abstract void update(BlogInfo blogInfo);
 	
 }

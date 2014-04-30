@@ -4,10 +4,10 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	config.height = 300; // 设置高度 
+	config.height = 200; // 设置高度
+	// config.width = 1200; // 设置宽度
 
 	config.language = 'zh-cn'; // 中文配置zh-cn / en
-    config.baseFloatZIndex = 19900;
 
 	config.filebrowserBrowseUrl = '/wuxincheng-manage/ckfinder/ckfinder.html';    
     config.filebrowserImageBrowseUrl = '/wuxincheng-manage/ckfinder/ckfinder.html?type=Images';
