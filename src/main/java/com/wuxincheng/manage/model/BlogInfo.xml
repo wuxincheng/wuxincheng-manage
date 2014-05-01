@@ -9,8 +9,9 @@
 		<result property="blogContent" column="BLOG_CONTENT" />
 		<result property="subContent" column="SUB_CONTENT" />
 		<result property="blogTime" column="CREATE_TIME" />
-		<result property="picLocalPath" column="PIC_LINK" />
+		<result property="picLink" column="PIC_LINK" />
 		<result property="blogTypeName" column="TYPE_NAME" />
+		<result property="blogType" column="BLOG_TYPE" />
 	</resultMap>
 	
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
@@ -18,34 +19,41 @@
 			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
 			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
-			i.PIC_LINK,t.TYPE_NAME
+			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
 			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
 		ORDER BY i.CREATE_TIME
 	</select>
 	
-	<!-- 
-	<select id="queryByBlogId" parameterClass="java.lang.String" resultClass="BlogInfoMapping">
+	<select id="queryByBlogId" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
 		SELECT 
-			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
-			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
-			i.PIC_LINK
+			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, i.BLOG_CONTENT, 
+			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
+			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
+			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
 		WHERE i.BLOG_ID = #blogId#
 	</select>
-	 -->
 	
 	<select id="queryMaxId" resultClass="java.lang.Integer">
-		SELECT MAX(BLOG_ID+1) AS BLOG_ID FROM T_BLOG_DETAIL_INFO
+		SELECT IFNULL(MAX(BLOG_ID+1), 0) AS BLOG_ID FROM T_BLOG_DETAIL_INFO
 	</select>
 	
 	<insert id="insert" parameterClass="BlogInfo">
 		INSERT INTO T_BLOG_DETAIL_INFO(
-			BLOG_ID, BLOG_TITLE, BLOG_CONTENT, CREATE_TIME, BLOG_TYPE, READE_COUNT, SHARE_COUNT, 
-			BLOG_STATE, BLOG_LINK, PIC_LINK, AUTHOR, SUB_CONTENT)
+			BLOG_ID, BLOG_TITLE, BLOG_CONTENT, CREATE_TIME, UPDATE_TIME, BLOG_TYPE, READE_COUNT, 
+			SHARE_COUNT, BLOG_STATE, BLOG_LINK, PIC_LINK, AUTHOR, SUB_CONTENT)
 		VALUES(
-			#blogId#, #blogTitle#, #blogContent#, CURRENT_TIMESTAMP, #blogType#, 0, 0, 
-			#blogState#, #blogLink#, #picLocalPath#, #author#, #subContent#)
+			#blogId#, #blogTitle#, #blogContent#, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #blogType#,
+			0, 0, #blogState#, #blogLink#, #picLink#, #author#, #subContent#)
 	</insert>
+	
+	<update id="update" parameterClass="BlogInfo">
+		UPDATE T_BLOG_DETAIL_INFO SET 
+			BLOG_TITLE = #blogTitle#, BLOG_CONTENT = #blogContent#, SUB_CONTENT = #subContent#, 
+			BLOG_TYPE = #blogType#, UPDATE_TIME = CURRENT_TIMESTAMP, 
+			PIC_LINK = #picLink#, BLOG_STATE = #blogState# 
+		WHERE BLOG_ID = #blogId# 
+	</update>
 	
 </sqlMap>

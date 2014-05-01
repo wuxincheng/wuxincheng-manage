@@ -1,7 +1,6 @@
 package com.wuxincheng.manage.model;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 /**
  * 博客信息
@@ -31,8 +30,6 @@ public class BlogInfo implements Serializable {
 	private Integer shareCount;
 	/** 博客状态: 0-正常, 1-不发布 */
 	private String blogState;
-	/** 图片地址(用于列表显示) */
-	private String picLocalPath;
 	/** 博客连接 */
 	private String blogLink;
 	
@@ -46,10 +43,6 @@ public class BlogInfo implements Serializable {
 	
 	/** 图片连接 */
 	private String picLink;
-	/** 创建时间 */
-	private Date createTime;
-	/** 更新时间 */
-	private Date updateTime;
 	
 	public BlogInfo() {
 	}
@@ -126,14 +119,6 @@ public class BlogInfo implements Serializable {
 		this.blogState = blogState;
 	}
 
-	public String getPicLocalPath() {
-		return picLocalPath;
-	}
-
-	public void setPicLocalPath(String picLocalPath) {
-		this.picLocalPath = picLocalPath;
-	}
-
 	public String getBlogTitle() {
 		return blogTitle;
 	}
@@ -174,20 +159,15 @@ public class BlogInfo implements Serializable {
 		this.picLink = picLink;
 	}
 
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	@Override
+	public String toString() {
+		return "BlogInfo [blogId=" + blogId + ", blogTitle=" + blogTitle
+				+ ", blogType=" + blogType + ", blogTypeName=" + blogTypeName
+				+ ", blogTime=" + blogTime
+				+ ", readCount=" + readCount + ", shareCount=" + shareCount
+				+ ", blogState=" + blogState + ", blogLink=" + blogLink
+				+ ", resource=" + resource + ", author=" + author
+				+ ", subContent=" + subContent + ", picLink=" + picLink + "]";
 	}
 
 }

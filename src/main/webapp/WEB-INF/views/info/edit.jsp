@@ -22,17 +22,21 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h5 class="page-header page-target">博客管理 - 编辑博客 - <a href="#">返回</a></h5>
 		<form action="<%=request.getContextPath()%>/blogInfo/doEdit" role="form" method="post">
+			<!-- 隐藏字段 -->
+			<input type="hidden" id="blogId" name="blogId" value="${blogInfo.blogId}" />
 			<div class="form-group">
 				<label for="blogTitle">博客标题：</label>
-			    <input type="text" name="blogTitle" class="form-control" style="width: 585px;" placeholder="请输入博客标题" />
+			    <input type="text" name="blogTitle" value="${blogInfo.blogTitle}" class="form-control" style="width: 585px;" placeholder="请输入博客标题" />
 			</div>
 			<div class="form-group">
 				<label for="blogType">博客类型：</label><br>
 				<div class="btn-group" data-toggle="buttons">
 					<c:forEach items="${types}" var="type" varStatus="s">
-					<label class="btn btn-primary">
-						<input type="radio" name="blogType" id="blogType" value="${type.typeId}">${type.typeName}
-					</label>
+					
+					<label class="radio-inline">
+					<input type="radio" name="blogType" id="blogType" value="${type.typeId}"
+				    	<c:if test="${type.typeId eq blogInfo.blogType}">checked="checked"</c:if>>${type.typeName}
+				</label>
 					</c:forEach>
 				</div>
 			</div>
@@ -50,22 +54,27 @@
 			
 			<div class="form-group">
 				<label for="resource">博客简介：</label>
-				<textarea cols="30" id="subContent" class="form-control" name="subContent" rows="3" style="width: 585px;" placeholder="请输入博客简介"></textarea>
+				<textarea cols="30" id="subContent" class="form-control" name="subContent" rows="3" style="width: 585px;" placeholder="请输入博客简介">${blogInfo.subContent}</textarea>
 			</div>
 			<div class="form-group">
 				<label for="blogContent">博客内容：</label>
-			    <textarea id="blogContent" name="blogContent"></textarea>
+			    <textarea id="blogContent" name="blogContent">${blogInfo.blogContent}</textarea>
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1">博客状态：</label><br>
-				<div class="btn-group" data-toggle="buttons">
-					<label class="btn btn-warning">
-						<input type="radio" name="blogState" id="blogState" value="0">已经完成，我要发布
-					</label>
-					<label class="btn btn-danger">
-						<input type="radio" name="blogState" id="blogState" value="1">还未完成，存到草稿箱
-					</label>
-				</div>
+				<label for="blogState">博客状态：</label><br>
+			    
+			    <label class="radio-inline">
+				  <input type="radio" name="blogState" id="blogState1" value="0" 
+			    	<c:if test="${empty blogInfo.blogState}">checked="checked"</c:if>
+			    	<c:if test="${'0' eq blogInfo.blogState}">checked="checked"</c:if>>
+			    	已经完成，我要发布
+				</label>
+				&nbsp;&nbsp;
+				<label class="radio-inline">
+				  <input type="radio" name="blogState" id="blogState2" value="1" 
+			    	<c:if test="${'1' eq blogInfo.blogState}">checked="checked"</c:if>>
+			    	还未完成，存到草稿箱
+				</label>
 			</div>
 			<input type="submit" class="btn btn-primary btn-sm" value="保存" />
 			<input type="button" class="btn btn-primary btn-sm" value="重置" />

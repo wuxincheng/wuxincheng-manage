@@ -33,7 +33,7 @@ public class BlogInfoDaoImpl extends BaseDao implements BlogInfoDao {
 
 	@Override
 	public void update(BlogInfo blogInfo) {
-		// TODO 更新方法
+		this.getSqlMapClientTemplate().insert("BlogInfo.update", blogInfo);
 	}
 
 }

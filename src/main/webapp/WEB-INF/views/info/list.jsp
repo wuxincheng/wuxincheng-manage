@@ -47,8 +47,8 @@
 							<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-success btn-sm">修改</button>
 							</a>
-							<button type="button" class="btn btn-primary btn-sm">预览</button>
 							<!-- 
+							<button type="button" class="btn btn-primary btn-sm">预览</button>
 							<button type="button" class="btn btn-warning btn-sm">特殊标记</button>
 							<button type="button" class="btn btn-danger btn-sm">禁用</button>
 							 -->

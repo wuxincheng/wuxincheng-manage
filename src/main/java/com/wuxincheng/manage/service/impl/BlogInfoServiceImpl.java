@@ -43,6 +43,8 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 		String imgURL = CatchImageURLUtil.getFirstImgURLFromContent(content);
 		blogInfo.setPicLink(imgURL);
 		
+		logger.debug("图片地址 imgURL: " + imgURL);
+		
 		Integer blogId = blogInfo.getBlogId();
 		
 		if (blogId != null && !"".equals(blogId)) { // 更新

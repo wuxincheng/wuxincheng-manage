@@ -69,12 +69,14 @@ public class BlogInfoController {
 		if (StringUtils.isEmpty(blogId)) { // 
 			logger.info("显示博客新增页面");
 		} else {
+			logger.info("显示博客修改页面");
+			
 			BlogInfo blogInfo = null;
 			logger.info("修改博客的编号: " + blogId);
 			
 			blogInfo = blogInfoService.queryByBlogId(blogId);
 			
-			logger.info("显示博客修改页面");
+			logger.info("查询到博客信息 blogInfo: " + blogInfo.toString());
 			
 			model.addAttribute("blogInfo", blogInfo);
 		}
