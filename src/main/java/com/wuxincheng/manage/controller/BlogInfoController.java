@@ -107,4 +107,31 @@ public class BlogInfoController {
 		return list(model);
 	}
 	
+	/**
+	 * 删除
+	 * 
+	 * @param blogId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/delete")
+	public String delete(@RequestParam String blogId, Model model) {
+		if (StringUtils.isEmpty(blogId)) { // 
+			logger.warn("博客不存在，删除失败 blogId: " + blogId);
+			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客不存在，删除失败");
+		} else {
+			logger.info("删博客的编号 blogId: " + blogId);
+			
+			boolean deleteFlag = blogInfoService.delete(blogId);
+			
+			if (deleteFlag) {
+				model.addAttribute(Constants.MSG_TYPE_SUCCESS, "博客删除成功");
+			} else {
+				model.addAttribute(Constants.MSG_TYPE_WARNING, "博客删除失败，请重试");
+			}
+		}
+		
+		return list(model);
+	}
+	
 }

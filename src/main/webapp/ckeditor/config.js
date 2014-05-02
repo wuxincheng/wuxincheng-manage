@@ -44,7 +44,7 @@ CKEDITOR.on( 'dialogDefinition', function( ev ) {
 		infoTab.remove( 'txtHSpace'); // 水平间距
 		infoTab.remove( 'txtVSpace'); // 垂直间距
 		infoTab.remove( 'txtBorder'); // 边框大小
-		infoTab.remove( 'cmbAlign' ); // 对齐方式
+		// infoTab.remove( 'cmbAlign' ); // 对齐方式
         infoTab.remove( 'ratioLock' ); // 锁定比例和原始尺寸
 	}
 });

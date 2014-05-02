@@ -35,5 +35,10 @@ public class BlogInfoDaoImpl extends BaseDao implements BlogInfoDao {
 	public void update(BlogInfo blogInfo) {
 		this.getSqlMapClientTemplate().insert("BlogInfo.update", blogInfo);
 	}
+	
+	@Override
+	public Integer delete(String blogId) {
+		return (Integer) this.getSqlMapClientTemplate().delete("BlogInfo.delete", blogId);
+	}
 
 }

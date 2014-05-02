@@ -48,4 +48,12 @@ public interface BlogInfoDao {
 	 */
 	public abstract void update(BlogInfo blogInfo);
 	
+	/**
+	 * 删除博客
+	 * 
+	 * @param blogId
+	 * @return
+	 */
+	public abstract Integer delete(String blogId);
+	
 }

@@ -33,5 +33,13 @@ public interface BlogInfoService {
 	 * @return
 	 */
 	public abstract BlogInfo queryByBlogId(String blogId);
+
+	/**
+	 * 删除博客
+	 * 
+	 * @param blogId
+	 * @return
+	 */
+	public abstract boolean delete(String blogId);
 	
 }

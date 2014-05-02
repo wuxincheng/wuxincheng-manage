@@ -12,6 +12,7 @@
 		<result property="picLink" column="PIC_LINK" />
 		<result property="blogTypeName" column="TYPE_NAME" />
 		<result property="blogType" column="BLOG_TYPE" />
+		<result property="blogState" column="BLOG_STATE" />
 	</resultMap>
 	
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
@@ -55,5 +56,9 @@
 			PIC_LINK = #picLink#, BLOG_STATE = #blogState# 
 		WHERE BLOG_ID = #blogId# 
 	</update>
+	
+	<delete id="delete" parameterClass="java.lang.String">
+		DELETE FROM T_BLOG_DETAIL_INFO WHERE BLOG_ID = #blogId# 
+	</delete>
 	
 </sqlMap>

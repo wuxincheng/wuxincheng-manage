@@ -60,4 +60,14 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 		return blogInfoDao.queryByBlogId(blogId);
 	}
 	
+	@Override
+	public boolean delete(String blogId) {
+		boolean deleteFlag = false;
+		Integer deleteInt = blogInfoDao.delete(blogId);
+		if (deleteInt > 0) {
+			deleteFlag = true;
+		}
+		return deleteFlag;
+	}
+	
 }

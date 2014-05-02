@@ -30,15 +30,13 @@
 			</div>
 			<div class="form-group">
 				<label for="blogType">博客类型：</label><br>
-				<div class="btn-group" data-toggle="buttons">
-					<c:forEach items="${types}" var="type" varStatus="s">
-					
-					<label class="radio-inline">
-					<input type="radio" name="blogType" id="blogType" value="${type.typeId}"
-				    	<c:if test="${type.typeId eq blogInfo.blogType}">checked="checked"</c:if>>${type.typeName}
+				<c:forEach items="${types}" var="type" varStatus="s">
+				<label class="radio-inline">
+					<input type="radio" name="blogType" id="blogType${type.typeId}" value="${type.typeId}"
+						<c:if test="${empty blogInfo.blogType && '1' eq type.typeId}">checked="checked"</c:if>
+			    		<c:if test="${type.typeId eq blogInfo.blogType}">checked="checked"</c:if> />${type.typeName}
 				</label>
-					</c:forEach>
-				</div>
+				</c:forEach>
 			</div>
 			
 			<!-- 
