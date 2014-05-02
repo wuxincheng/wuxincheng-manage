@@ -136,15 +136,23 @@ public class CatchImageURLUtil {
 	 */
 	public static String getFirstImgURLFromContent(String content) {
 		if (content == null || "".equals(content)) {
-			return null;
+			return "";
 		}
 		
 		CatchImageURLUtil cm = new CatchImageURLUtil();
 		
 		// 获取图片标签
 		List<String> imgUrl = cm.getImageUrl(content);
+		
+		if (imgUrl == null || imgUrl.size() < 1) {
+			return "";
+		}
 		// 获取图片src地址
 		List<String> imgSrc = cm.getImageSrc(imgUrl);
+		
+		if (null == imgSrc || imgSrc.size() < 1) {
+			return "";
+		}
 		
 		String url = imgSrc.get(0);
 		
