@@ -57,19 +57,14 @@
 					<li><a href="#">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-					<li class="nav-header"><b>访问查询</b></li>
-					<li><a href="#">访问明细查询</a></li>
-				</ul>
-				<ul class="nav nav-sidebar">
-					<li class="nav-header"><b>报表统计</b></li>
-					<li><a href="#">博客日报表</a></li>
-					<li><a href="#">博客月报表</a></li>
-					<li><a href="#">博客年报表</a></li>
+					<li class="nav-header"><b>基础管理</b></li>
+					<li><a href="#">公告管理</a></li>
+					<li><a href="#">留言板管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>系统管理</b></li>
-					<li><a href="#">操作员管理</a></li>
-					<li><a>网站用户管理</a></li>
+					<li><a href="#">用户管理</a></li>
+					<li><a href="#">管理员管理</a></li>
 				</ul>
 				<hr>
 			</div>
