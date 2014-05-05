@@ -3,6 +3,8 @@ package com.wuxincheng.manage.controller;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ import com.wuxincheng.manage.util.Constants;
  */
 @Controller
 @RequestMapping("/blogInfo")
-public class BlogInfoController {
+public class BlogInfoController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(BlogInfoController.class);
 	
@@ -39,8 +41,9 @@ public class BlogInfoController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public String list(Model model) {
+	public String list(HttpServletRequest request, Model model) {
 		logger.info("显示博客列表页面");
+		setMenuFlag(request, "blogInfo");
 		
 		List<BlogInfo> blogInfos = blogInfoService.queryAll();
 		try {
@@ -92,7 +95,7 @@ public class BlogInfoController {
 	 * @return
 	 */
 	@RequestMapping(value = "/doEdit")
-	public String doEdit(BlogInfo blogInfo, Model model) {
+	public String doEdit(HttpServletRequest request, BlogInfo blogInfo, Model model) {
 		logger.info("处理编辑博客数据");
 		
 		try {
@@ -104,7 +107,7 @@ public class BlogInfoController {
 			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客编辑时出现异常，请联系管理员");
 		}
 		
-		return list(model);
+		return list(request, model);
 	}
 	
 	/**
@@ -115,7 +118,7 @@ public class BlogInfoController {
 	 * @return
 	 */
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam String blogId, Model model) {
+	public String delete(HttpServletRequest request, @RequestParam String blogId, Model model) {
 		if (StringUtils.isEmpty(blogId)) { // 
 			logger.warn("博客不存在，删除失败 blogId: " + blogId);
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客不存在，删除失败");
@@ -131,7 +134,7 @@ public class BlogInfoController {
 			}
 		}
 		
-		return list(model);
+		return list(request, model);
 	}
 	
 }

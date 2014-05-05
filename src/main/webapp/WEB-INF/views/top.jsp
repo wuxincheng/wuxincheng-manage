@@ -53,18 +53,18 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>博客管理</b></li>
-					<li class="active"><a href="<%=request.getContextPath()%>/blogInfo/list">博客管理</a></li>
-					<li><a href="#">类别管理</a></li>
+					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/blogInfo/list">博客管理</a></li>
+					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/type/list">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>
-					<li><a href="#">公告管理</a></li>
-					<li><a href="#">留言板管理</a></li>
+					<li <c:if test="${'notice' eq menuFlag}">class="active"</c:if>><a href="#">公告管理</a></li>
+					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/message/list">留言板管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>系统管理</b></li>
-					<li><a href="#">用户管理</a></li>
-					<li><a href="#">管理员管理</a></li>
+					<li <c:if test="${'user' eq menuFlag}">class="active"</c:if>><a href="#">用户管理</a></li>
+					<li <c:if test="${'manager' eq menuFlag}">class="active"</c:if>><a href="#">管理员管理</a></li>
 				</ul>
 				<hr>
 			</div>

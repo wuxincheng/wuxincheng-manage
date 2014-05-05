@@ -21,4 +21,25 @@
 		ORDER BY bt.TYPE_ID ASC, bt.CREATE_TIME ASC
 	</select>
 	
+	<select id="queryByTypeId" parameterClass="java.lang.String" resultMap="TypeMapping">
+		SELECT 
+			bt.TYPE_ID, bt.TYPE_NAME, bt.CREATE_TIME, bt.TYPE_STATE, bt.TYPE_MEMO,
+			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME_STR
+		FROM T_BLOG_TYPE bt 
+		WHERE bt.TYPE_ID = #typeId#
+	</select>
+	
+	<select id="queryMaxId" resultClass="java.lang.Integer">
+		SELECT IFNULL(MAX(TYPE_ID+1), 0) AS typeId FROM T_BLOG_TYPE
+	</select>
+	
+	<insert id="insert" parameterClass="Type">
+		INSERT INTO T_BLOG_TYPE(TYPE_ID, TYPE_NAME, CREATE_TIME, TYPE_STATE, TYPE_MEMO)
+		VALUES(#typeId#, #typeName#, CURRENT_TIMESTAMP, #typeState#, #typeMemo#)
+	</insert>
+	
+	<update id="update" parameterClass="Type">
+		UPDATE T_BLOG_TYPE SET TYPE_NAME = #typeName#, TYPE_MEMO = #typeMemo# WHERE TYPE_ID = #typeId# 
+	</update>
+	
 </sqlMap>

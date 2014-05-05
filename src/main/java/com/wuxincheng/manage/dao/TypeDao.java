@@ -19,4 +19,33 @@ public interface TypeDao {
 	 */
 	public abstract List<Type> queryAll();
 	
+	/**
+	 * 根据主键查询
+	 * 
+	 * @param typeId
+	 * @return
+	 */
+	public abstract Type queryByTypeId(String typeId);
+	
+	/**
+	 * 添加
+	 * 
+	 * @param type
+	 */
+	public abstract void insert(Type type);
+	
+	/**
+	 * 查询最大ID值
+	 * 
+	 * @return
+	 */
+	public abstract Integer queryMaxId();
+
+	/**
+	 * 更新
+	 * 
+	 * @param type
+	 */
+	public abstract void update(Type type);
+	
 }

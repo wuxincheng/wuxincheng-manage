@@ -16,4 +16,24 @@ public class TypeDaoImpl extends BaseDao implements TypeDao {
 		return this.getSqlMapClientTemplate().queryForList("Type.queryAll");
 	}
 
+	@Override
+	public Type queryByTypeId(String typeId) {
+		return (Type) this.getSqlMapClientTemplate().queryForObject("Type.queryByTypeId", typeId);
+	}
+
+	@Override
+	public void insert(Type type) {
+		this.getSqlMapClientTemplate().insert("Type.insert", type);
+	}
+
+	@Override
+	public Integer queryMaxId() {
+		return (Integer)this.getSqlMapClientTemplate().queryForObject("Type.queryMaxId");
+	}
+
+	@Override
+	public void update(Type type) {
+		this.getSqlMapClientTemplate().insert("Type.update", type);
+	}
+
 }

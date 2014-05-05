@@ -13,6 +13,19 @@ public interface TypeService {
 	 */
 	public abstract List<Type> queryAll();
 	
-	
+	/**
+	 * 根据主键查询
+	 * 
+	 * @param typeId
+	 * @return
+	 */
+	public abstract Type queryTypeId(String typeId);
+
+	/**
+	 * 编辑
+	 * 
+	 * @param type
+	 */
+	public abstract void edit(Type type);
 	
 }
