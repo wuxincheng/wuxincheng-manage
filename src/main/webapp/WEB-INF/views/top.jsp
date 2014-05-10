@@ -58,13 +58,12 @@
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>
-					<li <c:if test="${'notice' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/notice/list">公告管理</a></li>
 					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/message/list">留言板管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>系统管理</b></li>
 					<li <c:if test="${'user' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/user/list">用户管理</a></li>
-					<li <c:if test="${'manager' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/admins/list">管理员管理</a></li>
+					<li <c:if test="${'admins' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/admins/list">管理员管理</a></li>
 				</ul>
 				<hr>
 			</div>

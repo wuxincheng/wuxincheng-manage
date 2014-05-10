@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,7 +7,7 @@
 <title>新成博客后台管理系统 - V1.0 - 登录</title>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon" />
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.css" type="text/css"></link>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" type="text/css"></link>
 <style type="text/css">
 	body {
 		background: url(${background}) no-repeat center center fixed;
@@ -101,14 +102,19 @@
 					</div>
 					<div class="panel-body">
 						<form action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal" role="form">
-							<div style="margin: 10px 30px 10px 30px" class="input-group">
+							<c:if test="${not empty warning}">
+							<div style="margin: 0px 30px 0px 30px" class="input-group">
+                                <div class="alert alert-warning" style="width: 268px; margin-bottom: 10px;">${warning}</div>
+                            </div>
+							</c:if>
+							<div style="margin: 0px 30px 10px 30px" class="input-group">
                             	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="请输入账号" />                                        
+                                <input id="adminsLogin" type="text" class="form-control" name="adminsLogin" placeholder="请输入账号" />                                        
                         	</div>
                                 
                             <div style="margin: 10px 30px 10px 30px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="login-password" type="password" class="form-control" name="password" placeholder="请输入密码" />
+                                <input id="adminsPwd" type="password" class="form-control" name="adminsPwd" placeholder="请输入密码" />
                             </div>
 							<div class="form-group">
 								<button type="submit" class="btn btn-primary btn-sm">登录</button>
