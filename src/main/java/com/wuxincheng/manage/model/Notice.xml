@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Notice">
+	<typeAlias alias="Notice" type="com.wuxincheng.manage.model.Notice" />
+
+	<resultMap class="Notice" id="NoticeMapping">
+		<result property="noticeId" column="NOTICE_ID" />
+		<result property="noticeTitle" column="NOTICE_TITLE" />
+		<result property="noticeContent" column="NOTICE_CONTENT" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="state" column="STATE" />
+	</resultMap>
+	
+	<select id="queryAll" parameterClass="java.lang.String" resultMap="NoticeMapping">
+		SELECT 
+			i.NOTICE_ID, i.NOTICE_TITLE, i.NOTICE_CONTENT, i.STATE, 
+			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_USER_NOTICE i 
+		ORDER BY i.CREATE_TIME
+	</select>
+	
+	<select id="queryByNoticeId" parameterClass="java.lang.String" resultMap="NoticeMapping">
+		SELECT 
+			i.NOTICE_ID, i.NOTICE_TITLE, i.NOTICE_CONTENT, i.STATE, 
+			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_USER_NOTICE i 
+		WHERE i.NOTICE_ID = #noticeId#
+	</select>
+	
+	<select id="queryMaxId" resultClass="java.lang.Integer">
+		SELECT IFNULL(MAX(NOTICE_ID+1), 0) AS NOTICE_ID FROM T_USER_NOTICE
+	</select>
+	
+	<insert id="insert" parameterClass="Notice">
+		INSERT INTO T_USER_NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, CREATE_TIME, STATE)
+		VALUES(#noticeId#, #noticeTitle#, #noticeContent#, CURRENT_TIMESTAMP, #state#)
+	</insert>
+	
+	<update id="update" parameterClass="Notice">
+		UPDATE T_USER_NOTICE SET NOTICE_TITLE = #noticeTitle#, NOTICE_CONTENT = #noticeContent# WHERE NOTICE_ID = #noticeId# 
+	</update>
+	
+	<delete id="delete" parameterClass="java.lang.String">
+		DELETE FROM T_USER_NOTICE WHERE NOTICE_ID = #noticeId# 
+	</delete>
+	
+</sqlMap>

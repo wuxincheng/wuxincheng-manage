@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="User">
+	<typeAlias alias="User" type="com.wuxincheng.manage.model.User" />
+
+	<resultMap class="User" id="UserMapping">
+		<result property="logiName" column="LOGIN_NAME" />
+		<result property="loginPwd" column="LOGIN_PWD" />
+		<result property="realName" column="REAL_NAME" />
+		<result property="sex" column="SEX" />
+		<result property="mobile" column="MOBILE" />
+		<result property="email" column="EMAIL" />
+		<result property="address" column="ADDRESS" />
+		<result property="code" column="CODE" />
+		<result property="qq" column="QQ" />
+		<result property="privateWeb" column="PRIVATE_WEB" />
+		<result property="privateMsg" column="PRIVEATE_MSG" />
+		<result property="state" column="STATE" />
+		<result property="createTime" column="CREATE_TIME" />
+	</resultMap>
+	
+	<select id="queryAll" parameterClass="java.lang.String" resultMap="UserMapping">
+		SELECT 
+			LOGIN_NAME, LOGIN_PWD, REAL_NAME, SEX, MOBILE, EMAIL, 
+			ADDRESS, CODE, QQ, PRIVATE_WEB, PRIVEATE_MSG, STATE,
+			DATE_FORMAT(CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_BLOG_USER
+	</select>
+	
+	<select id="queryBylogiName" parameterClass="java.lang.String" resultMap="UserMapping">
+		SELECT 
+			LOGIN_NAME, LOGIN_PWD, REAL_NAME, SEX, MOBILE, EMAIL, 
+			ADDRESS, CODE, QQ, PRIVATE_WEB, PRIVEATE_MSG, STATE,
+			DATE_FORMAT(CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_BLOG_USER
+		WHERE LOGIN_NAME = #logiName#
+	</select>
+	
+</sqlMap>

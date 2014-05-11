@@ -39,9 +39,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<%=request.getContextPath()%>/login/doLogin"><span class="glyphicon glyphicon-home"></span> 首页</a>
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> 朱银洁 [系统管理员]</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a>
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> ${admins.adminsName} [系统管理员]</a></li>
+					<li><a href="<%=request.getContextPath()%>/logout/showLoginUI"><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				</ul>
 			</div>

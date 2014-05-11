@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Message">
+	<typeAlias alias="Message" type="com.wuxincheng.manage.model.Message" />
+
+	<resultMap class="Message" id="MessageMapping">
+		<result property="msgId" column="MSG_ID" />
+		<result property="username" column="USERNAME" />
+		<result property="msgTitle" column="MSG_TITLE" />
+		<result property="msgContent" column="MSG_CONTENT" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="state" column="STATE" />
+	</resultMap>
+	
+	<select id="queryAll" parameterClass="java.lang.String" resultMap="MessageMapping">
+		SELECT 
+			bt.MSG_ID, bt.USERNAME, bt.MSG_TITLE, bt.MSG_CONTENT, bt.STATE,
+			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_USER_MESSAGE bt 
+		ORDER BY bt.MSG_ID ASC, bt.CREATE_TIME ASC
+	</select>
+	
+	<select id="queryByMsgId" parameterClass="java.lang.String" resultMap="MessageMapping">
+		SELECT 
+			bt.MSG_ID, bt.USERNAME, bt.MSG_TITLE, bt.MSG_CONTENT, bt.STATE,
+			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+		FROM T_USER_MESSAGE bt 
+		WHERE bt.MSG_ID = #msgId#
+	</select>
+	
+</sqlMap>
