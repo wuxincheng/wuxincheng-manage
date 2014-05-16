@@ -4,7 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	config.height = 200; // 设置高度
+	config.height = 400; // 设置高度
 	// config.width = 1200; // 设置宽度
 
 	config.language = 'zh-cn'; // 中文配置zh-cn / en

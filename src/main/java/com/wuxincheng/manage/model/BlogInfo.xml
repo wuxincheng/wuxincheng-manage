@@ -15,7 +15,7 @@
 		<result property="blogState" column="BLOG_STATE" />
 	</resultMap>
 	
-	<select id="queryAll" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
+	<select id="queryAll" parameterClass="java.lang.Integer" resultMap="BlogInfoMapping">
 		SELECT 
 			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
 			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
@@ -24,6 +24,7 @@
 		FROM T_BLOG_DETAIL_INFO i 
 			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
 		ORDER BY i.CREATE_TIME
+		
 	</select>
 	
 	<select id="queryByBlogId" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
