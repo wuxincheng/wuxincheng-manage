@@ -53,7 +53,7 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>博客管理</b></li>
-					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/blogInfo/list">新闻博客管理</a></li>
+					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/blogInfo/list">博客管理</a></li>
 					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/type/list">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
