@@ -98,7 +98,7 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-lock"></span> 后台管理 - 管理员登录
+						<span class="glyphicon glyphicon-lock"></span> 新成博客后台管理 - 管理员登录
 					</div>
 					<div class="panel-body">
 						<form action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal" role="form">
@@ -123,7 +123,7 @@
 						</form>
 					</div>
 					<div class="panel-footer" style="text-align: right;">
-						<!-- 新成工作室 版权所有 -->
+						新成工作室 版权所有
 					</div>
 				</div>
 			</div>

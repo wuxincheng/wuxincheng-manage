@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand">管理平台</a>
+				<a class="navbar-brand">新成博客管理平台</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -52,7 +52,7 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="nav-header"><b>新闻博客管理</b></li>
+					<li class="nav-header"><b>博客管理</b></li>
 					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/blogInfo/list">新闻博客管理</a></li>
 					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/type/list">类别管理</a></li>
 				</ul>

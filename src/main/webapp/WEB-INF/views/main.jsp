@@ -24,7 +24,7 @@
 	<jsp:include page="top.jsp" />
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<div class="page-header page-target">管理平台首页</div>
+		<div class="page-header page-target">新成博客管理平台首页</div>
 		<div class="container">
 		    <div class="row">
 		        <div>
