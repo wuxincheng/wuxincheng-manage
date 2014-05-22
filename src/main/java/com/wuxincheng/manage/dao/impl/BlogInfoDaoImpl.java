@@ -10,6 +10,14 @@ import com.wuxincheng.manage.model.BlogInfo;
 @Repository("blogInfoDao")
 public class BlogInfoDaoImpl extends BaseDao implements BlogInfoDao {
 
+	@Override
+	public List<BlogInfo> query(int start, int end) {
+		
+		
+		
+		return null;
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<BlogInfo> queryAll() {

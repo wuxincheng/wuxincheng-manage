@@ -20,6 +20,16 @@ public interface BlogInfoDao {
 	public abstract List<BlogInfo> queryAll();
 	
 	/**
+	 * 分页查询
+	 * 
+	 * @param start
+	 * @param end
+	 * @param flag
+	 * @return
+	 */
+	public abstract List<BlogInfo> query(int start, int end);
+	
+	/**
 	 * 根据主键查询
 	 * 
 	 * @param blogId
