@@ -21,7 +21,7 @@
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h5 class="page-header page-target">新闻管理 - 编辑新闻 - <a href="#">返回</a></h5>
-		<form action="<%=request.getContextPath()%>/blogInfo/doEdit" role="form" method="post">
+		<form action="<%=request.getContextPath()%>/manage/blogInfo/doEdit" role="form" method="post">
 			<!-- 隐藏字段 -->
 			<input type="hidden" id="blogId" name="blogId" value="${blogInfo.blogId}" />
 			<div class="form-group">

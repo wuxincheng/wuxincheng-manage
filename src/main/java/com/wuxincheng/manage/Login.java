@@ -41,7 +41,7 @@ public class Login {
 		logger.info("登录页面背景编号: " + randNum);
 		logger.info("登录页面背景地址: " + backgrounds.get(randNum));
 		
-		// model.addAttribute("background", backgrounds.get(randNum));
+		model.addAttribute("background", backgrounds.get(randNum));
 		
 		return "login";
 	}

@@ -20,27 +20,27 @@
 			</c:if>
 			<div class="form-group">
 				<label for="adminsLogin">登录名：</label>
-			    <input type="text" id="adminsLogin" name="adminsLogin" value="${admins.adminsLogin}" class="form-control" style="width: 585px;" />
+			    <input type="text" id="adminsLogin" name="adminsLogin" value="${adminz.adminsLogin}" class="form-control" style="width: 585px;" />
 			</div>
 			
 			<div class="form-group">
 				<label for="adminsPwd">密码：</label>
-			    <input type="password" id="adminsPwd" name="adminsPwd" value="${admins.adminsPwd}" class="form-control" style="width: 585px;" />
+			    <input type="password" id="adminsPwd" name="adminsPwd" value="${adminz.adminsPwd}" class="form-control" style="width: 585px;" />
 			</div>
 			
 			<div class="form-group">
 				<label for="adminsPwd2">重复密码：</label>
-			    <input type="password" id="adminsPwd2" name="adminsPwd2" value="${admins.adminsPwd2}" class="form-control" style="width: 585px;" />
+			    <input type="password" id="adminsPwd2" name="adminsPwd2" value="${adminz.adminsPwd2}" class="form-control" style="width: 585px;" />
 			</div>
 			
 			<div class="form-group">
 				<label for="adminsName">姓名：</label>
-			    <input type="text" id="adminsName" name="adminsName" value="${admins.adminsName}" class="form-control" style="width: 585px;" />
+			    <input type="text" id="adminsName" name="adminsName" value="${adminz.adminsName}" class="form-control" style="width: 585px;" />
 			</div>
 			
 			<div class="form-group">
 				<label for="memo">说明：</label>
-				<textarea cols="30" id="memo" class="form-control" name="memo" rows="3" style="width: 585px;">${admins.memo}</textarea>
+				<textarea cols="30" id="memo" class="form-control" name="memo" rows="3" style="width: 585px;">${adminz.memo}</textarea>
 			</div>
 			
 			<input type="submit" class="btn btn-primary btn-sm" value="保存" />

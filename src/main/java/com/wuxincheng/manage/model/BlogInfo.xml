@@ -23,8 +23,8 @@
 			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
 			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
+		WHERE BLOG_STATE NOT IN ('2')
 		ORDER BY i.CREATE_TIME
-		
 	</select>
 	
 	<select id="queryByBlogId" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
@@ -34,7 +34,7 @@
 			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
 			LEFT JOIN T_BLOG_TYPE t ON i.BLOG_TYPE = t.TYPE_ID
-		WHERE i.BLOG_ID = #blogId#
+		WHERE i.BLOG_ID = #blogId# AND i.BLOG_STATE NOT IN ('2')
 	</select>
 	
 	<select id="queryMaxId" resultClass="java.lang.Integer">
@@ -59,7 +59,7 @@
 	</update>
 	
 	<delete id="delete" parameterClass="java.lang.String">
-		DELETE FROM T_BLOG_DETAIL_INFO WHERE BLOG_ID = #blogId# 
+		UPDATE T_BLOG_DETAIL_INFO SET BLOG_STATE = '2' WHERE BLOG_ID = #blogId# 
 	</delete>
 	
 </sqlMap>

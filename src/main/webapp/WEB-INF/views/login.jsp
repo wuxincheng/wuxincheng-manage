@@ -20,7 +20,7 @@
 	}
 	
 	.panel-body {
-		padding: 15px 0px 15px 0px;
+		padding: 15px 0px 0px 0px;
 	}
 	
 	.panel-default {
@@ -98,10 +98,10 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-lock"></span> 新成博客后台管理 - 管理员登录
+						<span class="glyphicon glyphicon-lock"></span> 新成博客后台管理 - 登录
 					</div>
 					<div class="panel-body">
-						<form action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal" role="form">
+						<form action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal" role="form" method="post">
 							<c:if test="${not empty warning}">
 							<div style="margin: 0px 30px 0px 30px" class="input-group">
                                 <div class="alert alert-warning" style="width: 268px; margin-bottom: 10px;">${warning}</div>

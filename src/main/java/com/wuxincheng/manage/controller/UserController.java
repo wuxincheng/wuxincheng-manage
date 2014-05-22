@@ -25,7 +25,7 @@ import com.wuxincheng.manage.util.Constants;
  *
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/manage/user")
 public class UserController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(UserController.class);

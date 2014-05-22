@@ -25,7 +25,7 @@ import com.wuxincheng.manage.util.Constants;
  *
  */
 @Controller
-@RequestMapping("/admins")
+@RequestMapping("/manage/admins")
 public class AdminsController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(AdminsController.class);
@@ -69,12 +69,12 @@ public class AdminsController extends BaseController {
 		} else {
 			logger.info("显示管理员修改页面");
 			
-			Admins admins = null;
+			Admins adminz = null;
 			logger.info("修改管理员的编号: " + adminsLogin);
 			
-			admins = adminsService.query(adminsLogin);
+			adminz = adminsService.query(adminsLogin);
 			
-			model.addAttribute("admins", admins);
+			model.addAttribute("adminz", adminz);
 		}
 		
 		return "admins/edit";

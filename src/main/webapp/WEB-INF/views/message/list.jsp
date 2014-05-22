@@ -34,7 +34,7 @@
 						<td>${message.username}</td>
 						<td>${message.createTime}</td>
 						<td>
-							<a href="<%=request.getContextPath()%>/message/show?msgId=${message.msgId}">
+							<a href="<%=request.getContextPath()%>/manage/message/show?msgId=${message.msgId}">
 								<button type="button" class="btn btn-success btn-sm">查看</button>
 							</a>
 							<!-- 

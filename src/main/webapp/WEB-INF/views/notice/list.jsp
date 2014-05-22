@@ -13,7 +13,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h5 class="page-header page-target">通告管理</h5>
 		<form class="form-inline" role="form">
-			<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=">
+			<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=">
 			<button type="button" class="btn btn-success btn-sm">新增</button>
 			</a>
 		</form>

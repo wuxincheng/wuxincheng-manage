@@ -24,7 +24,7 @@ import com.wuxincheng.manage.service.MessageService;
  *
  */
 @Controller
-@RequestMapping("/message")
+@RequestMapping("/manage/message")
 public class MessageController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(MessageController.class);

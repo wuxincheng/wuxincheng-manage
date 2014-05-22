@@ -27,7 +27,7 @@ import com.wuxincheng.manage.util.Constants;
  *
  */
 @Controller
-@RequestMapping("/blogInfo")
+@RequestMapping("/manage/blogInfo")
 public class BlogInfoController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(BlogInfoController.class);
@@ -119,6 +119,12 @@ public class BlogInfoController extends BaseController {
 	 */
 	@RequestMapping(value = "/delete")
 	public String delete(HttpServletRequest request, @RequestParam String blogId, Model model) {
+		BlogInfo blogInfo = blogInfoService.queryByBlogId(blogId);
+		if (null == blogInfo) {
+			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客已经被删除");
+			return list(request, model);
+		}
+		
 		if (StringUtils.isEmpty(blogId)) { // 
 			logger.warn("博客不存在，删除失败 blogId: " + blogId);
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客不存在，删除失败");

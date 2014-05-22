@@ -18,7 +18,7 @@
 			<input type="text" class="form-control" placeholder="输入博客类别">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
-			<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=">
+			<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=">
 			<button type="button" class="btn btn-success btn-sm">新增</button>
 			</a>
 		</form>
@@ -28,6 +28,7 @@
 				<thead>
 					<tr>
 						<th>序号</th>
+						<th>状态</th>
 						<th>博客标题</th>
 						<th>博客类别</th>
 						<th>操作时间</th>
@@ -40,19 +41,28 @@
 					<c:forEach items="${blogInfos}" var="blogInfo" varStatus="s">
 					<tr>
 						<td>${s.index + 1}</td>
-						<td>${blogInfo.blogTitle}</td>
+						<td>
+							<c:if test="${'0' eq blogInfo.blogState}">
+							<span class="label label-success">已发布</span>
+							</c:if>
+							
+							<c:if test="${'1' eq blogInfo.blogState}">
+							<span class="label label-danger">未发布</span>
+							</c:if>
+						</td>
+						<td>
+							${blogInfo.blogTitle}
+						</td>
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.blogTime}</td>
 						<td>
 							<button type="button" class="btn btn-primary btn-sm">预览</button>
 							
-							<a href="<%=request.getContextPath()%>/blogInfo/edit?blogId=${blogInfo.blogId}">
+							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-success btn-sm">修改</button>
 							</a>
 							
-							<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('您确定执行删除么?')) document.location = '<%=request.getContextPath()%>/blogInfo/delete?blogId=${blogInfo.blogId}';">删除</button>
-							
-							<button type="button" class="btn btn-warning btn-sm">禁用</button>
+							<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('您确定执行删除么?')) document.location = '<%=request.getContextPath()%>/manage/blogInfo/delete?blogId=${blogInfo.blogId}';">删除</button>
 						</td>
 					</tr>
 					

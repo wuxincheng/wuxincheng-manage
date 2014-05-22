@@ -25,7 +25,7 @@ import com.wuxincheng.manage.util.Constants;
  *
  */
 @Controller
-@RequestMapping("/type")
+@RequestMapping("/manage/type")
 public class TypeController extends BaseController {
 	
 	private static Logger logger = LoggerFactory.getLogger(TypeController.class);

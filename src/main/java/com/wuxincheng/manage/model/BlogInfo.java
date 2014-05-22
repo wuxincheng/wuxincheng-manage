@@ -28,7 +28,7 @@ public class BlogInfo implements Serializable {
 	private Integer readCount;
 	/** 分享次数 */
 	private Integer shareCount;
-	/** 博客状态: 0-正常, 1-不发布 */
+	/** 博客状态: 0-正常, 1-不发布(禁用), 2-删除 */
 	private String blogState;
 	/** 博客连接 */
 	private String blogLink;

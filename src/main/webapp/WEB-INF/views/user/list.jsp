@@ -35,7 +35,7 @@
 						<td>${user.sex}</td>
 						<td>${user.createTime}</td>
 						<td>
-							<a href="<%=request.getContextPath()%>/user/show?logiName=${user.logiName}">
+							<a href="<%=request.getContextPath()%>/manage/user/show?logiName=${user.logiName}">
 								<button type="button" class="btn btn-success btn-sm">查看</button>
 							</a>
 							

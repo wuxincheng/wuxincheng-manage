@@ -9,7 +9,7 @@
 
 <title>后台管理 - 新成博客 - V1.0</title>
 
-<link href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/assets/css/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/assets/css/dashboard.css" rel="stylesheet">
 </head>
 <style type="text/css">
@@ -53,17 +53,17 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>博客管理</b></li>
-					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/blogInfo/list">博客管理</a></li>
-					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/type/list">类别管理</a></li>
+					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/blogInfo/list">博客管理</a></li>
+					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/type/list">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>
-					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/message/list">留言板管理</a></li>
+					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/message/list">留言板管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>系统管理</b></li>
-					<li <c:if test="${'user' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/user/list">用户管理</a></li>
-					<li <c:if test="${'admins' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/admins/list">管理员管理</a></li>
+					<li <c:if test="${'user' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/user/list">用户管理</a></li>
+					<li <c:if test="${'admins' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/admins/list">管理员管理</a></li>
 				</ul>
 				<hr>
 			</div>

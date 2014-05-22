@@ -25,7 +25,7 @@ import com.wuxincheng.manage.util.Constants;
  *
  */
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/manage/notice")
 public class NoticeController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(NoticeController.class);

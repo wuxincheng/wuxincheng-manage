@@ -12,7 +12,7 @@
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h5 class="page-header page-target">用户留言管理 - 查看详细 - <a href="#">返回</a></h5>
-		<form action="<%=request.getContextPath()%>/type/doEdit" role="form" method="post">
+		<form action="" role="form" method="post">
 			<div class="form-group">
 				<label for="msgTitle">留言标题：</label>
 			    <input type="text" id="msgTitle" name="msgTitle" value="${message.msgTitle}" class="form-control" style="width: 585px;" />
