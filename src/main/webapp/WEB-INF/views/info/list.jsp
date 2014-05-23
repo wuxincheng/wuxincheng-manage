@@ -37,8 +37,8 @@
 				</thead>
 				<tbody>
 					<c:choose>
-					<c:when test="${not empty blogInfos}">
-					<c:forEach items="${blogInfos}" var="blogInfo" varStatus="s">
+					<c:when test="${not empty pager.blogInfos}">
+					<c:forEach items="${pager.blogInfos}" var="blogInfo" varStatus="s">
 					<tr>
 						<td>${s.index + 1}</td>
 						<td>
@@ -56,8 +56,6 @@
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.blogTime}</td>
 						<td>
-							<button type="button" class="btn btn-primary btn-sm">预览</button>
-							
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-success btn-sm">修改</button>
 							</a>
@@ -81,14 +79,26 @@
 			</table>
 			<div class="tab-bottom-line"></div>
 			<ul class="pager">
-				<li><a href="#">上一页</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">...</a></li>
-				<li><a href="#">30</a></li>
-				<li><a href="#">下一页</a></li>
+				<li <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
+					<a <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=1"</c:if>>首页</a>
+				</li>
+				
+				<li <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
+					<a <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=${pager.currentPage-1}"</c:if>>上一页</a>
+				</li>
+				
+				<li <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
+					<a <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=${pager.currentPage+1}"</c:if>>下一页</a>
+				</li>
+				
+				<li <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
+					<a <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=${pager.lastPage}"</c:if>>尾页</a>
+				</li>
+				
+				<li class="">&nbsp;</li>
+				<li class=""><strong>${pager.currentPage}/${pager.lastPage}</strong></li>
+				<li class="">&nbsp;</li>
+				<li class="disabled">共<strong>${pager.totalCount}</strong>条博文</li>
 			</ul>
 			
 		</div>

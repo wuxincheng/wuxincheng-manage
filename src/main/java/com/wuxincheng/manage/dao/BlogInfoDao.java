@@ -1,6 +1,7 @@
 package com.wuxincheng.manage.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.wuxincheng.manage.model.BlogInfo;
 
@@ -27,7 +28,7 @@ public interface BlogInfoDao {
 	 * @param flag
 	 * @return
 	 */
-	public abstract List<BlogInfo> query(int start, int end);
+	public abstract List<BlogInfo> queryPager(Map<String, Object> params);
 	
 	/**
 	 * 根据主键查询
@@ -65,5 +66,12 @@ public interface BlogInfoDao {
 	 * @return
 	 */
 	public abstract Integer delete(String blogId);
+
+	/**
+	 * 统计总记录条数
+	 * 
+	 * @return
+	 */
+	public abstract Integer queryCount();
 	
 }

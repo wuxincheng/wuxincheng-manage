@@ -2,6 +2,7 @@ package com.wuxincheng.manage.controller;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,6 +20,7 @@ import com.wuxincheng.manage.model.Type;
 import com.wuxincheng.manage.service.BlogInfoService;
 import com.wuxincheng.manage.service.TypeService;
 import com.wuxincheng.manage.util.Constants;
+import com.wuxincheng.manage.util.Validation;
 
 /**
  * 博客管理
@@ -32,6 +34,9 @@ public class BlogInfoController extends BaseController {
 
 	private static Logger logger = LoggerFactory.getLogger(BlogInfoController.class);
 	
+	/** 每页显示条数 */
+	private final Integer pageSize = 10;
+	
 	@Autowired private BlogInfoService blogInfoService;
 	@Autowired private TypeService typeService;
 	
@@ -41,14 +46,37 @@ public class BlogInfoController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public String list(HttpServletRequest request, Model model) {
+	public String list(HttpServletRequest request, @RequestParam String currentPage, Model model) {
 		logger.info("显示博客列表页面");
 		setMenuFlag(request, "blogInfo");
 		
-		List<BlogInfo> blogInfos = blogInfoService.queryAll();
+		if (Validation.isBlank(currentPage) || !Validation.isInt(currentPage, "0+")) {
+			currentPage = "1";
+		}
+		
+		Integer current = Integer.parseInt(currentPage);
+		Integer start = null;
+		Integer end = null;
+		if (current > 1) {
+			start = (current - 1) * pageSize;
+			end = pageSize;
+		} else {
+			start = 0;
+			end = pageSize;
+		}
+		
+		Map<String, Object> pager = blogInfoService.queryPager(start, end);
+		
 		try {
-			if (blogInfos != null && blogInfos.size() > 0) {
-				model.addAttribute("blogInfos", blogInfos);
+			if (pager != null && pager.size() > 0) {
+				pager.put("currentPage", currentPage);
+				pager.put("pageSize", pageSize);
+				
+				Integer totalCount = (Integer)pager.get("totalCount");
+				Integer lastPage = (totalCount/pageSize);
+				Integer flag = (totalCount%pageSize)>0?1:0;
+				pager.put("lastPage", lastPage + flag);
+				model.addAttribute("pager", pager);
 			} else {
 				model.addAttribute("blogInfos", Collections.EMPTY_LIST);
 				logger.info("没有查询到博客信息");
@@ -107,7 +135,7 @@ public class BlogInfoController extends BaseController {
 			model.addAttribute(Constants.MSG_TYPE_DANGER, "博客编辑时出现异常，请联系管理员");
 		}
 		
-		return list(request, model);
+		return list(request, "1", model);
 	}
 	
 	/**
@@ -122,7 +150,7 @@ public class BlogInfoController extends BaseController {
 		BlogInfo blogInfo = blogInfoService.queryByBlogId(blogId);
 		if (null == blogInfo) {
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客已经被删除");
-			return list(request, model);
+			return list(request, "1", model);
 		}
 		
 		if (StringUtils.isEmpty(blogId)) { // 
@@ -140,7 +168,7 @@ public class BlogInfoController extends BaseController {
 			}
 		}
 		
-		return list(request, model);
+		return list(request, "1", model);
 	}
 	
 }

@@ -34,8 +34,6 @@ public class LoginSessionInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-		logger.info("执行登录拦截器preHandle方法");
-		
 		String url = request.getRequestURL().toString();
 		
 		if (mappingURL == null || url.matches(mappingURL)) {
@@ -48,6 +46,10 @@ public class LoginSessionInterceptor implements HandlerInterceptor {
 				response.sendRedirect("/wuxincheng-manage/login/showLoginUI");  // 重定向
 				return false;   
 			}
+			
+			String operURL = url.substring(url.indexOf("/manage"), url.length());
+			
+			logger.info("后台管理员[" + admins.getAdminsLogin() + "]执行[" + operURL + "] 操作");
         }
 		
 		return true;
