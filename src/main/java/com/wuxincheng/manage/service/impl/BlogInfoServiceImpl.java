@@ -1,6 +1,8 @@
 package com.wuxincheng.manage.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -25,6 +27,25 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 	private static Logger logger = LoggerFactory.getLogger(BlogInfoServiceImpl.class);
 
 	@Resource private BlogInfoDao blogInfoDao;
+	
+	@Override
+	public Map<String, Object> queryPager(int start, int end) {
+		// 返回结果
+		Map<String, Object> reault = new HashMap<String, Object>();
+		
+		// 查询条件
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("start", start);
+		params.put("end", end);
+		
+		int totalCount = blogInfoDao.queryCount(); // 总记录数
+		List<BlogInfo> blogInfos = blogInfoDao.queryPager(params); // 当前页的数据
+		
+		reault.put("blogInfos", blogInfos);
+		reault.put("totalCount", totalCount);
+		
+		return reault;
+	}
 	
 	@Override
 	public List<BlogInfo> queryAll() {

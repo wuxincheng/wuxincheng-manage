@@ -39,8 +39,8 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a>
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span> ${admins.adminsName} [系统管理员]</a></li>
+					<li><a href="<%=request.getContextPath()%>/login/main"><span class="glyphicon glyphicon-home"></span> 首页</a>
+					<li><a href=""><span class="glyphicon glyphicon-user"></span> ${admins.adminsName} [系统管理员]</a></li>
 					<li><a href="<%=request.getContextPath()%>/logout/showLoginUI"><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				</ul>
@@ -53,7 +53,7 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>博客管理</b></li>
-					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/blogInfo/list">博客管理</a></li>
+					<li <c:if test="${'blogInfo' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=1">博客管理</a></li>
 					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/type/list">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">

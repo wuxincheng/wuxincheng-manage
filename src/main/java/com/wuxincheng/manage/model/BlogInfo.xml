@@ -16,10 +16,10 @@
 		<result property="blogState" column="BLOG_STATE" />
 	</resultMap>
 	
-	<select id="query" parameterClass="java.lang.Integer" resultMap="BlogInfoMapping">
+	<select id="queryPager" parameterClass="java.util.Map" resultMap="BlogInfoMapping">
 		SELECT 
 			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
-			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
+			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, i.READE_COUNT,
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
 			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
@@ -32,7 +32,7 @@
 	<select id="queryAll" parameterClass="java.util.Map" resultMap="BlogInfoMapping">
 		SELECT 
 			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, 
-			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, 
+			LEFT(i.BLOG_CONTENT, 50) AS BLOG_CONTENT, i.READE_COUNT,
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
 			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
@@ -42,7 +42,7 @@
 	
 	<select id="queryByBlogId" parameterClass="java.lang.String" resultMap="BlogInfoMapping">
 		SELECT 
-			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, i.BLOG_CONTENT, 
+			i.BLOG_ID, i.BLOG_TITLE, i.SUB_CONTENT, i.BLOG_CONTENT, i.READE_COUNT,
 			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME, 
 			i.PIC_LINK, i.BLOG_STATE, i.BLOG_TYPE, t.TYPE_NAME
 		FROM T_BLOG_DETAIL_INFO i 
@@ -52,6 +52,10 @@
 	
 	<select id="queryMaxId" resultClass="java.lang.Integer">
 		SELECT IFNULL(MAX(BLOG_ID+1), 0) AS BLOG_ID FROM T_BLOG_DETAIL_INFO
+	</select>
+	
+	<select id="queryCount" resultClass="java.lang.Integer">
+		SELECT COUNT(*) AS queryCount FROM T_BLOG_DETAIL_INFO WHERE BLOG_STATE NOT IN ('2')
 	</select>
 	
 	<insert id="insert" parameterClass="BlogInfo">

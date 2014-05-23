@@ -67,5 +67,10 @@ public class Login {
 		
 		return "main";
 	}
+	
+	@RequestMapping(value = "/main")
+	public String main() {
+		return "main";
+	}
 
 }

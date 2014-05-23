@@ -4256,15 +4256,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .label {
   display: inline;
-  padding: .3em .6em .3em;
-  font-size: 75%;
+  padding: .4em .6em .4em;
+  font-size: 88%;
+  /** 
   font-weight: bold;
+  border-radius: .25em;
+   */
   line-height: 1;
   color: #ffffff;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25em;
 }
 .label[href]:hover,
 .label[href]:focus {
@@ -4421,7 +4423,7 @@ a.thumbnail.active {
   color: #333333;
 }
 .alert {
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
