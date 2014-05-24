@@ -10,7 +10,10 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" type="text/css"></link>
 <style type="text/css">
 	body {
+		/**
 		background: url(${background}) no-repeat center center fixed;
+		 */
+		background-color: #3a7a9f;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;

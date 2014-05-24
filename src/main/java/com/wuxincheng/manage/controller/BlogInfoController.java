@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wuxincheng.manage.model.BlogInfo;
 import com.wuxincheng.manage.model.Type;
@@ -46,7 +45,7 @@ public class BlogInfoController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public String list(HttpServletRequest request, @RequestParam String currentPage, Model model) {
+	public String list(HttpServletRequest request, String currentPage, Model model) {
 		logger.info("显示博客列表页面");
 		setMenuFlag(request, "blogInfo");
 		
@@ -94,7 +93,7 @@ public class BlogInfoController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/edit")
-	public String edit(@RequestParam String blogId, Model model) {
+	public String edit(String blogId, Model model) {
 		List<Type> types = typeService.queryAll(); // 查询所有类别
 		
 		if (StringUtils.isEmpty(blogId)) { // 
@@ -146,7 +145,7 @@ public class BlogInfoController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/delete")
-	public String delete(HttpServletRequest request, @RequestParam String blogId, Model model) {
+	public String delete(HttpServletRequest request, String blogId, Model model) {
 		BlogInfo blogInfo = blogInfoService.queryByBlogId(blogId);
 		if (null == blogInfo) {
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "博客已经被删除");

@@ -18,8 +18,8 @@
 			<input type="text" class="form-control" placeholder="输入博客类别">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
-			<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=">
-			<button type="button" class="btn btn-success btn-sm">新增</button>
+			<a href="<%=request.getContextPath()%>/manage/blogInfo/edit">
+			<button type="button" class="btn btn-warning btn-sm">新增</button>
 			</a>
 		</form>
 		<hr />
@@ -57,7 +57,7 @@
 						<td>${blogInfo.blogTime}</td>
 						<td>
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
-								<button type="button" class="btn btn-success btn-sm">修改</button>
+								<button type="button" class="btn btn-warning btn-sm">修改</button>
 							</a>
 							
 							<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('您确定执行删除么?')) document.location = '<%=request.getContextPath()%>/manage/blogInfo/delete?blogId=${blogInfo.blogId}';">删除</button>
@@ -74,7 +74,7 @@
 					</c:otherwise>
 					</c:choose>
 					
-					<jsp:include page="../bottom.jsp" />
+					<jsp:include page="../msg.jsp" />
 				</tbody>
 			</table>
 			<div class="tab-bottom-line"></div>
@@ -99,6 +99,8 @@
 				<li class=""><strong>${pager.currentPage}/${pager.lastPage}</strong></li>
 				<li class="">&nbsp;</li>
 				<li class="disabled">共<strong>${pager.totalCount}</strong>条博文</li>
+				<li class="">&nbsp;</li>
+				<li class="">每页显示<strong>10</strong>条</li>
 			</ul>
 			
 		</div>

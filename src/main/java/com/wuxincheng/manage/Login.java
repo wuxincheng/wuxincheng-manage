@@ -38,9 +38,6 @@ public class Login {
 		
 		int randNum = (int) (Math.random() * (backgrounds.size()-1)); // 产生0-1000的整数随机数
 		
-		logger.info("登录页面背景编号: " + randNum);
-		logger.info("登录页面背景地址: " + backgrounds.get(randNum));
-		
 		model.addAttribute("background", backgrounds.get(randNum));
 		
 		return "login";

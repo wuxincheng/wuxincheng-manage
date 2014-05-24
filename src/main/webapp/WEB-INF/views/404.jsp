@@ -42,7 +42,7 @@
 	                        	<h3>请您不要进行非正常操作</h3>
 	                        </div>
 	                    </div>
-	                    <a href="<%=request.getContextPath()%>/login/showLoginUI" class="btn btn-primary btn-lg btn-block" role="button">登录</a>
+	                    <a href="<%=request.getContextPath()%>/login/showLoginUI" class="btn btn-primary btn-block" role="button">登录</a>
 	                </div>
 	            </div>
 	        </div>
