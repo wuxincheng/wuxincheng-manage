@@ -42,7 +42,7 @@
 	                        	<h3>请联系系统管理员</h3>
 	                        </div>
 	                    </div>
-	                    <a href="<%=request.getContextPath()%>/login/showLoginUI" class="btn btn-danger btn-lg btn-block" role="button">登录</a>
+	                    <a href="<%=request.getContextPath()%>/login/showLoginUI" class="btn btn-danger btn-block" role="button">登录</a>
 	                </div>
 	            </div>
 	        </div>

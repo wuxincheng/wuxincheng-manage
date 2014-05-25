@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.wuxincheng.manage.model.Admins;
 import com.wuxincheng.manage.service.AdminsService;
 import com.wuxincheng.manage.util.Constants;
+import com.wuxincheng.manage.util.Validation;
 
 @Controller
 @RequestMapping("/login")
@@ -48,17 +49,25 @@ public class Login {
 			@RequestParam String adminsLogin, @RequestParam String adminsPwd) {
 		logger.info("登录到系统");
 		
-		if (null == adminsLogin || "".equals(adminsLogin) || null == adminsPwd || "".equals(adminsPwd)) {
+		if (Validation.isBlank(adminsLogin) || Validation.isBlank(adminsPwd)) {
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "用户名和密码都不能为空");
 			return "login";
 		}
 		
-		Admins admins = adminsService.login(adminsLogin, adminsPwd);
+		// Admins admins = adminsService.login(adminsLogin, adminsPwd);
+		Admins admins = adminsService.query(adminsLogin);
+
+		if (null == admins) {
+			model.addAttribute(Constants.MSG_TYPE_WARNING, "用户不存在，请检查您的账号");
+			return "login";
+		}
 		
-		if (admins != null) {
+		String pwd = admins.getAdminsPwd();
+		
+		if (!Validation.isBlank(pwd) && adminsPwd.equals(pwd)) {
 			request.getSession().setAttribute("admins", admins);
 		} else {
-			model.addAttribute(Constants.MSG_TYPE_WARNING, "用户名或密码输入错误");
+			model.addAttribute(Constants.MSG_TYPE_WARNING, "用户密码不正确");
 			return "login";
 		}
 		

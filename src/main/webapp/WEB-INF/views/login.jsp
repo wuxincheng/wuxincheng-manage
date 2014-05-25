@@ -107,14 +107,17 @@
 						<form action="<%=request.getContextPath()%>/login/doLogin" class="form-horizontal" role="form" method="post">
 							<c:if test="${not empty warning}">
 							<div style="margin: 0px 30px 0px 30px" class="input-group">
-                                <div class="alert alert-warning" style="width: 268px; margin-bottom: 10px;">${warning}</div>
+                                <div class="alert alert-warning" style="width: 268px; margin-bottom: 10px;">
+									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+									${warning}
+								</div>
                             </div>
+                            
 							</c:if>
 							<div style="margin: 0px 30px 10px 30px" class="input-group">
                             	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input id="adminsLogin" type="text" class="form-control" name="adminsLogin" placeholder="请输入账号" />                                        
                         	</div>
-                                
                             <div style="margin: 10px 30px 10px 30px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input id="adminsPwd" type="password" class="form-control" name="adminsPwd" placeholder="请输入密码" />
@@ -132,5 +135,7 @@
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="bottom.jsp" />
 </body>
 </html>
