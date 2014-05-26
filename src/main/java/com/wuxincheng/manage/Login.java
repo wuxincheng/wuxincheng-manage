@@ -1,8 +1,5 @@
 package com.wuxincheng.manage;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.wuxincheng.manage.model.Admins;
 import com.wuxincheng.manage.service.AdminsService;
 import com.wuxincheng.manage.util.Constants;
+import com.wuxincheng.manage.util.MD5;
 import com.wuxincheng.manage.util.Validation;
 
 @Controller
@@ -30,6 +28,8 @@ public class Login {
 	public String showloginUI(Model model) {
 		logger.info("显示后台管理登录页面");
 		
+		/*
+		// 登录背景切换方式
 		List<String> backgrounds = new ArrayList<String>();
 		
 		backgrounds.add(0, "http://www.bz889.com/uploads/allimg/120723/co120H3131240-0.jpg");
@@ -40,6 +40,7 @@ public class Login {
 		int randNum = (int) (Math.random() * (backgrounds.size()-1)); // 产生0-1000的整数随机数
 		
 		model.addAttribute("background", backgrounds.get(randNum));
+		 */
 		
 		return "login";
 	}
@@ -62,9 +63,12 @@ public class Login {
 			return "login";
 		}
 		
-		String pwd = admins.getAdminsPwd();
+		String pwd = admins.getAdminsPwd(); // 数据库中的密码
 		
-		if (!Validation.isBlank(pwd) && adminsPwd.equals(pwd)) {
+		// 登录密码加密
+		String adminsPwdMD5Str = MD5.encryptMD5Pwd(adminsPwd);
+		
+		if (!Validation.isBlank(pwd) && pwd.equals(adminsPwdMD5Str)) {
 			request.getSession().setAttribute("admins", admins);
 		} else {
 			model.addAttribute(Constants.MSG_TYPE_WARNING, "用户密码不正确");
