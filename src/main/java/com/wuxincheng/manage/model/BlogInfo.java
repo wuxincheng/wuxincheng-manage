@@ -32,7 +32,7 @@ public class BlogInfo implements Serializable {
 	private String blogState;
 	/** 博客连接 */
 	private String blogLink;
-	
+
 	// ---
 	/** 博客来源 */
 	private String resource;
@@ -40,10 +40,13 @@ public class BlogInfo implements Serializable {
 	private String author;
 	/** 博客简介(用于列表显示) */
 	private String subContent;
-	
+
 	/** 图片连接 */
 	private String picLink;
-	
+
+	/** 更新时间 */
+	private String updateTime;
+
 	public BlogInfo() {
 	}
 
@@ -159,15 +162,23 @@ public class BlogInfo implements Serializable {
 		this.picLink = picLink;
 	}
 
+	public String getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(String updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	@Override
 	public String toString() {
 		return "BlogInfo [blogId=" + blogId + ", blogTitle=" + blogTitle
 				+ ", blogType=" + blogType + ", blogTypeName=" + blogTypeName
-				+ ", blogTime=" + blogTime
-				+ ", readCount=" + readCount + ", shareCount=" + shareCount
-				+ ", blogState=" + blogState + ", blogLink=" + blogLink
-				+ ", resource=" + resource + ", author=" + author
-				+ ", subContent=" + subContent + ", picLink=" + picLink + "]";
+				+ ", blogTime=" + blogTime + ", readCount=" + readCount
+				+ ", shareCount=" + shareCount + ", blogState=" + blogState
+				+ ", blogLink=" + blogLink + ", resource=" + resource
+				+ ", author=" + author + ", subContent=" + subContent
+				+ ", picLink=" + picLink + "]";
 	}
 
 }

@@ -56,7 +56,7 @@
 							${blogInfo.blogTitle}
 						</td>
 						<td>${blogInfo.blogTypeName}</td>
-						<td>${blogInfo.blogTime}</td>
+						<td>${blogInfo.updateTime}</td>
 						<td>
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-warning btn-sm">修改</button>
