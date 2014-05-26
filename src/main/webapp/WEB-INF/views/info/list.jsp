@@ -28,6 +28,7 @@
 				<thead>
 					<tr>
 						<th>序号</th>
+						<th>缩略图</th>
 						<th>状态</th>
 						<th>博客标题</th>
 						<th>博客类别</th>
@@ -41,6 +42,7 @@
 					<c:forEach items="${pager.blogInfos}" var="blogInfo" varStatus="s">
 					<tr>
 						<td>${s.index + 1}</td>
+						<td><img src="${blogInfo.picLink}" width="50px" height="33px" /></td>
 						<td>
 							<c:if test="${'0' eq blogInfo.blogState}">
 							<span class="label label-success">已发布</span>
