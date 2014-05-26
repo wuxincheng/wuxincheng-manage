@@ -33,6 +33,7 @@
 						<th>博客标题</th>
 						<th>博客类别</th>
 						<th>操作时间</th>
+						<th>阅读量</th>
 						<th>操作</th>
 					</tr>
 				</thead>
@@ -57,6 +58,7 @@
 						</td>
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.updateTime}</td>
+						<td>${blogInfo.readCount}</td>
 						<td>
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-warning btn-sm">修改</button>
