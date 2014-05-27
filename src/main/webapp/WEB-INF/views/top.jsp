@@ -57,6 +57,11 @@
 					<li <c:if test="${'type' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/type/list">类别管理</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
+					<li class="nav-header"><b>运营分析</b></li>
+					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/message/list">访问量查询</a></li>
+					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/message/list">类别访问统计</a></li>
+				</ul>
+				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>
 					<li <c:if test="${'message' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/message/list">留言板管理</a></li>
 				</ul>
