@@ -31,6 +31,10 @@ public class MD5 {
 	 * @return
 	 */
 	public static String encryptMD5Pwd(String password){
+		if (null == password) {
+			return null;
+		}
+		
 		String enMD5PwdStr = null;
 		try {
 			String str = ByteUtil.bytesToHex(MD5.encryptMD5(password.getBytes()));
@@ -43,16 +47,6 @@ public class MD5 {
 		}
 		
 		return enMD5PwdStr;
-	}
-	
-	public static void main(String[] args) {
-		String pwd = "123";
-		
-		String str = encryptMD5Pwd(pwd);
-		
-		System.out.println(str);
-		
-		System.out.println(str.length());
 	}
 	
 }
