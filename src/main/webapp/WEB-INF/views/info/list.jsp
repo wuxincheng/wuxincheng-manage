@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +59,7 @@
 						</td>
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.updateTime}</td>
-						<td>${blogInfo.readCount}</td>
+						<td style="text-align: right;"><fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0"/>&nbsp;&nbsp;</td>
 						<td>
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-warning btn-sm">修改</button>

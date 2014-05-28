@@ -271,8 +271,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: 微软雅黑, Arial, sans-serif, "Helvetica Neue", Helvetica;
-  font-size: 14px;
+  font-family: Arial, 微软雅黑, sans-serif, "Helvetica Neue", Helvetica;
+  font-size: 12px;
   line-height: 1.42857143;
   color: #333333;
   background-color: #ffffff;
