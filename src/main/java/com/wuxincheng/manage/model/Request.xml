@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Request">
+	<typeAlias alias="Request" type="com.wuxincheng.manage.model.Request" />
+
+	<resultMap class="Request" id="RequestMapping">
+		<result property="requestTime" column="REQUEST_TIME" />
+		<result property="webType" column="WEB_TYPE" />
+		<result property="requestIp" column="REQUEST_IP" />
+		<result property="systemPath" column="SYSTEM_PATH" />
+		<result property="blogId" column="BLOG_ID" />
+		<result property="socialType" column="SOCIAL_TYPE" />
+		<result property="param" column="PARAM" />
+		<result property="state" column="STATE" />
+		<result property="note" column="NOTE" />
+		<result property="blogTitle" column="BLOG_TITLE" />
+	</resultMap>
+	
+	<select id="queryPager" parameterClass="java.util.Map" resultMap="RequestMapping">
+		SELECT 
+			r.WEB_TYPE, r.REQUEST_IP, r.SYSTEM_PATH, r.BLOG_ID, 
+			r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE, i.BLOG_TITLE, 
+			DATE_FORMAT(r.REQUEST_TIME,'%Y-%m-%d %H:%i:%S') AS REQUEST_TIME
+		FROM T_SYSTEM_REQUEST r
+			LEFT JOIN T_BLOG_DETAIL_INFO i ON r.BLOG_ID = i.BLOG_ID
+		ORDER BY REQUEST_TIME DESC
+		LIMIT #start#, #end#
+	</select>
+	
+	<select id="queryCount" resultClass="java.lang.Integer">
+		SELECT COUNT(*) AS queryCount FROM T_SYSTEM_REQUEST
+	</select>
+	
+</sqlMap>

@@ -10,5 +10,6 @@
 	<sqlMap resource="com/wuxincheng/manage/model/Message.xml" />
 	<sqlMap resource="com/wuxincheng/manage/model/User.xml" />
 	<sqlMap resource="com/wuxincheng/manage/model/Admins.xml" />
+	<sqlMap resource="com/wuxincheng/manage/model/Request.xml" />
 	
 </sqlMapConfig>

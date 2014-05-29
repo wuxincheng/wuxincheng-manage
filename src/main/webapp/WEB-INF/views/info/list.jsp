@@ -39,6 +39,7 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:set var="totalRead" value="0" />
 					<c:choose>
 					<c:when test="${not empty pager.blogInfos}">
 					<c:forEach items="${pager.blogInfos}" var="blogInfo" varStatus="s">
@@ -59,7 +60,10 @@
 						</td>
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.updateTime}</td>
-						<td style="text-align: right;"><fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0"/>&nbsp;&nbsp;</td>
+						<td style="text-align: right;">
+							<fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0" />
+							<c:set var="totalRead" value="${totalRead + blogInfo.readCount}" />&nbsp;&nbsp;
+						</td>
 						<td>
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-warning btn-sm">修改</button>
@@ -68,8 +72,14 @@
 							<button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('您确定执行删除么?')) document.location = '<%=request.getContextPath()%>/manage/blogInfo/delete?blogId=${blogInfo.blogId}';">删除</button>
 						</td>
 					</tr>
-					
 					</c:forEach>
+					<tr>
+						<td colspan="5" style="text-align: center; font-weight: bold;">本页博客总访问量</td>
+						<td colspan="2" style="text-align: right; font-weight: bold;">
+							<fmt:formatNumber value="${totalRead}" pattern="###,###,###,##0" />&nbsp;&nbsp;
+						</td>
+						<td>&nbsp;</td>
+					</tr>
 					</c:when>
 					<c:otherwise>
 					<div class="alert alert-info">
@@ -83,6 +93,7 @@
 				</tbody>
 			</table>
 			<div class="tab-bottom-line"></div>
+			
 			<ul class="pager">
 				<li <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
 					<a <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/blogInfo/list?currentPage=1"</c:if>>首页</a>
@@ -103,11 +114,10 @@
 				<li class="">&nbsp;</li>
 				<li class=""><strong>${pager.currentPage}/${pager.lastPage}</strong></li>
 				<li class="">&nbsp;</li>
-				<li class="disabled">共<strong>${pager.totalCount}</strong>条博文</li>
+				<li class="disabled">共<strong>${pager.totalCount}</strong>条</li>
 				<li class="">&nbsp;</li>
 				<li class="">每页显示<strong>10</strong>条</li>
 			</ul>
-			
 		</div>
 	</div>
 	
