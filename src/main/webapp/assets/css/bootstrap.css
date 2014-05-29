@@ -5781,3 +5781,32 @@ button.close {
     display: none !important;
   }
 }
+
+/** scoial */
+.label-google {
+  background-color: #f75353;
+}
+.label-facebook {
+  background-color: #4c66a4;
+}
+.label-twitter {
+  background-color: #55acee;
+}
+.label-linkedin {
+  background-color: #069;
+}
+.label-qzone {
+  background-color: #FFDC35;
+}
+.label-tweibo {
+  background-color: #73CFF1;
+}
+.label-weixin {
+  background-color: #609700;
+}
+.label-weibo {
+  background-color: #d7914b;
+}
+.label-renren {
+  background-color: #005eac;
+}

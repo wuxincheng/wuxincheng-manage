@@ -7,7 +7,19 @@
 <meta charset="utf-8">
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
+<script src="<%=request.getContextPath()%>/assets/js/popup.js"></script>
+<script type="text/javascript">
+	var showSocialCount = function(blogId){
+	    var pop = new Popup({ contentType:1,scrollType:'auto',isReloadOnClose:false,width:900,height:400});
+		pop.setContent("contentUrl","<%=request.getContextPath()%>/manage/request/countBySocial?blogId='"+blogId+"'");
+		pop.setContent("title", "博客访问统计");
+		pop.build();
+		pop.show();
+	};
+</script>
+
 </head>
+
 <body>
 	<jsp:include page="../top.jsp" />
 	
@@ -55,13 +67,13 @@
 							<span class="label label-danger">未发布</span>
 							</c:if>
 						</td>
-						<td>
-							${blogInfo.blogTitle}
-						</td>
+						<td>${blogInfo.blogTitle}</td>
 						<td>${blogInfo.blogTypeName}</td>
 						<td>${blogInfo.updateTime}</td>
-						<td style="text-align: right;">
+						<td style="text-align: right; font-weight:bold;">
+							<a href="#" onclick="showSocialCount('${blogInfo.blogId}');">
 							<fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0" />
+							</a>
 							<c:set var="totalRead" value="${totalRead + blogInfo.readCount}" />&nbsp;&nbsp;
 						</td>
 						<td>

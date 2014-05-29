@@ -78,4 +78,15 @@ public class RequestController extends BaseController {
 		return "request/list";
 	}
 	
+	/**
+	 * 统计
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/countBySocial")
+	public String countBySocial(String blogId, Model model) {
+		
+		return "request/social_count";
+	}
+	
 }

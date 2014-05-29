@@ -20,82 +20,6 @@
 			<input type="text" class="form-control" placeholder="博客标题">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
-			
-			<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">分析</button>
-			
-			
-			
-			
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			      </div>
-			      <div class="modal-body">
-			        <table class="table table-bordered table-striped">
-      <thead>
-       <tr>
-         <th style="width: 100px;">Name</th>
-         <th style="width: 50px;">type</th>
-         <th style="width: 50px;">default</th>
-         <th>description</th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr>
-         <td>backdrop</td>
-         <td>boolean or the string <code>'static'</code></td>
-         <td>true</td>
-         <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
-       </tr>
-       <tr>
-         <td>keyboard</td>
-         <td>boolean</td>
-         <td>true</td>
-         <td>Closes the modal when escape key is pressed</td>
-       </tr>
-       <tr>
-         <td>show</td>
-         <td>boolean</td>
-         <td>true</td>
-         <td>Shows the modal when initialized.</td>
-       </tr>
-       <tr>
-         <td>remote</td>
-         <td>path</td>
-         <td>false</td>
-         <td><p>If a remote URL is provided, <strong>content will be loaded one time</strong> via jQuery's <code>load</code> method and injected into the <code>.modal-content</code> div. If you're using the data-api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;modal&quot;</span> <span class="na">href=</span><span class="s">&quot;remote.html&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#modal&quot;</span><span class="nt">&gt;</span>Click me<span class="nt">&lt;/a&gt;</span>
-</code></pre></div>
-         </td>
-       </tr>
-      </tbody>
-    </table>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
-			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		</form>
 		<hr />
 		<div class="table-responsive">
@@ -120,7 +44,38 @@
 						<td><span class="label label-success">${pojo.requestIp}</span></td>
 						<td><span class="label label-info">${pojo.systemPath}</span></td>
 						<td>${pojo.blogTitle}</td>
-						<td>${pojo.socialType}</td>
+						<td>
+							<c:if test="${'google' eq pojo.socialType}">
+								<span class="label label-google">Google+</span>
+							</c:if>
+							<c:if test="${'facebook' eq pojo.socialType}">
+								<span class="label label-facebook">Facebook</span>
+							</c:if>
+							<c:if test="${'twitter' eq pojo.socialType}">
+								<span class="label label-twitter">Twitter</span>
+							</c:if>
+							<c:if test="${'linkedin' eq pojo.socialType}">
+								<span class="label label-linkedin">LinkedIn</span>
+							</c:if>
+							<c:if test="${'qzone' eq pojo.socialType}">
+								<span class="label label-qzone">QQ空间</span>
+							</c:if>
+							<c:if test="${'tweibo' eq pojo.socialType}">
+								<span class="label label-tweibo">腾讯微博</span>
+							</c:if>
+							<c:if test="${'weibo' eq pojo.socialType}">
+								<span class="label label-weibo">新浪微博</span>
+							</c:if>
+							<c:if test="${'weixin' eq pojo.socialType}">
+								<span class="label label-weixin">微信</span>
+							</c:if>
+							<c:if test="${'renren' eq pojo.socialType}">
+								<span class="label label-renren">人人网</span>
+							</c:if>
+							<c:if test="${'wuxincheng' eq pojo.socialType}">
+								<span class="label label-primary">新成微博</span>
+							</c:if>
+						</td>
 					</tr>
 					</c:forEach>
 					</c:when>
@@ -159,7 +114,7 @@
 				<li class="">&nbsp;</li>
 				<li class="disabled">共<strong>${pager.totalCount}</strong>条</li>
 				<li class="">&nbsp;</li>
-				<li class="">每页显示<strong>10</strong>条</li>
+				<li class="">每页显示<strong>${pager.pageSize}</strong>条</li>
 			</ul>
 		</div>
 	</div>

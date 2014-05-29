@@ -31,4 +31,13 @@
 		SELECT COUNT(*) AS queryCount FROM T_SYSTEM_REQUEST
 	</select>
 	
+	<!-- 
+	<select id="countBySocial" resultClass="java.util.Map">
+		SELECT DATE_FORMAT(REQUEST_TIME,'%Y-%m-%d') AS COUNTDAY, BLOG_ID, SOCIAL_TYPE, COUNT(*) AS SOCIAL_READ 
+		FROM T_SYSTEM_REQUEST 
+		WHERE BLOG_ID = 15 
+		GROUP BY SOCIAL_TYPE, BLOG_ID, DATE_FORMAT(REQUEST_TIME,'%Y-%m-%d')
+	</select>
+	 -->
+	
 </sqlMap>
