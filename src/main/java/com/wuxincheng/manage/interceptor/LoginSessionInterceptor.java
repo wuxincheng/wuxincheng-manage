@@ -41,9 +41,9 @@ public class LoginSessionInterceptor implements HandlerInterceptor {
 			
 			if (null == admins) {
 				logger.info("后台管理员Admins登录Session失效，跳转到登录页面");
-				// request.getRequestDispatcher("/login/showLoginUI").forward(request, response); // 转发
+				// request.getRequestDispatcher("/admins/login").forward(request, response); // 转发
 				// response.sendRedirect("/index.jsp");  // 重定向
-				response.sendRedirect("/wuxincheng-manage/login/showLoginUI");  // 重定向
+				response.sendRedirect("/wuxincheng-manage/admins/login");  // 重定向
 				return false;   
 			}
 			

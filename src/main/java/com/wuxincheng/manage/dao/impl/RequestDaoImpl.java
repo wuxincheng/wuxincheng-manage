@@ -22,4 +22,10 @@ public class RequestDaoImpl extends BaseDao implements RequestDao {
 		return (Integer)this.getSqlMapClientTemplate().queryForObject("Request.queryCount");
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, String>> countBySocial(String blogId) {
+		return this.getSqlMapClientTemplate().queryForList("Request.countBySocial", blogId);
+	}
+
 }

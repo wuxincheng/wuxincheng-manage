@@ -72,8 +72,11 @@
 							<c:if test="${'renren' eq pojo.socialType}">
 								<span class="label label-renren">人人网</span>
 							</c:if>
-							<c:if test="${'wuxincheng' eq pojo.socialType}">
+							<c:if test="${'wuxincheng' eq pojo.socialType && not empty pojo.blogId}">
 								<span class="label label-primary">新成微博</span>
+							</c:if>
+							<c:if test="${'wuxincheng' eq pojo.socialType && empty pojo.blogId}">
+								<span class="label label-default">新成微博</span>
 							</c:if>
 						</td>
 					</tr>

@@ -1,5 +1,6 @@
 package com.wuxincheng.manage.service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,5 +20,13 @@ public interface RequestService {
 	 * @return
 	 */
 	public abstract Map<String, Object> queryPager(int start, int end);
+	
+	/**
+	 * 统计博客访问
+	 * 
+	 * @param blogId
+	 * @return
+	 */
+	public abstract List<Map<String, String>> countBySocial(String blogId);
 	
 }

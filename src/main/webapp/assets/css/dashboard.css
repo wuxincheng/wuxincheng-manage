@@ -38,6 +38,7 @@ body {
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #F3F3F3;
     border-right: 1px solid #eee;
+    font-size: 13px;
   }
 }
 

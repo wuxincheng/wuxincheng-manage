@@ -17,15 +17,15 @@ import com.wuxincheng.manage.util.MD5;
 import com.wuxincheng.manage.util.Validation;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/admins")
 public class Login {
 	
 	private static Logger logger = LoggerFactory.getLogger(Login.class);
 	
 	@Autowired private AdminsService adminsService;
 	
-	@RequestMapping(value = "/showLoginUI")
-	public String showloginUI(Model model) {
+	@RequestMapping(value = "/login")
+	public String login(Model model) {
 		logger.info("显示后台管理登录页面");
 		
 		/*

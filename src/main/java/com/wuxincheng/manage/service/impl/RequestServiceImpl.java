@@ -36,4 +36,9 @@ public class RequestServiceImpl implements RequestService {
 		return reault;
 	}
 
+	@Override
+	public List<Map<String, String>> countBySocial(String blogId) {
+		return requestDao.countBySocial(blogId);
+	}
+
 }

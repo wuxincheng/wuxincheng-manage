@@ -1,6 +1,7 @@
 package com.wuxincheng.manage.controller;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -85,6 +86,13 @@ public class RequestController extends BaseController {
 	 */
 	@RequestMapping(value = "/countBySocial")
 	public String countBySocial(String blogId, Model model) {
+		List<Map<String, String>> socials = null;
+		
+		if (!Validation.isBlank(blogId)) {
+			socials = requestService.countBySocial(blogId);
+		} 
+		
+		model.addAttribute("socials", socials);
 		
 		return "request/social_count";
 	}

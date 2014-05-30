@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>新成博客后台管理系统 - V1.0</title>
-<meta http-equiv="refresh" content="0;url=<%=request.getContextPath()%>/login/showLoginUI" >
+<meta http-equiv="refresh" content="0;url=<%=request.getContextPath()%>/admins/login" >
 <link href="assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 </head>

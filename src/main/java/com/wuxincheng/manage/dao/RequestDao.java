@@ -24,4 +24,12 @@ public interface RequestDao {
 	 */
 	public abstract Integer queryCount();
 	
+	/**
+	 * 统计博客访问
+	 * 
+	 * @param blogId
+	 * @return
+	 */
+	public abstract List<Map<String, String>> countBySocial(String blogId);
+	
 }

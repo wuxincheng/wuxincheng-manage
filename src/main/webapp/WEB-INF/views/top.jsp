@@ -39,11 +39,30 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="<%=request.getContextPath()%>/login/main"><span class="glyphicon glyphicon-home"></span> 首页</a>
+					<li><a href="<%=request.getContextPath()%>/admins/main"><span class="glyphicon glyphicon-home"></span> 首页</a>
 					<li><a href=""><span class="glyphicon glyphicon-user"></span> ${admins.adminsName} [系统管理员]</a></li>
-					<li><a href="<%=request.getContextPath()%>/logout/showLoginUI"><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
+					<li><a data-toggle="modal" data-target=".logout-modal" href=""><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
 					<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade logout-modal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h5 class="modal-title">系统提示</h5>
+				</div>
+				<div class="modal-body" style="text-align: center; font-weight: bold;">
+					您确定退出管理系统吗？
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+					<a href="<%=request.getContextPath()%>/admins/logout">
+					<button type="button" class="btn btn-primary btn-sm">确定</button>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
