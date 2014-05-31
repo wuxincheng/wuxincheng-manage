@@ -32,4 +32,19 @@ public interface RequestDao {
 	 */
 	public abstract List<Map<String, String>> countBySocial(String blogId);
 	
+	/**
+	 * 查询IP区域为空数据
+	 * 
+	 * @param flag
+	 * @return
+	 */
+	public abstract List<Map<String, String>> queryNullIpAddress();
+	
+	/**
+	 * 更新IP区域为空的
+	 * 
+	 * @param params
+	 */
+	public abstract void updateIpAddress(Map<String, String> params);
+	
 }

@@ -29,4 +29,9 @@ public interface RequestService {
 	 */
 	public abstract List<Map<String, String>> countBySocial(String blogId);
 	
+	/**
+	 * 更新IP区域为空的IP地址
+	 */
+	public abstract void updateNullIpAddress();
+	
 }

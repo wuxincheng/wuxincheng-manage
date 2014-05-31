@@ -28,4 +28,15 @@ public class RequestDaoImpl extends BaseDao implements RequestDao {
 		return this.getSqlMapClientTemplate().queryForList("Request.countBySocial", blogId);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Map<String, String>> queryNullIpAddress() {
+		return this.getSqlMapClientTemplate().queryForList("Request.queryNullIpAddress");
+	}
+
+	@Override
+	public void updateIpAddress(Map<String, String> params) {
+		this.getSqlMapClientTemplate().update("Request.updateIpAddress", params);
+	}
+
 }

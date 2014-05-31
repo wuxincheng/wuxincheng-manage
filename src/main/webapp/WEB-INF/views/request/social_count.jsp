@@ -58,7 +58,7 @@ var data = [
 		render : 'canvasDiv',//渲染的Dom目标,canvasDiv为Dom的ID
 		data: data,//绑定数据
 		title : '', //设置标题
-		width : 600,//设置宽度，默认单位为px
+		width : 680,//设置宽度，默认单位为px
 		height : 376,//设置高度，默认单位为px
 		shadow:true,//激活阴影
 		shadow_color:'#c7c7c7',//设置阴影颜色
@@ -151,7 +151,7 @@ var data = [
      		
 			<div class="col-sm-9">
 				<h6>统计图：</h6>
-				<div id='canvasDiv'></div>
+				<div id="canvasDiv"></div>
 			</div>
 		</div>
 	</div>

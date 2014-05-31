@@ -10,7 +10,7 @@
 <script src="<%=request.getContextPath()%>/assets/js/popup.js"></script>
 <script type="text/javascript">
 	var showSocialCount = function(blogId){
-	    var pop = new Popup({ contentType:1,scrollType:'auto',isReloadOnClose:false,width:900,height:480});
+	    var pop = new Popup({ contentType:1,scrollType:'auto',isReloadOnClose:false,width:980,height:480});
 		pop.setContent("contentUrl","<%=request.getContextPath()%>/manage/request/countBySocial?blogId="+blogId+"");
 		pop.setContent("title", "博客访问统计");
 		pop.build();

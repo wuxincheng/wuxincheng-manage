@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.wuxincheng.manage.dao.RequestDao;
 import com.wuxincheng.manage.model.Request;
 import com.wuxincheng.manage.service.RequestService;
+import com.wuxincheng.manage.util.IPUtil;
 
 @Service("requestService")
 public class RequestServiceImpl implements RequestService {
@@ -39,6 +40,25 @@ public class RequestServiceImpl implements RequestService {
 	@Override
 	public List<Map<String, String>> countBySocial(String blogId) {
 		return requestDao.countBySocial(blogId);
+	}
+
+	@Override
+	public void updateNullIpAddress() {
+		// 查询空IP区域列表
+		List<Map<String, String>> requests = requestDao.queryNullIpAddress();
+		
+		String requestIp = null;
+		String ipAddress = null;
+		Map<String, String> params = new HashMap<String, String>();
+		for (Map<String, String> request : requests) {
+			requestIp = request.get("requestIp");
+
+			ipAddress = IPUtil.getAddressByIp(requestIp);
+			params.put("ipAddress", ipAddress);
+			params.put("requestIp", requestIp);
+			
+			requestDao.updateIpAddress(params);
+		}
 	}
 
 }

@@ -8,7 +8,8 @@
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 </head>
-
+<script>
+</script>
 <body>
 	<jsp:include page="../top.jsp" />
 	
@@ -20,6 +21,12 @@
 			<input type="text" class="form-control" placeholder="博客标题">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
+			
+			<a href="<%=request.getContextPath()%>/manage/request/updateIpAddress">
+			<button type="button" id="processNullIpAddBut" data-loading-text="正在处理中... ..." class="btn btn-danger btn-sm">
+				处理空IP区域
+			</button>
+			</a>
 		</form>
 		<hr />
 		<div class="table-responsive">
@@ -29,6 +36,7 @@
 						<th>序号</th>
 						<th>访问时间</th>
 						<th>访问IP地址</th>
+						<th>参考IP地域</th>
 						<th>系统路径</th>
 						<th>博客</th>
 						<th>访问来源</th>
@@ -42,6 +50,7 @@
 						<td>${s.index + 1}</td>
 						<td>${pojo.requestTime}</td>
 						<td><span class="label label-success">${pojo.requestIp}</span></td>
+						<td><span class="label label-warning">${pojo.ipAddress}</span></td>
 						<td><span class="label label-info">${pojo.systemPath}</span></td>
 						<td>${pojo.blogTitle}</td>
 						<td>

@@ -97,4 +97,20 @@ public class RequestController extends BaseController {
 		return "request/social_count";
 	}
 	
+	/**
+	 * 更新IpAddress
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/updateIpAddress")
+	public String updateIpAddress(HttpServletRequest request, Model model) {
+		logger.info("处理空IP区域");
+		
+		requestService.updateNullIpAddress();
+		
+		logger.info("空IP区域处理完成");
+		
+		return list(request, "1", model);
+	}
+	
 }
