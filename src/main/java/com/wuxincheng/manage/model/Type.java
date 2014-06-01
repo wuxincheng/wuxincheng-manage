@@ -17,6 +17,10 @@ public class Type implements Serializable {
 	private Integer typeId;
 	/** 博客类型名称 */
 	private String typeName;
+	/** 博客数量 */
+	private String bcount;
+	/** 博客阅读量 */
+	private String dcount;
 	/** 博客类型创建时间 */
 	private Date createTime;
 	/** 博客类型状态: 0-正常, 1-禁用 */
@@ -53,6 +57,22 @@ public class Type implements Serializable {
 
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
+	}
+
+	public String getBcount() {
+		return bcount;
+	}
+
+	public void setBcount(String bcount) {
+		this.bcount = bcount;
+	}
+
+	public String getDcount() {
+		return dcount;
+	}
+
+	public void setDcount(String dcount) {
+		this.dcount = dcount;
 	}
 
 	public Date getCreateTime() {

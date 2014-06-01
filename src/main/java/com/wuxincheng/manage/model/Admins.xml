@@ -17,14 +17,14 @@
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="AdminsMapping">
 		SELECT 
 			ADMINS_LOGIN, ADMINS_PWD, ADMINS_NAME, SEX, MEMO, STATE, ADMINS_LEVEL, 
-			DATE_FORMAT(CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_SYSTEM_ADMINS
 	</select>
 	
 	<select id="query" parameterClass="Admins" resultMap="AdminsMapping">
 		SELECT 
 			ADMINS_LOGIN, ADMINS_PWD, ADMINS_NAME, SEX, MEMO, STATE, ADMINS_LEVEL, 
-			DATE_FORMAT(CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_SYSTEM_ADMINS
 		WHERE ADMINS_LOGIN = #adminsLogin#
 		<dynamic>

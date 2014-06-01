@@ -3,7 +3,17 @@
 <sqlMap namespace="Type">
 	<typeAlias alias="Type" type="com.wuxincheng.manage.model.Type" />
 
-	<resultMap class="Type" id="TypeMapping">
+	<resultMap id="TypeListMapping" class="Type">
+		<result property="typeId" column="TYPE_ID" />
+		<result property="typeName" column="TYPE_NAME" />
+		<result property="bcount" column="BCOUNT" />
+		<result property="dcount" column="DCOUNT" />
+		<result property="typeState" column="TYPE_STATE" />
+		<result property="typeMemo" column="TYPE_MEMO" />
+		<result property="createTimeStr" column="CREATE_TIME_STR" />
+	</resultMap>
+
+	<resultMap id="TypeMapping" class="Type">
 		<result property="typeId" column="TYPE_ID" />
 		<result property="typeName" column="TYPE_NAME" />
 		<result property="createTime" column="CREATE_TIME" />
@@ -12,11 +22,20 @@
 		<result property="createTimeStr" column="CREATE_TIME_STR" />
 	</resultMap>
 	
-	<select id="queryAll" parameterClass="java.lang.String" resultMap="TypeMapping">
+	<select id="queryAll" parameterClass="java.lang.String" resultMap="TypeListMapping">
 		SELECT 
-			bt.TYPE_ID, bt.TYPE_NAME, bt.CREATE_TIME, bt.TYPE_STATE, bt.TYPE_MEMO,
-			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME_STR
+			bt.TYPE_ID, bt.TYPE_NAME, IFNULL(bi.BCOUNT, 0) AS BCOUNT, IFNULL(di.DCOUNT, 0) AS DCOUNT, 
+			DATE_FORMAT(bt.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME_STR, bt.TYPE_STATE, bt.TYPE_MEMO
 		FROM T_BLOG_TYPE bt 
+			LEFT JOIN (
+				SELECT BLOG_TYPE, COUNT(*) AS BCOUNT FROM T_BLOG_DETAIL_INFO 
+				WHERE BLOG_STATE NOT IN ('2') GROUP BY BLOG_TYPE
+			) bi ON bt.TYPE_ID = bi.BLOG_TYPE
+			LEFT JOIN (
+				SELECT d.BLOG_TYPE, COUNT(*) AS DCOUNT FROM T_SYSTEM_REQUEST r
+					LEFT JOIN T_BLOG_DETAIL_INFO d ON r.BLOG_ID = d.BLOG_ID
+				WHERE r.BLOG_ID IS NOT NULL AND d.BLOG_STATE NOT IN ('2') GROUP BY d.BLOG_TYPE
+			)di ON bt.TYPE_ID = di.BLOG_TYPE
 		WHERE bt.TYPE_STATE = '0' 
 		ORDER BY bt.TYPE_ID ASC, bt.CREATE_TIME ASC
 	</select>
@@ -24,7 +43,7 @@
 	<select id="queryByTypeId" parameterClass="java.lang.String" resultMap="TypeMapping">
 		SELECT 
 			bt.TYPE_ID, bt.TYPE_NAME, bt.CREATE_TIME, bt.TYPE_STATE, bt.TYPE_MEMO,
-			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME_STR
+			DATE_FORMAT(bt.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME_STR
 		FROM T_BLOG_TYPE bt 
 		WHERE bt.TYPE_ID = #typeId#
 	</select>

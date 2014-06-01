@@ -85,7 +85,7 @@
 						</td>
 					</tr>
 					</c:forEach>
-					<tr>
+					<tr class="active">
 						<td colspan="5" style="text-align: center; font-weight: bold;">本页博客总访问量</td>
 						<td colspan="2" style="text-align: right; font-weight: bold;">
 							<fmt:formatNumber value="${totalRead}" pattern="###,###,###,##0" />&nbsp;&nbsp;

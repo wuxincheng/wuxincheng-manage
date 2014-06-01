@@ -78,6 +78,7 @@
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>运营分析</b></li>
 					<li <c:if test="${'request' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/request/list">访问查询</a></li>
+					<li <c:if test="${'reportDaily' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/daily">访问日报表</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>

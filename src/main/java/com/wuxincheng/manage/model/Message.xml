@@ -15,7 +15,7 @@
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="MessageMapping">
 		SELECT 
 			bt.MSG_ID, bt.USERNAME, bt.MSG_TITLE, bt.MSG_CONTENT, bt.STATE,
-			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(bt.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_USER_MESSAGE bt 
 		ORDER BY bt.MSG_ID ASC, bt.CREATE_TIME ASC
 	</select>
@@ -23,7 +23,7 @@
 	<select id="queryByMsgId" parameterClass="java.lang.String" resultMap="MessageMapping">
 		SELECT 
 			bt.MSG_ID, bt.USERNAME, bt.MSG_TITLE, bt.MSG_CONTENT, bt.STATE,
-			DATE_FORMAT(bt.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(bt.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_USER_MESSAGE bt 
 		WHERE bt.MSG_ID = #msgId#
 	</select>

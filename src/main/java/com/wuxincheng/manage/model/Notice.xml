@@ -14,7 +14,7 @@
 	<select id="queryAll" parameterClass="java.lang.String" resultMap="NoticeMapping">
 		SELECT 
 			i.NOTICE_ID, i.NOTICE_TITLE, i.NOTICE_CONTENT, i.STATE, 
-			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(i.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_USER_NOTICE i 
 		ORDER BY i.CREATE_TIME
 	</select>
@@ -22,7 +22,7 @@
 	<select id="queryByNoticeId" parameterClass="java.lang.String" resultMap="NoticeMapping">
 		SELECT 
 			i.NOTICE_ID, i.NOTICE_TITLE, i.NOTICE_CONTENT, i.STATE, 
-			DATE_FORMAT(i.CREATE_TIME,'%Y-%m-%d %H:%i:%S') AS CREATE_TIME
+			DATE_FORMAT(i.CREATE_TIME,'%Y%m%d %H:%i:%S') AS CREATE_TIME
 		FROM T_USER_NOTICE i 
 		WHERE i.NOTICE_ID = #noticeId#
 	</select>
