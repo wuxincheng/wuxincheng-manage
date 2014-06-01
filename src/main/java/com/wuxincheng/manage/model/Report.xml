@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Report">
+	<typeAlias alias="Report" type="com.wuxincheng.manage.model.Report" />
+	
+	<resultMap id="ReportDailyMap" class="Report">
+  		<result property="requestDay" column="REQUEST_DAY"/>
+  		<result property="rcount" column="RCOUNT"/>
+	</resultMap>
+	
+	<select id="queryDailyReport" resultMap="ReportDailyMap">
+		SELECT sq.* FROM(
+			SELECT 
+				DATE_FORMAT(REQUEST_TIME,'%Y%m%d') AS REQUEST_DAY, COUNT(*) AS RCOUNT
+			FROM T_SYSTEM_REQUEST 
+				GROUP BY DATE_FORMAT(REQUEST_TIME,'%Y%m%d') 
+				ORDER BY REQUEST_TIME DESC LIMIT 0, 10 
+		) sq ORDER BY sq.REQUEST_DAY ASC
+	</select>
+	
+</sqlMap>
