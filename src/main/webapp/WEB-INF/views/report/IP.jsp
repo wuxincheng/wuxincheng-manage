@@ -23,11 +23,11 @@ $(function(){
 		render : 'canvasDiv',
 		data: data,
 		width : 950,
-		height : 550,
+		height : 500,
 		offsetx:20,
 		coordinate:{
 			width:500,
-			height:450,
+			height:380,
 			grid_color:'#428bca',
 			axis:{
 				color:'#428bca',

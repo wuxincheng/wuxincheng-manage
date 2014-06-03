@@ -20,12 +20,12 @@
 	</resultMap>
 	
 	<resultMap id="ReportChinaMap" class="Report">
-  		<result property="ipAddress" column="IP_ADDRESS"/>
+  		<result property="ipAddress" column="IP_REGION"/>
   		<result property="ccount" column="CCOUNT"/>
 	</resultMap>
 	
 	<resultMap id="ReportUnChinaMap" class="Report">
-  		<result property="ipAddress" column="IP_ADDRESS"/>
+  		<result property="ipAddress" column="IP_COUNTRY"/>
   		<result property="uccount" column="UCCOUNT"/>
 	</resultMap>
 	
@@ -64,27 +64,27 @@
 	<select id="queryChinaReport" resultMap="ReportChinaMap">
 		SELECT ipc.* FROM(
 			SELECT 
-				IP_ADDRESS, COUNT(*) AS CCOUNT
+				IP_REGION, COUNT(*) AS CCOUNT
 			FROM T_SYSTEM_REQUEST 
-			WHERE IP_ADDRESS LIKE '%中国%' 
+			WHERE IP_COUNTRY = '中国' 
 				OR IP_ADDRESS LIKE '%台湾%' 
 				OR IP_ADDRESS LIKE '%香港%'
 				OR IP_ADDRESS LIKE '%澳门%'
-				GROUP BY IP_ADDRESS
-		) ipc ORDER BY ipc.CCOUNT DESC, IP_ADDRESS
+				GROUP BY IP_REGION
+		) ipc ORDER BY ipc.CCOUNT DESC, IP_REGION
 	</select>
 	
 	<select id="queryUnChinaReport" resultMap="ReportUnChinaMap">
 		SELECT ipc.* FROM(
 			SELECT 
-				IP_ADDRESS, COUNT(*) AS UCCOUNT
+				IP_COUNTRY, COUNT(*) AS UCCOUNT
 			FROM T_SYSTEM_REQUEST 
-			WHERE IP_ADDRESS NOT LIKE '%中国%' 
+			WHERE IP_COUNTRY != '中国' 
 				AND IP_ADDRESS NOT LIKE '%台湾%' 
 				AND IP_ADDRESS NOT LIKE '%香港%'
 				AND IP_ADDRESS NOT LIKE '%澳门%'
-				GROUP BY IP_ADDRESS
-		) ipc ORDER BY ipc.UCCOUNT DESC, IP_ADDRESS
+				GROUP BY IP_COUNTRY
+		) ipc ORDER BY ipc.UCCOUNT DESC, IP_COUNTRY
 	</select>
 	
 	<select id="queryRequestReport" resultMap="ReportRequestMap">

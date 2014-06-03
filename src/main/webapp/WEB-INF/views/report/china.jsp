@@ -84,11 +84,11 @@ $(function(){
 		render : 'canvasCDiv',
 		data: data,
 		width : 950,
-		height : 2850,
+		height : 700,
 		offsetx:20,
 		coordinate:{
-			width:500,
-			height:2750,
+			width:700,
+			height:630,
 			grid_color:'#428bca',
 			axis:{
 				color:'#428bca',
@@ -133,11 +133,11 @@ $(function(){
 		render : 'canvasUDiv',
 		data: data,
 		width : 950,
-		height : 700,
+		height : 550,
 		offsetx:20,
 		coordinate:{
 			width:700,
-			height:600,
+			height:480,
 			grid_color:'#428bca',
 			axis:{
 				color:'#428bca',

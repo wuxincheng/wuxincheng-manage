@@ -48,14 +48,14 @@ public class RequestServiceImpl implements RequestService {
 		List<Map<String, String>> requests = requestDao.queryNullIpAddress();
 		
 		String requestIp = null;
-		String ipAddress = null;
+		Map<String, String> ipInfo = null;
 		Map<String, String> params = new HashMap<String, String>();
 		for (Map<String, String> request : requests) {
 			requestIp = request.get("requestIp");
 
-			ipAddress = IPUtil.getAddressByIp(requestIp);
-			params.put("ipAddress", ipAddress);
+			ipInfo = IPUtil.getAddressByIp(requestIp);
 			params.put("requestIp", requestIp);
+			params.putAll(ipInfo);
 			
 			requestDao.updateIpAddress(params);
 		}

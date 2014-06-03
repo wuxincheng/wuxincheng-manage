@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,8 +26,8 @@ public class IPUtil {
 	 * @param IP
 	 * @return
 	 */
-	public static String getAddressByIp(String IP) {
-		String resout = "";
+	public static Map<String, String> getAddressByIp(String IP) {
+		Map<String, String> ipInfo = new HashMap<String, String>();
 		try {
 			String str = getJsonContent("http://ip.taobao.com/service/getIpInfo.php?ip=" + IP);
 			System.out.println("ip.taobao接收到的数据: " + str);
@@ -47,7 +49,12 @@ public class IPUtil {
 				String city = dataNode.path("city").asText();
 				String region = dataNode.path("region").asText();
 				
-				resout = country + region + city;
+				String ipAddress = country + region + city;
+				
+				ipInfo.put("ipAddress", ipAddress);
+				ipInfo.put("country", country);
+				ipInfo.put("region", region);
+				ipInfo.put("city", city);
 			} else {
 				System.out.println("查询失败");
 			}
@@ -58,7 +65,7 @@ public class IPUtil {
 			
 		}
 		
-		return resout;
+		return ipInfo;
 	}
 
 	private static String getJsonContent(String urlStr) {

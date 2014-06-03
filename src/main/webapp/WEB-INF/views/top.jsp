@@ -79,7 +79,9 @@
 					<li class="nav-header"><b>运营分析</b></li>
 					<li <c:if test="${'request' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/request/list">访问统计查询</a></li>
 					<li <c:if test="${'reportDaily' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/daily">访问日统计报表</a></li>
+					<!-- 
 					<li <c:if test="${'reportHours' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/hours">访问时统计报表</a></li>
+					 -->
 					<li <c:if test="${'reportChina' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/china">境内外访问统计报表</a></li>
 					<li <c:if test="${'reportIP' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/IP">访问IP统计报表</a></li>
 				</ul>
