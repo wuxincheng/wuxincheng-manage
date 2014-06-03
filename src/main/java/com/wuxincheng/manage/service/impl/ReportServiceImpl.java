@@ -19,5 +19,30 @@ public class ReportServiceImpl implements ReportService {
 	public List<Report> queryDailyReport() {
 		return reportDao.queryDailyReport();
 	}
+
+	@Override
+	public List<Report> queryHoursReport() {
+		return reportDao.queryHoursReport();
+	}
+
+	@Override
+	public List<Report> queryIPReport() {
+		return reportDao.queryIPReport();
+	}
+
+	@Override
+	public List<Report> queryChinaReport() {
+		return reportDao.queryChinaReport();
+	}
+
+	@Override
+	public List<Report> queryUnChinaReport() {
+		return reportDao.queryUnChinaReport();
+	}
+
+	@Override
+	public List<Report> queryRequestReport() {
+		return reportDao.queryRequestReport();
+	}
 	
 }

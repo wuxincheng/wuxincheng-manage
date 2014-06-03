@@ -29,12 +29,73 @@ public class ReportController extends BaseController {
 	@Autowired private ReportService reportService;
 	
 	/**
+	 * 境内外访问统计报表
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/china")
+	public String china(HttpServletRequest request, Model model) {
+		logger.info("境内外访问统计报表");
+		setMenuFlag(request, "reportChina");
+		
+		List<Report> requestList = reportService.queryRequestReport();
+		Integer rrsum = 0;
+		for (Report report : requestList) {
+			rrsum = rrsum + report.getRequestSum();
+		}
+		model.addAttribute("rrsum", rrsum);
+		
+		List<Report> chinaList = reportService.queryChinaReport();
+		List<Report> unChinaList = reportService.queryUnChinaReport();
+		
+		model.addAttribute("requestList", requestList);
+		model.addAttribute("chinaList", chinaList);
+		model.addAttribute("unChinaList", unChinaList);
+		
+		return "report/china";
+	}
+	
+	/**
+	 * IP访问统计报表
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/IP")
+	public String IP(HttpServletRequest request, Model model) {
+		logger.info("IP访问统计报表");
+		setMenuFlag(request, "reportIP");
+		
+		List<Report> dataList = reportService.queryIPReport();
+		
+		model.addAttribute("dataList", dataList);
+		
+		return "report/IP";
+	}
+	
+	/**
+	 * 时报表：即一天24小时每小时访问量统计
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/hours")
+	public String hours(HttpServletRequest request, Model model) {
+		logger.info("访问时报表");
+		setMenuFlag(request, "reportHours");
+		
+		List<Report> dataList = reportService.queryHoursReport();
+		
+		model.addAttribute("dataList", dataList);
+		
+		return "report/hours";
+	}
+	
+	/**
 	 * 日报表
 	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/daily")
-	public String list(HttpServletRequest request, Model model) {
+	public String daily(HttpServletRequest request, Model model) {
 		logger.info("访问日报表");
 		setMenuFlag(request, "reportDaily");
 		

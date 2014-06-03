@@ -8,6 +8,32 @@
   		<result property="rcount" column="RCOUNT"/>
 	</resultMap>
 	
+	<resultMap id="ReportHoursMap" class="Report">
+  		<result property="requestHours" column="REQUEST_HOURS"/>
+  		<result property="hcount" column="HCOUNT"/>
+	</resultMap>
+	
+	<resultMap id="ReportIPMap" class="Report">
+  		<result property="requestIP" column="REQUEST_IP"/>
+  		<result property="ipAddress" column="IP_ADDRESS"/>
+  		<result property="icount" column="ICOUNT"/>
+	</resultMap>
+	
+	<resultMap id="ReportChinaMap" class="Report">
+  		<result property="ipAddress" column="IP_ADDRESS"/>
+  		<result property="ccount" column="CCOUNT"/>
+	</resultMap>
+	
+	<resultMap id="ReportUnChinaMap" class="Report">
+  		<result property="ipAddress" column="IP_ADDRESS"/>
+  		<result property="uccount" column="UCCOUNT"/>
+	</resultMap>
+	
+	<resultMap id="ReportRequestMap" class="Report">
+  		<result property="jnw" column="jnw"/>
+  		<result property="requestSum" column="REQUESTSUM"/>
+	</resultMap>
+	
 	<select id="queryDailyReport" resultMap="ReportDailyMap">
 		SELECT sq.* FROM(
 			SELECT 
@@ -16,6 +42,79 @@
 				GROUP BY DATE_FORMAT(REQUEST_TIME,'%Y%m%d') 
 				ORDER BY REQUEST_TIME DESC LIMIT 0, 10 
 		) sq ORDER BY sq.REQUEST_DAY ASC
+	</select>
+	
+	<select id="queryHoursReport" resultMap="ReportHoursMap">
+		SELECT 
+			DATE_FORMAT(REQUEST_TIME,'%H') AS REQUEST_HOURS, COUNT(*) AS HCOUNT
+		FROM T_SYSTEM_REQUEST 
+			GROUP BY DATE_FORMAT(REQUEST_TIME,'%H') 
+			ORDER BY DATE_FORMAT(REQUEST_TIME,'%H') ASC
+	</select>
+	
+	<select id="queryIPReport" resultMap="ReportIPMap">
+		SELECT ipc.* FROM(
+			SELECT 
+				REQUEST_IP, IP_ADDRESS, COUNT(*) AS ICOUNT
+			FROM T_SYSTEM_REQUEST 
+				GROUP BY IP_ADDRESS, REQUEST_IP
+		) ipc WHERE ipc.ICOUNT > 10 ORDER BY ipc.ICOUNT DESC
+	</select>
+	
+	<select id="queryChinaReport" resultMap="ReportChinaMap">
+		SELECT ipc.* FROM(
+			SELECT 
+				IP_ADDRESS, COUNT(*) AS CCOUNT
+			FROM T_SYSTEM_REQUEST 
+			WHERE IP_ADDRESS LIKE '%中国%' 
+				OR IP_ADDRESS LIKE '%台湾%' 
+				OR IP_ADDRESS LIKE '%香港%'
+				OR IP_ADDRESS LIKE '%澳门%'
+				GROUP BY IP_ADDRESS
+		) ipc ORDER BY ipc.CCOUNT DESC, IP_ADDRESS
+	</select>
+	
+	<select id="queryUnChinaReport" resultMap="ReportUnChinaMap">
+		SELECT ipc.* FROM(
+			SELECT 
+				IP_ADDRESS, COUNT(*) AS UCCOUNT
+			FROM T_SYSTEM_REQUEST 
+			WHERE IP_ADDRESS NOT LIKE '%中国%' 
+				AND IP_ADDRESS NOT LIKE '%台湾%' 
+				AND IP_ADDRESS NOT LIKE '%香港%'
+				AND IP_ADDRESS NOT LIKE '%澳门%'
+				GROUP BY IP_ADDRESS
+		) ipc ORDER BY ipc.UCCOUNT DESC, IP_ADDRESS
+	</select>
+	
+	<select id="queryRequestReport" resultMap="ReportRequestMap">
+		SELECT * FROM(
+			SELECT '境外' AS jnw, IFNULL(SUM(ipc.UCCOUNT), 0) REQUESTSUM FROM(
+				SELECT 
+					IP_ADDRESS, COUNT(*) AS UCCOUNT
+				FROM T_SYSTEM_REQUEST 
+				WHERE IP_ADDRESS NOT LIKE '%中国%' 
+					AND IP_ADDRESS NOT LIKE '%台湾%' 
+					AND IP_ADDRESS NOT LIKE '%香港%'
+					AND IP_ADDRESS NOT LIKE '%澳门%'
+					GROUP BY IP_ADDRESS
+			) ipc 
+		) uc
+		
+		UNION ALL
+		
+		(
+			SELECT '境内' AS jnw, IFNULL(SUM(ipc.CCOUNT), 0) REQUESTSUM FROM(
+				SELECT 
+					IP_ADDRESS, COUNT(*) AS CCOUNT
+				FROM T_SYSTEM_REQUEST 
+				WHERE IP_ADDRESS LIKE '%中国%' 
+					OR IP_ADDRESS LIKE '%台湾%' 
+					OR IP_ADDRESS LIKE '%香港%'
+					OR IP_ADDRESS LIKE '%澳门%'
+					GROUP BY IP_ADDRESS
+			) ipc 
+		) 
 	</select>
 	
 </sqlMap>
