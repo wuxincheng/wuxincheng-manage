@@ -17,8 +17,14 @@ public class Request implements Serializable {
 	private String webType;
 
 	private String requestIp;
-	
+
 	private String ipAddress;
+
+	private String country;
+
+	private String city;
+
+	private String region;
 
 	private String systemPath;
 
@@ -31,7 +37,7 @@ public class Request implements Serializable {
 	private String state;
 
 	private String note;
-	
+
 	private String blogTitle;
 
 	public String getRequestTime() {
@@ -56,6 +62,30 @@ public class Request implements Serializable {
 
 	public void setRequestIp(String requestIp) {
 		this.requestIp = requestIp;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 	public String getIpAddress() {
