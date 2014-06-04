@@ -74,8 +74,8 @@ $(function(){
 			scale:[{
 				 position:'left',	
 				 start_scale:0,
-				 end_scale:2000,
-				 scale_space:500,
+				 end_scale:400,
+				 scale_space:200,
 				 scale_size:2,
 				 scale_color:'#9f9f9f'
 			},{
@@ -143,8 +143,8 @@ $(function() {
 			scale : [{
 				position : 'left',
 				start_scale : 0,
-				end_scale : 2000,
-				scale_space : 500,
+				end_scale : 400,
+				scale_space : 200,
 				scale_enable : false,
 				label : {
 					fontsize:11,
