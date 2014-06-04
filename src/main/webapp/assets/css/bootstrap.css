@@ -5810,6 +5810,9 @@ button.close {
 .label-renren {
   background-color: #005eac;
 }
+.label-tieba {
+  background-color: #0449be;
+}
 
 #dialogClose > a {
     color: #FCFDFE;

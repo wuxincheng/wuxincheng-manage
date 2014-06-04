@@ -29,6 +29,23 @@ public class ReportController extends BaseController {
 	@Autowired private ReportService reportService;
 	
 	/**
+	 * 各社交平台阅读情况统计
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/social")
+	public String social(HttpServletRequest request, Model model) {
+		logger.info("IP访问统计报表");
+		setMenuFlag(request, "social");
+		
+		List<Report> dataList = reportService.querySocialReport();
+		
+		model.addAttribute("dataList", dataList);
+		
+		return "report/social";
+	}
+	
+	/**
 	 * 境内外访问统计报表
 	 * 
 	 * @return

@@ -63,6 +63,9 @@
 							<c:if test="${'qzone' eq pojo.socialType}">
 								<span class="label label-qzone">QQ空间</span>
 							</c:if>
+							<c:if test="${'tieba' eq pojo.socialType}">
+								<span class="label label-tieba">百度贴吧</span>
+							</c:if>
 							<c:if test="${'tweibo' eq pojo.socialType}">
 								<span class="label label-tweibo">腾讯微博</span>
 							</c:if>

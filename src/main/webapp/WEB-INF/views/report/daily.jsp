@@ -114,7 +114,7 @@ $(function() {
 		shadow_color : '#aaaaaa',
 		shadow_offsetx : 1,
 		shadow_offsety : 0,
-		column_width : 62,
+		column_width : 40,
 		sub_option : {
 			listeners : {
 				parseText : function(r, t) {

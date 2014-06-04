@@ -34,6 +34,11 @@
   		<result property="requestSum" column="REQUESTSUM"/>
 	</resultMap>
 	
+	<resultMap id="ReportSocialMap" class="Report">
+  		<result property="scount" column="SCOUNT"/>
+  		<result property="socialType" column="SOCIAL_TYPE"/>
+	</resultMap>
+	
 	<select id="queryDailyReport" resultMap="ReportDailyMap">
 		SELECT sq.* FROM(
 			SELECT 
@@ -115,6 +120,11 @@
 					GROUP BY IP_ADDRESS
 			) ipc 
 		) 
+	</select>
+	
+	<select id="querySocialReport" resultMap="ReportSocialMap">
+		SELECT SOCIAL_TYPE, COUNT(*) AS SCOUNT FROM T_SYSTEM_REQUEST
+		GROUP BY SOCIAL_TYPE
 	</select>
 	
 </sqlMap>

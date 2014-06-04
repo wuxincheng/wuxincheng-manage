@@ -44,5 +44,10 @@ public class ReportServiceImpl implements ReportService {
 	public List<Report> queryRequestReport() {
 		return reportDao.queryRequestReport();
 	}
+
+	@Override
+	public List<Report> querySocialReport() {
+		return reportDao.querySocialReport();
+	}
 	
 }

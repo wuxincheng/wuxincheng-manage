@@ -84,6 +84,7 @@
 					 -->
 					<li <c:if test="${'reportChina' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/china">境内外访问统计报表</a></li>
 					<li <c:if test="${'reportIP' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/IP">访问IP统计报表</a></li>
+					<li <c:if test="${'social' eq menuFlag}">class="active"</c:if>><a href="<%=request.getContextPath()%>/manage/report/social">社交平台访问统计报表</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
 					<li class="nav-header"><b>基础管理</b></li>

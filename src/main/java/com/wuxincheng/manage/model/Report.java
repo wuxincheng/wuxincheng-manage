@@ -29,6 +29,10 @@ public class Report implements Serializable {
 	private String jnw;
 	private Integer requestSum;
 
+	// --
+	private String socialType;
+	private Integer scount;
+
 	// ===================
 
 	public String getJnw() {
@@ -117,6 +121,22 @@ public class Report implements Serializable {
 
 	public void setRcount(String rcount) {
 		this.rcount = rcount;
+	}
+
+	public String getSocialType() {
+		return socialType;
+	}
+
+	public void setSocialType(String socialType) {
+		this.socialType = socialType;
+	}
+
+	public Integer getScount() {
+		return scount;
+	}
+
+	public void setScount(Integer scount) {
+		this.scount = scount;
 	}
 
 }

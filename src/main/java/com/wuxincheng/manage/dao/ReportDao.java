@@ -54,4 +54,11 @@ public interface ReportDao {
 	 */
 	public abstract List<Report> queryRequestReport();
 	
+	/**
+	 * 查询社交平台查看统计报表
+	 * 
+	 * @return
+	 */
+	public abstract List<Report> querySocialReport();
+	
 }

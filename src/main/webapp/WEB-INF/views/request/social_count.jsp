@@ -33,6 +33,9 @@ var data = [
 	<c:if test="${'linkedin' eq social.socialType}">
 	{name : 'LinkedIn', value : ${social.socialRead}, color:'#069' },
 	</c:if>
+	<c:if test="${'tieba' eq social.socialType}">
+	{name : '百度贴吧', value : ${social.socialRead}, color:'#0449be' },
+	</c:if>
 	<c:if test="${'qzone' eq social.socialType}">
 	{name : 'QQ空间', value : ${social.socialRead}, color:'#FFDC35' },
 	</c:if>
@@ -59,7 +62,7 @@ var data = [
 		data: data,//绑定数据
 		title : '', //设置标题
 		width : 680,//设置宽度，默认单位为px
-		height : 376,//设置高度，默认单位为px
+		height : 409,//设置高度，默认单位为px
 		shadow:true,//激活阴影
 		shadow_color:'#c7c7c7',//设置阴影颜色
 		coordinate:{//配置自定义坐标轴
@@ -115,6 +118,9 @@ var data = [
 							</c:if>
 							<c:if test="${'qzone' eq social.socialType}">
 								<span class="label label-qzone">QQ空间</span>
+							</c:if>
+							<c:if test="${'tieba' eq social.socialType}">
+								<span class="label label-tieba">百度贴吧</span>
 							</c:if>
 							<c:if test="${'tweibo' eq social.socialType}">
 								<span class="label label-tweibo">腾讯微博</span>

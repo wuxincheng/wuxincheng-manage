@@ -43,4 +43,10 @@ public class ReportDaoImpl extends BaseDao implements ReportDao {
 		return this.getSqlMapClientTemplate().queryForList("Report.queryRequestReport");
 	}
 
+
+	@Override
+	public List<Report> querySocialReport() {
+		return this.getSqlMapClientTemplate().queryForList("Report.querySocialReport");
+	}
+
 }
