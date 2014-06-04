@@ -65,6 +65,7 @@ var data = [
 		height : 409,//设置高度，默认单位为px
 		shadow:true,//激活阴影
 		shadow_color:'#c7c7c7',//设置阴影颜色
+		column_width : 38, // 定义柱状图的宽度
 		coordinate:{//配置自定义坐标轴
 			scale:[{//配置自定义值轴
 				 position:'left',//配置左值轴	
