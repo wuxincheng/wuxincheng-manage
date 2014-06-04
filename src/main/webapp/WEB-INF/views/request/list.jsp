@@ -21,6 +21,10 @@
 			<input type="text" class="form-control" placeholder="博客标题">
 			<button type="button" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
+			
+			<a href="<%=request.getContextPath()%>/manage/request/updateIpAddress">
+			<button type="button" class="btn btn-danger btn-sm">处理空IP区域</button>
+			</a>
 		</form>
 		<hr />
 		<div class="table-responsive">
