@@ -45,10 +45,12 @@
 	</select>
 	
 	<select id="countBySocial" parameterClass="java.lang.String" resultMap="SocialCountMap">
-		SELECT BLOG_ID, SOCIAL_TYPE, COUNT(*) AS SOCIAL_READ 
-		FROM T_SYSTEM_REQUEST 
-		WHERE BLOG_ID = #blogId# 
-		GROUP BY SOCIAL_TYPE, BLOG_ID
+		SELECT * FROM (
+			SELECT BLOG_ID, SOCIAL_TYPE, COUNT(*) AS SOCIAL_READ 
+			FROM T_SYSTEM_REQUEST 
+			WHERE BLOG_ID = #blogId# 
+			GROUP BY SOCIAL_TYPE, BLOG_ID
+		) cbs ORDER BY cbs.SOCIAL_READ DESC
 	</select>
 	
 	<select id="queryNullIpAddress" resultMap="NullIpAddressMap">

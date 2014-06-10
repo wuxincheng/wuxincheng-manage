@@ -123,8 +123,10 @@
 	</select>
 	
 	<select id="querySocialReport" resultMap="ReportSocialMap">
-		SELECT SOCIAL_TYPE, COUNT(*) AS SCOUNT FROM T_SYSTEM_REQUEST
-		GROUP BY SOCIAL_TYPE
+		SELECT * FROM (
+			SELECT SOCIAL_TYPE, COUNT(*) AS SCOUNT FROM T_SYSTEM_REQUEST
+			GROUP BY SOCIAL_TYPE
+		) sr ORDER BY sr.SCOUNT DESC
 	</select>
 	
 </sqlMap>
