@@ -94,8 +94,8 @@ $(function() {
 			scale : [{
 				position : 'left',
 				start_scale : 0,
-				end_scale : 300,
-				scale_space : 100,
+				end_scale : 600,
+				scale_space : 300,
 				scale_enable : false,
 				label : {
 					fontsize:10,
