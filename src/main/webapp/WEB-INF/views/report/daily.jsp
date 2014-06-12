@@ -74,8 +74,8 @@ $(function(){
 			scale:[{
 				 position:'left',	
 				 start_scale:0,
-				 end_scale:400,
-				 scale_space:200,
+				 end_scale:500,
+				 scale_space:100,
 				 scale_size:2,
 				 scale_color:'#9f9f9f'
 			},{
@@ -92,7 +92,7 @@ line.draw();
 <script type="text/javascript">
 $(function() {
 	// 定义颜色数组
-	var colors = ['#4c66a4', '#55acee', '#069', '#FFDC35', '#73CFF1', '#609700', '#d7914b', '#005eac', '#4572a7', '#f75353'];
+	var colors = ['#4c66a4', '#55acee', '#069', '#FFDC35', '#73CFF1', '#609700', '#d7914b', '#0449be', '#4572a7', '#f75353'];
 	
 	var data = [
 				<c:forEach items="${dataList}" var="pojo" varStatus="s">
@@ -143,8 +143,8 @@ $(function() {
 			scale : [{
 				position : 'left',
 				start_scale : 0,
-				end_scale : 400,
-				scale_space : 200,
+				end_scale : 500,
+				scale_space : 100,
 				scale_enable : false,
 				label : {
 					fontsize:11,
