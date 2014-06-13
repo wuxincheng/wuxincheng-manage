@@ -15,12 +15,13 @@
 	
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h5 class="page-header page-target">访问查询</h5>
-		<form class="form-inline" role="form">
-			<input type="text" class="form-control" placeholder="开始日期">
-			<input type="text" class="form-control" placeholder="结束日期">
-			<input type="text" class="form-control" placeholder="博客标题">
-			<button type="button" class="btn btn-primary btn-sm">查询</button>
+		<form action="<%=request.getContextPath()%>/manage/request/list" class="form-inline" role="form" method="post">
+			<input type="text" id="requestIp" name="requestIp" class="form-control" placeholder="ip地址">
+			
+			<button type="submit" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
+			
+			<span class="label label-info">提示：目前查询不支持分页</span>
 			
 			<a href="<%=request.getContextPath()%>/manage/request/updateIpAddress">
 			<button type="button" class="btn btn-danger btn-sm">处理空IP区域</button>

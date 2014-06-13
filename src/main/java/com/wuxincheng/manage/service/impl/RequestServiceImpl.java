@@ -19,7 +19,7 @@ public class RequestServiceImpl implements RequestService {
 	@Resource RequestDao requestDao;
 
 	@Override
-	public Map<String, Object> queryPager(int start, int end) {
+	public Map<String, Object> queryPager(int start, int end, Request query) {
 		// 返回结果
 		Map<String, Object> reault = new HashMap<String, Object>();
 		
@@ -27,6 +27,11 @@ public class RequestServiceImpl implements RequestService {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("start", start);
 		params.put("end", end);
+		
+		if (query != null && !"".equals(query)) {
+			// 封装查询条件
+			params.put("requestIp", query.getRequestIp());
+		}
 		
 		int totalCount = requestDao.queryCount(); // 总记录数
 		List<Request> pojoList = requestDao.queryPager(params); // 当前页的数据

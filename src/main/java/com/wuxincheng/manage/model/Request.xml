@@ -37,6 +37,12 @@
 			r.IP_REGION, r.IP_CITY, r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE, 
 			i.BLOG_TITLE, DATE_FORMAT(r.REQUEST_TIME,'%Y%m%d %H:%i:%S') AS REQUEST_TIME
 		FROM T_SYSTEM_REQUEST r LEFT JOIN T_BLOG_DETAIL_INFO i ON r.BLOG_ID = i.BLOG_ID
+		WHERE 1=1
+			<dynamic>
+				<isNotNull prepend=" AND " property="requestIp">
+					r.REQUEST_IP = #requestIp# 
+				</isNotNull>
+			</dynamic>
 		ORDER BY REQUEST_TIME DESC LIMIT #start#, #end#
 	</select>
 	

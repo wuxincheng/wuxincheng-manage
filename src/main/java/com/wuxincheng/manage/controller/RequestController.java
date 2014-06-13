@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.wuxincheng.manage.model.Request;
 import com.wuxincheng.manage.service.RequestService;
 import com.wuxincheng.manage.util.Validation;
 
@@ -39,7 +40,7 @@ public class RequestController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/list")
-	public String list(HttpServletRequest request, String currentPage, Model model) {
+	public String list(HttpServletRequest request, String currentPage, Model model, Request query) {
 		setMenuFlag(request, "request");
 		
 		if (Validation.isBlank(currentPage) || !Validation.isInt(currentPage, "0+")) {
@@ -57,7 +58,7 @@ public class RequestController extends BaseController {
 			end = pageSize;
 		}
 		
-		Map<String, Object> pager = requestService.queryPager(start, end);
+		Map<String, Object> pager = requestService.queryPager(start, end, query);
 		
 		try {
 			if (pager != null && pager.size() > 0) {
@@ -110,7 +111,7 @@ public class RequestController extends BaseController {
 		
 		logger.info("空IP区域处理完成");
 		
-		return list(request, "1", model);
+		return list(request, "1", model, null);
 	}
 	
 }

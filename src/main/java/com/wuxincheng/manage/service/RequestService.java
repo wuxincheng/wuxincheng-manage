@@ -3,6 +3,8 @@ package com.wuxincheng.manage.service;
 import java.util.List;
 import java.util.Map;
 
+import com.wuxincheng.manage.model.Request;
+
 /**
  * 访问
  * 
@@ -19,7 +21,7 @@ public interface RequestService {
 	 * @param flag
 	 * @return
 	 */
-	public abstract Map<String, Object> queryPager(int start, int end);
+	public abstract Map<String, Object> queryPager(int start, int end, Request query);
 	
 	/**
 	 * 统计博客访问
