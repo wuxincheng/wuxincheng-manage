@@ -97,8 +97,8 @@ $(function(){
 			scale:[{
 				 position:'bottom',	
 				 start_scale:0,
-				 end_scale:1000,
-				 scale_space:100,
+				 end_scale:400,
+				 scale_space:200,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){
@@ -146,8 +146,8 @@ $(function(){
 			scale:[{
 				 position:'bottom',	
 				 start_scale:0,
-				 end_scale:1000,
-				 scale_space:100,
+				 end_scale:400,
+				 scale_space:200,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){
