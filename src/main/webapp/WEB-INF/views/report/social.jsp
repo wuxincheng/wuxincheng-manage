@@ -65,7 +65,7 @@ $(function() {
 		shadow_color : '#aaaaaa',
 		shadow_offsetx : 1,
 		shadow_offsety : 0,
-		column_width : 40, // 定义柱状图的宽度
+		column_width : 40,
 		sub_option : {
 			listeners : {
 				parseText : function(r, t) {
@@ -94,11 +94,11 @@ $(function() {
 			scale : [{
 				position : 'left',
 				start_scale : 0,
-				end_scale : 600,
-				scale_space : 300,
+				end_scale : 1000,
+				scale_space : 500,
 				scale_enable : false,
 				label : {
-					fontsize:10,
+					fontsize:11,
 					color : '#666666'
 				}
 			}]
