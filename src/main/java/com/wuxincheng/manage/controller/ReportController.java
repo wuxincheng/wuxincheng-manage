@@ -123,4 +123,15 @@ public class ReportController extends BaseController {
 		return "report/daily";
 	}
 	
+	/**
+	 * 测试
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/test")
+	public String test(HttpServletRequest request, Model model) {
+		setMenuFlag(request, "test");
+		return "report/test";
+	}
+	
 }
