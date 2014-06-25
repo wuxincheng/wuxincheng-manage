@@ -63,7 +63,7 @@
 				REQUEST_IP, IP_ADDRESS, COUNT(*) AS ICOUNT
 			FROM T_SYSTEM_REQUEST 
 				GROUP BY IP_ADDRESS, REQUEST_IP
-		) ipc WHERE ipc.ICOUNT > 15 ORDER BY ipc.ICOUNT DESC
+		) ipc WHERE ipc.ICOUNT > 20 ORDER BY ipc.ICOUNT DESC
 	</select>
 	
 	<select id="queryChinaReport" resultMap="ReportChinaMap">
