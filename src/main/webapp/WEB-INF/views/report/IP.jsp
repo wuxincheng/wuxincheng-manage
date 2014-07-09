@@ -23,7 +23,7 @@ $(function(){
 		render : 'canvasDiv',
 		data: data,
 		width : 950,
-		height : 450,
+		height : 650,
 		offsetx:20,
 		coordinate:{
 			width:500,

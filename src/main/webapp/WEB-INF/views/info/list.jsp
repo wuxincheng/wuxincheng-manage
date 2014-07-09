@@ -69,7 +69,7 @@
 						</td>
 						<td>${blogInfo.blogTitle}</td>
 						<td>${blogInfo.blogTypeName}</td>
-						<td>${blogInfo.updateTime}</td>
+						<td>${blogInfo.blogTime}</td>
 						<td style="text-align: right; font-weight:bold;">
 							<a href="#" onclick="showSocialCount('${blogInfo.blogId}');">
 							<fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0" />
