@@ -55,7 +55,7 @@ $(function() {
 		render : 'canvasZhuDiv',
 		data : data,
 		width : 950,
-		height : 450,
+		height : 750,
 		label : {
 			fontsize:11,
 			color : '#666666'

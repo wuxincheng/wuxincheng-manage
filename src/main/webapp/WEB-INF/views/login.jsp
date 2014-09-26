@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>新成博客后台管理系统 - V1.0 - 登录</title>
+<title>新成视野后台管理系统 - V1.0 - 登录</title>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon" />
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" type="text/css"></link>
@@ -42,12 +42,12 @@
 	}
 	
 	.container {
-		max-width: 420px;
-		padding: 150px 60px 40px 60px;
+		max-width: 370px;
+		padding: 190px 60px 40px 60px;
 	}
 	
 	.form-signin {
-		max-width: 300px;
+		max-width: 200px;
 		padding: 25px 60px 40px 60px;
 		margin: 0 auto;
 		background-color: #fff;
@@ -101,13 +101,13 @@
 			<div>
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<span class="glyphicon glyphicon-lock"></span> 新成博客后台管理 - 登录
+						<span class="glyphicon glyphicon-lock"></span> 新成视野后台管理 - 登录
 					</div>
 					<div class="panel-body">
 						<form action="<%=request.getContextPath()%>/admins/doLogin" class="form-horizontal" role="form" method="post">
 							<c:if test="${not empty warning}">
 							<div style="margin: 0px 30px 0px 30px" class="input-group">
-                                <div class="alert alert-warning" style="width: 268px; margin-bottom: 10px;">
+                                <div class="alert alert-warning" style="width: 218px; margin-bottom: 10px;">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 									${warning}
 								</div>
@@ -122,9 +122,8 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input id="adminsPwd" type="password" class="form-control" name="adminsPwd" placeholder="请输入密码" />
                             </div>
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-sm">登录</button>
-								<button type="reset" class="btn btn-default btn-sm">取消</button>
+							<div style="width: 278px;" class="form-group">
+								<button type="submit" class="btn btn-primary btn-sm btn-block">登录</button>
 							</div>
 						</form>
 					</div>

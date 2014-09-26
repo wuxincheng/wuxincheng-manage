@@ -26,7 +26,7 @@ $(function(){
 		render : 'canvasZhuDiv',
 		padding:'2 10',
 		width : 950,
-		height : 300,
+		height : 350,
 		data:data,
 		shadow:true,
 		shadow_color:'#ffffff',
@@ -84,11 +84,11 @@ $(function(){
 		render : 'canvasCDiv',
 		data: data,
 		width : 950,
-		height : 800,
+		height : 900,
 		offsetx:20,
 		coordinate:{
 			width:700,
-			height:730,
+			height:830,
 			grid_color:'#428bca',
 			axis:{
 				color:'#428bca',
@@ -98,11 +98,11 @@ $(function(){
 				 position:'bottom',	
 				 start_scale:0,
 				 end_scale:400,
-				 scale_space:200,
+				 scale_space:500,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){
-						return {text:t+"次"}
+						return {text:t+""}
 					}
 				 }
 			}]
@@ -133,11 +133,11 @@ $(function(){
 		render : 'canvasUDiv',
 		data: data,
 		width : 950,
-		height : 750,
+		height : 1150,
 		offsetx:20,
 		coordinate:{
 			width:700,
-			height:680,
+			height:1080,
 			grid_color:'#428bca',
 			axis:{
 				color:'#428bca',
@@ -147,11 +147,11 @@ $(function(){
 				 position:'bottom',	
 				 start_scale:0,
 				 end_scale:400,
-				 scale_space:200,
+				 scale_space:500,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){
-						return {text:t+"次"}
+						return {text:t+""}
 					}
 				 }
 			}]

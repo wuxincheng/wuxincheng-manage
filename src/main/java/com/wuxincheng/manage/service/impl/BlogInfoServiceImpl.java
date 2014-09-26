@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.wuxincheng.manage.dao.BlogInfoDao;
 import com.wuxincheng.manage.model.BlogInfo;
 import com.wuxincheng.manage.service.BlogInfoService;
-import com.wuxincheng.manage.util.CatchImageURLUtil;
 
 /**
  * 博客信息
@@ -60,11 +59,13 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 		}
 		
 		// 图片URL处理, 即从内容中抽取一张图片URL地址
+		/**
 		String content = blogInfo.getBlogContent(); // 获得博客内容
 		String imgURL = CatchImageURLUtil.getFirstImgURLFromContent(content);
 		blogInfo.setPicLink(imgURL);
 		
 		logger.debug("图片地址 imgURL: " + imgURL);
+		 */
 		
 		Integer blogId = blogInfo.getBlogId();
 		
