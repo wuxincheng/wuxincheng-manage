@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.wuxincheng.manage.dao.RequestDao;
@@ -16,6 +18,8 @@ import com.wuxincheng.manage.util.IPUtil;
 @Service("requestService")
 public class RequestServiceImpl implements RequestService {
 
+	private static Logger logger = LoggerFactory.getLogger(RequestServiceImpl.class);
+	
 	@Resource RequestDao requestDao;
 
 	@Override
@@ -64,6 +68,15 @@ public class RequestServiceImpl implements RequestService {
 			
 			requestDao.updateIpAddress(params);
 		}
+	}
+
+	@Override
+	public void processNullIpAddressTask() throws Exception {
+		logger.info("定时任务: 开始处理访问请求IP区域信息");
+		
+		updateNullIpAddress();
+		
+		logger.info("定时任务: 结束处理访问请求IP区域信息");
 	}
 
 }
