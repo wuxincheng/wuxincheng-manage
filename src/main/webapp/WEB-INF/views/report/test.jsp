@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+=======
+>>>>>>> 445a2f1bab4f6a213c04a4c6589fcd49f0b04334
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<<<<<<< HEAD
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 <script src="<%=request.getContextPath()%>/assets/js/ichart.latest.min.js"></script>
+=======
+
+<script src="/resource/js/ichart.latest.min.js"></script>
+>>>>>>> 445a2f1bab4f6a213c04a4c6589fcd49f0b04334
 
 </head>
 
@@ -290,9 +298,15 @@ $(function(){
 });
 </script>
 <body>
+<<<<<<< HEAD
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
+=======
+	
+	
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+>>>>>>> 445a2f1bab4f6a213c04a4c6589fcd49f0b04334
 		<h5 class="page-header page-target">各社交平台访问统计报表</h5>
 		
 		<div class="table-responsive">
