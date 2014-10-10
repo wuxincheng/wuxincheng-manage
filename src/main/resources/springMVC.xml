@@ -42,7 +42,7 @@
   <task:annotation-driven />
   
   <task:scheduled-tasks scheduler="nullIpAddressScheduler">
-    <task:scheduled ref="requestService" method="processNullIpAddressTask" fixed-delay="360000" />
+    <task:scheduled ref="requestService" method="processNullIpAddressTask" fixed-delay="3600000" />
   </task:scheduled-tasks>
   
   <task:scheduler id="nullIpAddressScheduler" pool-size="10"/>
