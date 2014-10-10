@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="hfn" uri="/WEB-INF/hfn.tld"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@
 						<td><span class="label label-success">${pojo.requestIp}</span></td>
 						<td><span class="label label-warning">${pojo.ipAddress}</span></td>
 						<td><span class="label label-info">${pojo.systemPath}</span></td>
-						<td>${pojo.blogTitle}</td>
+						<td><a href="" title="${pojo.blogTitle}">${hfn:subString(pojo.blogTitle, 10)}...</a></td>
 						<td>
 							<c:if test="${'google' eq pojo.socialType}">
 								<span class="label label-google">Google+</span>
