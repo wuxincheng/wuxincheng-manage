@@ -19,7 +19,7 @@
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">博客管理 - 编辑博客 - <a href="#">返回</a></h5>
 		<form action="<%=request.getContextPath()%>/manage/blogInfo/doEdit" role="form" method="post">
 			<!-- 隐藏字段 -->
@@ -30,7 +30,7 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="picLink">博客图片（350*200px）：</label>
+				<label for="picLink">博客图片：</label>
 			    <input type="text" name="picLink" value="${blogInfo.picLink}" class="form-control" style="width: 585px;" placeholder="请选择博客图片" />
 			</div>
 			

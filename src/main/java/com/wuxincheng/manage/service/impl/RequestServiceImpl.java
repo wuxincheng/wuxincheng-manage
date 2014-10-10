@@ -59,6 +59,12 @@ public class RequestServiceImpl implements RequestService {
 		String requestIp = null;
 		Map<String, String> ipInfo = null;
 		Map<String, String> params = new HashMap<String, String>();
+		
+		if (requests.size() < 1) {
+			logger.info("目前时间点所有IP已经处理完成");
+			return;
+		}
+		
 		for (Map<String, String> request : requests) {
 			requestIp = request.get("requestIp");
 
@@ -75,6 +81,7 @@ public class RequestServiceImpl implements RequestService {
 		logger.info("定时任务: 开始处理访问请求IP区域信息");
 		
 		updateNullIpAddress();
+		// logger.info("定时任务");
 		
 		logger.info("定时任务: 结束处理访问请求IP区域信息");
 	}

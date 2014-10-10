@@ -3,9 +3,20 @@
 <html lang="en">
 <head>
 <body>
-	
-	<script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/js/docs.min.js"></script>
+  
+  <div class="footer text-center">
+    <div class="container">
+      <hr>
+      <div class="copyright">
+        © Copyright 2014 - <a href="http://wuxincheng.com.cn">wuxincheng.com.cn</a> - All Rights Reserved. <a
+          href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备14029281号</a>
+      </div>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+  
+  <script src="<%=request.getContextPath()%>/assets/js/jquery.min.js"></script>
+  <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>
+  <script src="<%=request.getContextPath()%>/assets/js/docs.min.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">用户管理 - 查看详细 - <a href="#">返回</a></h5>
 		<form action="" role="form" method="post">
 			<div class="form-group">

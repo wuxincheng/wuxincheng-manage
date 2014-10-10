@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">管理员管理</h5>
 		<form class="form-inline" role="form">
 			<a href="<%=request.getContextPath()%>/manage/admins/edit?adminsLogin=">
@@ -66,8 +66,6 @@
 					</div>
 					</c:otherwise>
 					</c:choose>
-					
-					<jsp:include page="../bottom.jsp" />
 				</tbody>
 			</table>
 			<div class="tab-bottom-line"></div>

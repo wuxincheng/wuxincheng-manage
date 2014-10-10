@@ -37,4 +37,14 @@
     <property name="suffix" value=".jsp" />
   </bean>
 
+  <!-- 定时任务 -->
+  <!-- Spring定时器注解开关-->
+  <task:annotation-driven />
+  
+  <task:scheduled-tasks scheduler="nullIpAddressScheduler">
+    <task:scheduled ref="requestService" method="processNullIpAddressTask" fixed-delay="360000" />
+  </task:scheduled-tasks>
+  
+  <task:scheduler id="nullIpAddressScheduler" pool-size="10"/>
+
 </beans>

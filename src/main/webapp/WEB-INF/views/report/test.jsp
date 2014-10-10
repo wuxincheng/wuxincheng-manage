@@ -292,7 +292,7 @@ $(function(){
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">各社交平台访问统计报表</h5>
 		
 		<div class="table-responsive">

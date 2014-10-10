@@ -10,7 +10,7 @@
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">管理员管理 - 编辑数据 - <a href="#">返回</a></h5>
 		<form action="<%=request.getContextPath()%>/admins/doEdit" role="form" method="post">
 			<c:if test="${not empty warning}">

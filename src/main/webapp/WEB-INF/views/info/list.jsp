@@ -23,7 +23,7 @@
 <body>
 	<jsp:include page="../top.jsp" />
 	
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container main-container">
 		<h5 class="page-header page-target">博客管理</h5>
 		<form class="form-inline" role="form">
 			<input type="text" class="form-control" placeholder="输入博客标题">
