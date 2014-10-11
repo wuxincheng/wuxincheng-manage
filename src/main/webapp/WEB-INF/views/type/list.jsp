@@ -12,7 +12,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">类别管理</h5>
+		<h5 class="page-header page-target">博客管理 - 类别管理</h5>
 		<form class="form-inline" role="form">
 			<a href="<%=request.getContextPath()%>/manage/type/edit?typeId=">
 			<button type="button" class="btn btn-success btn-sm">新增</button>

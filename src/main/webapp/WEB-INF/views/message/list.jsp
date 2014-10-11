@@ -11,8 +11,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">用户留言管理</h5>
-		<hr />
+		<h5 class="page-header page-target">基础管理 - 用户留言管理</h5>
 		<div class="table-responsive">
 			<table class="table table-hover">
 				<thead>

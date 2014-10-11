@@ -11,7 +11,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">类别管理 - 编辑类别 - <a href="#">返回</a></h5>
+		<h5 class="page-header page-target">博客管理 - 类别管理 - 编辑类别</h5>
 		<form action="<%=request.getContextPath()%>/manage/type/doEdit" role="form" method="post">
 			<!-- 隐藏字段 -->
 			<input type="hidden" id="typeId" name="typeId" value="${type.typeId}" />

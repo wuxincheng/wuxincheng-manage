@@ -42,7 +42,7 @@ body {
 
 .container {
   max-width: 370px;
-  padding: 150px 60px 40px 60px;
+  padding: 120px 60px 40px 60px;
 }
 
 .form-signin {

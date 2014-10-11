@@ -6,7 +6,6 @@
   
   <div class="footer text-center">
     <div class="container">
-      <hr>
       <div class="copyright">
         © Copyright 2014 - <a href="http://wuxincheng.com.cn">wuxincheng.com.cn</a> - All Rights Reserved. <a
           href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备14029281号</a>

@@ -29,8 +29,8 @@
   }
   .main-container {
     background-color: #FFFFFF;
-    padding-bottom: 20px;
-    margin-top: 15px;
+    margin: 20px auto;
+    padding: 5px 20px 20px 20px;
     border-radius: 3px;
   }
 </style>
@@ -56,6 +56,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="<%=request.getContextPath()%>/manage/blogInfo/list"><span class="glyphicon glyphicon-th-list"></span> 博客信息管理</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/type/list"><span class="glyphicon glyphicon-th-list"></span> 博客类别管理</a></li>
             </ul>
           </li>
@@ -66,9 +67,13 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="<%=request.getContextPath()%>/manage/request/list"><span class="glyphicon glyphicon-th-list"></span> 访问统计查询</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/report/daily"><span class="glyphicon glyphicon-th-list"></span> 访问日统计报表</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/report/china"><span class="glyphicon glyphicon-th-list"></span> 境内外访问统计报表</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/report/IP"><span class="glyphicon glyphicon-th-list"></span> 访问IP统计报表</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/report/social"><span class="glyphicon glyphicon-th-list"></span> 社交平台访问统计报表</a></li>
             </ul>
           </li>
@@ -88,14 +93,22 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="<%=request.getContextPath()%>/manage/user/list"><span class="glyphicon glyphicon-th-list"></span> 用户管理</a></li>
+              <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/admins/list"><span class="glyphicon glyphicon-th-list"></span> 管理员管理</a></li>
             </ul>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href=""><span class="glyphicon glyphicon-user"></span> ${admins.adminsName} [系统管理员]</a></li>
-          <li><a data-toggle="modal" data-target=".logout-modal" href=""><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"></span> ${admins.adminsName} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href=""><span class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+              <li class="divider"></li>
+              <li><a data-toggle="modal" data-target=".logout-modal" href=""><span class="glyphicon glyphicon-log-out"></span> 退出系统</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -110,10 +123,10 @@
         </div>
         <div class="modal-body" style="text-align: center; font-weight: bold;">您确定退出管理系统吗？</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
           <a href="<%=request.getContextPath()%>/admins/logout">
             <button type="button" class="btn btn-primary btn-sm">确定</button>
           </a>
+          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
         </div>
       </div>
     </div>

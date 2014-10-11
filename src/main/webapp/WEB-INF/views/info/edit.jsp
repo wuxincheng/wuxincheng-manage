@@ -20,7 +20,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">博客管理 - 编辑博客 - <a href="#">返回</a></h5>
+		<h5 class="page-header page-target">博客管理 - 博客信息管理 - 编辑博客</h5>
 		<form action="<%=request.getContextPath()%>/manage/blogInfo/doEdit" role="form" method="post">
 			<!-- 隐藏字段 -->
 			<input type="hidden" id="blogId" name="blogId" value="${blogInfo.blogId}" />

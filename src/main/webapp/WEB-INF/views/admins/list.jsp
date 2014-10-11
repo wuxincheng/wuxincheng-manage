@@ -11,7 +11,7 @@
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">管理员管理</h5>
+		<h5 class="page-header page-target">系统管理 - 管理员管理</h5>
 		<form class="form-inline" role="form">
 			<a href="<%=request.getContextPath()%>/manage/admins/edit?adminsLogin=">
 			<button type="button" class="btn btn-success btn-sm">新增</button>

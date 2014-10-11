@@ -112,7 +112,7 @@ $(function() {
 	<jsp:include page="../top.jsp" />
 	
 	<div class="container main-container">
-		<h5 class="page-header page-target">各社交平台访问统计报表</h5>
+		<h5 class="page-header page-target">运营分析 - 社交平台访问统计报表</h5>
 		
 		<div class="table-responsive">
 			<div style="text-align: center"><h5>社交平台访问统计报表 - 柱状图</h5></div>
