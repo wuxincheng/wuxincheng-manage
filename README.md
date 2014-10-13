@@ -1,12 +1,16 @@
 wuxincheng  
 ===================================  
 wuxincheng-manage
-项目正在正式开发中    
+项目正在正式开发中
+
+更新记录
+-----------------------------------
+    
 中标题  
 -----------------------------------  
   中标题一般显示重点项,类似html的\<h2\><br />  
   你只要在标题下面输入------即可  
-    
+
 ### 小标题  
   小标题类似html的\<h3\><br />  
   小标题的格式如下 ### 小标题<br />  
@@ -35,7 +39,7 @@ wuxincheng-manage
 	   
     }  
 ### 链接  
-1.[点击这里你可以链接到www.google.com](http://www.google.com)<br />  
+1.查看[<新成视野>www.wuxincheng.com.cn](http://www.wuxincheng.com.cn)<br />  
 2.[点击这里我你可以链接到我的博客](http://guoyunsky.iteye.com)<br />  
   
 ###只是显示图片  
