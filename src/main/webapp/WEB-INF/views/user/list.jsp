@@ -17,11 +17,11 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>用户名</th>
-						<th>性别</th>
-						<th>注册时间</th>
-						<th>操作</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">用户名</th>
+						<th style="text-align:center;">性别</th>
+						<th style="text-align:center;">注册时间</th>
+						<th style="text-align:center;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,20 +29,18 @@
 					<c:when test="${not empty users}">
 					<c:forEach items="${users}" var="user" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td>${user.logiName}</td>
-						<td>${user.sex}</td>
-						<td>${user.createTime}</td>
-						<td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;">${user.logiName}</td>
+						<td style="text-align:center;">${user.sex}</td>
+						<td style="text-align:center;">${user.createTime}</td>
+						<td style="text-align:center;">
 							<a href="<%=request.getContextPath()%>/manage/user/show?logiName=${user.logiName}">
 								<button type="button" class="btn btn-success btn-sm">查看</button>
 							</a>
 							
-							<!-- 
 							<button type="button" class="btn btn-primary btn-sm">预览</button>
 							<button type="button" class="btn btn-warning btn-sm">特殊标记</button>
 							<button type="button" class="btn btn-danger btn-sm">禁用</button>
-							 -->
 						</td>
 					</tr>
 					

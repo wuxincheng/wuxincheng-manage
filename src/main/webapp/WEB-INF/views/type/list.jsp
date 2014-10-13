@@ -23,13 +23,13 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>类别名称</th>
-						<th>博客数量</th>
-						<th>博客阅读量</th>
-						<th>类别说明</th>
-						<th>创建时间</th>
-						<th>操作</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">类别名称</th>
+						<th style="text-align:right;">博客数量</th>
+						<th style="text-align:right;">博客阅读量</th>
+						<th style="text-align:center;">类别说明</th>
+						<th style="text-align:center;">创建时间</th>
+						<th style="text-align:center;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,21 +39,19 @@
 					<c:set var="ddcount" value="0" />
 					<c:forEach items="${types}" var="type" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td>${type.typeName}</td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;">${type.typeName}</td>
 						<td style="text-align: right; font-weight:bold;">
 							<fmt:formatNumber value="${type.bcount}" pattern="###,###,###,##0" />
-							&nbsp;&nbsp;
 							<c:set var="bbcount" value="${bbcount + type.bcount}" />
 						</td>
 						<td style="text-align: right; font-weight:bold;">
 							<span class="label label-google"><fmt:formatNumber value="${type.dcount}" pattern="###,###,###,##0" /></span>
-							&nbsp;&nbsp;
 							<c:set var="ddcount" value="${ddcount + type.dcount}" />
 						</td>
-						<td>${type.typeMemo}</td>
-						<td>${type.createTimeStr}</td>
-						<td>
+						<td style="text-align:center;">${type.typeMemo}</td>
+						<td style="text-align:center;">${type.createTimeStr}</td>
+						<td style="text-align:center;">
 							<a href="<%=request.getContextPath()%>/manage/type/edit?typeId=${type.typeId}">
 								<button type="button" class="btn btn-success btn-sm">修改</button>
 							</a>
@@ -64,15 +62,13 @@
 						<td colspan="2" style="text-align: center; font-weight:bold;">总计</td>
 						<td style="text-align: right; font-weight:bold;">
 							<fmt:formatNumber value="${bbcount}" pattern="###,###,###,##0" />
-							&nbsp;&nbsp;
 						</td>
 						<td style="text-align: right; font-weight:bold;">
 							<span class="label label-google"><fmt:formatNumber value="${ddcount}" pattern="###,###,###,##0" /></span>
-							&nbsp;&nbsp;
 						</td>
-						<td>---</td>
-						<td>---</td>
-						<td>---</td>
+						<td></td>
+						<td></td>
+						<td></td>
 					</tr>
 					</c:when>
 					<c:otherwise>

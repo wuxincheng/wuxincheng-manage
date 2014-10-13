@@ -16,11 +16,11 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>留言标题</th>
-						<th>用户名</th>
-						<th>创建时间</th>
-						<th>操作</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">留言标题</th>
+						<th style="text-align:center;">用户名</th>
+						<th style="text-align:center;">创建时间</th>
+						<th style="text-align:center;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,11 +28,11 @@
 					<c:when test="${not empty messages}">
 					<c:forEach items="${messages}" var="message" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td>${message.msgTitle}</td>
-						<td>${message.username}</td>
-						<td>${message.createTime}</td>
-						<td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;">${message.msgTitle}</td>
+						<td style="text-align:center;">${message.username}</td>
+						<td style="text-align:center;">${message.createTime}</td>
+						<td style="text-align:center;">
 							<a href="<%=request.getContextPath()%>/manage/message/show?msgId=${message.msgId}">
 								<button type="button" class="btn btn-success btn-sm">查看</button>
 							</a>

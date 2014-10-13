@@ -31,13 +31,13 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>访问时间</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">访问时间</th>
 						<th>访问IP地址</th>
 						<th>参考IP地域</th>
 						<th>系统路径</th>
 						<th>博客</th>
-						<th>访问来源</th>
+						<th style="text-align:center;">访问来源</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,13 +45,13 @@
 					<c:when test="${not empty pager.pojoList}">
 					<c:forEach items="${pager.pojoList}" var="pojo" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td>${pojo.requestTime}</td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;">${pojo.requestTime}</td>
 						<td><span class="label label-success">${pojo.requestIp}</span></td>
 						<td><span class="label label-warning">${pojo.ipAddress}</span></td>
 						<td><span class="label label-info">${pojo.systemPath}</span></td>
 						<td><a href="" title="${pojo.blogTitle}">${hfn:subString(pojo.blogTitle, 10)}...</a></td>
-						<td>
+						<td style="text-align:center;">
 							<c:if test="${'google' eq pojo.socialType}">
 								<span class="label label-google">Google+</span>
 							</c:if>

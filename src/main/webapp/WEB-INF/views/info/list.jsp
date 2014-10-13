@@ -40,14 +40,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>缩略图</th>
-						<th>状态</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">缩略图</th>
+						<th style="text-align:center;">状态</th>
 						<th>博客标题</th>
-						<th>博客类别</th>
-						<th>操作时间</th>
-						<th>阅读量</th>
-						<th>操作</th>
+						<th style="text-align:center;">博客类别</th>
+						<th style="text-align:center;">操作时间</th>
+						<th style="text-align:right;">阅读量</th>
+						<th style="text-align:center;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,9 +56,9 @@
 					<c:when test="${not empty pager.blogInfos}">
 					<c:forEach items="${pager.blogInfos}" var="blogInfo" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td><img src="${blogInfo.picLink}" width="50px" height="33px" /></td>
-						<td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;"><img src="${blogInfo.picLink}" width="50px" height="33px" /></td>
+						<td style="text-align:center;">
 							<c:if test="${'0' eq blogInfo.blogState}">
 							<span class="label label-success">已发布</span>
 							</c:if>
@@ -68,15 +68,15 @@
 							</c:if>
 						</td>
 						<td>${blogInfo.blogTitle}</td>
-						<td>${blogInfo.blogTypeName}</td>
-						<td>${blogInfo.blogTime}</td>
+						<td style="text-align:center;">${blogInfo.blogTypeName}</td>
+						<td style="text-align:center;">${blogInfo.blogTime}</td>
 						<td style="text-align: right; font-weight:bold;">
 							<a href="#" onclick="showSocialCount('${blogInfo.blogId}');">
 							<fmt:formatNumber value="${blogInfo.readCount}" pattern="###,###,###,##0" />
 							</a>
-							<c:set var="totalRead" value="${totalRead + blogInfo.readCount}" />&nbsp;&nbsp;
+							<c:set var="totalRead" value="${totalRead + blogInfo.readCount}" />
 						</td>
-						<td>
+						<td style="text-align:center;">
 							<a href="<%=request.getContextPath()%>/manage/blogInfo/edit?blogId=${blogInfo.blogId}">
 								<button type="button" class="btn btn-warning btn-sm">修改</button>
 							</a>

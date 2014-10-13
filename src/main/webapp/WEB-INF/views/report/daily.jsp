@@ -172,7 +172,7 @@ $(function() {
 					<tr>
 						<th class="active">日期</th>
 						<c:forEach items="${dataList}" var="pojo">
-						<th style="text-align: center; font-weight:bold;" class="active">
+						<th style="text-align: right; font-weight:bold;" class="active">
 							${pojo.requestDay}
 						</th>
 						</c:forEach>

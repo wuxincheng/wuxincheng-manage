@@ -22,11 +22,11 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>管理员</th>
-						<th>姓名</th>
-						<th>添加时间</th>
-						<th>状态</th>
+						<th style="text-align:center;">序号</th>
+						<th style="text-align:center;">管理员</th>
+						<th style="text-align:center;">姓名</th>
+						<th style="text-align:center;">添加时间</th>
+						<th style="text-align:center;">状态</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,11 +34,11 @@
 					<c:when test="${not empty adminzs}">
 					<c:forEach items="${adminzs}" var="admins" varStatus="s">
 					<tr>
-						<td>${s.index + 1}</td>
-						<td>${admins.adminsLogin}</td>
-						<td>${admins.adminsName}</td>
-						<td>${admins.createTime}</td>
-						<td>
+						<td style="text-align:center;">${s.index + 1}</td>
+						<td style="text-align:center;">${admins.adminsLogin}</td>
+						<td style="text-align:center;">${admins.adminsName}</td>
+						<td style="text-align:center;">${admins.createTime}</td>
+						<td style="text-align:center;">
 							<c:if test="${'0' eq admins.state}">
 								正常
 							</c:if>
