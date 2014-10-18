@@ -60,7 +60,7 @@ $(function(){
 		coordinate:{
 			width:830,
 			valid_width:679,
-			height:260,
+			height:460,
 			axis:{
 				color:'#9f9f9f',
 				width:[0,0,2,2]
@@ -74,7 +74,7 @@ $(function(){
 			scale:[{
 				 position:'left',	
 				 start_scale:0,
-				 end_scale:500,
+				 end_scale:300,
 				 scale_space:100,
 				 scale_size:2,
 				 scale_color:'#9f9f9f'
@@ -104,7 +104,7 @@ $(function() {
 		render : 'canvasZhuDiv',
 		data : data,
 		width : 950,
-		height : 350,
+		height : 450,
 		label : {
 			fontsize:11,
 			color : '#666666'
@@ -143,7 +143,7 @@ $(function() {
 			scale : [{
 				position : 'left',
 				start_scale : 0,
-				end_scale : 500,
+				end_scale : 300,
 				scale_space : 100,
 				scale_enable : false,
 				label : {
