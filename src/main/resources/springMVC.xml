@@ -41,10 +41,13 @@
   <!-- Spring定时器注解开关-->
   <task:annotation-driven />
   
+  <!-- 测试环境不启动定时任务 -->
+  <!-- 
   <task:scheduled-tasks scheduler="nullIpAddressScheduler">
     <task:scheduled ref="requestService" method="processNullIpAddressTask" fixed-delay="3600000" />
   </task:scheduled-tasks>
   
   <task:scheduler id="nullIpAddressScheduler" pool-size="10"/>
+   -->
 
 </beans>
