@@ -2,12 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="hfn" uri="/WEB-INF/hfn.tld"%>
+<c:set var="root" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
-<link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
+<link href="${root}/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon"/>
+<link href="${root}/assets/images/favicon.png" type="image/x-icon" rel="icon"/>
 </head>
 <script>
 </script>
@@ -16,13 +17,13 @@
 	
 	<div class="container main-container">
 		<h5 class="page-header page-target">运营分析 - 访问查询</h5>
-		<form action="<%=request.getContextPath()%>/manage/request/list" class="form-inline" role="form" method="post">
+		<form action="${root}/manage/request/list" class="form-inline" role="form" method="post">
 			<input type="text" id="requestIp" name="requestIp" class="form-control" placeholder="ip地址">
 			
 			<button type="submit" class="btn btn-primary btn-sm">查询</button>
 			<button type="reset" class="btn btn-primary btn-sm">重置</button>
 			
-			<a href="<%=request.getContextPath()%>/manage/request/updateIpAddress">
+			<a href="${root}/manage/request/updateIpAddress">
 			<button type="button" class="btn btn-danger btn-sm">手动处理空IP区域</button>
 			</a>
 		</form>
@@ -38,6 +39,7 @@
 						<th>系统路径</th>
 						<th>博客</th>
 						<th style="text-align:center;">访问来源</th>
+                        <th style="text-align:center;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -89,6 +91,10 @@
 								<span class="label label-default">新成微博</span>
 							</c:if>
 						</td>
+                        <td style="text-align:center;">
+                          <button type="button" class="btn btn-danger btn-sm" 
+                            onclick="document.location = '${root}/manage/request/delete?requestTime=${pojo.requestTime}';">删除</button>
+                        </td>
 					</tr>
 					</c:forEach>
 					</c:when>
@@ -107,19 +113,19 @@
 			
 			<ul class="pager">
 				<li <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
-					<a <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/request/list?currentPage=1"</c:if>>首页</a>
+					<a <c:if test="${pager.currentPage > 1}">href="${root}/manage/request/list?currentPage=1"</c:if>>首页</a>
 				</li>
 				
 				<li <c:if test="${'1' eq pager.currentPage}">class="disabled"</c:if>>
-					<a <c:if test="${pager.currentPage > 1}">href="<%=request.getContextPath()%>/manage/request/list?currentPage=${pager.currentPage-1}"</c:if>>上一页</a>
+					<a <c:if test="${pager.currentPage > 1}">href="${root}/manage/request/list?currentPage=${pager.currentPage-1}"</c:if>>上一页</a>
 				</li>
 				
 				<li <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
-					<a <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/request/list?currentPage=${pager.currentPage+1}"</c:if>>下一页</a>
+					<a <c:if test="${pager.currentPage < pager.lastPage}">href="${root}/manage/request/list?currentPage=${pager.currentPage+1}"</c:if>>下一页</a>
 				</li>
 				
 				<li <c:if test="${pager.lastPage eq pager.currentPage}">class="disabled"</c:if>>
-					<a <c:if test="${pager.currentPage < pager.lastPage}">href="<%=request.getContextPath()%>/manage/request/list?currentPage=${pager.lastPage}"</c:if>>尾页</a>
+					<a <c:if test="${pager.currentPage < pager.lastPage}">href="${root}/manage/request/list?currentPage=${pager.lastPage}"</c:if>>尾页</a>
 				</li>
 				
 				<li class="">&nbsp;</li>

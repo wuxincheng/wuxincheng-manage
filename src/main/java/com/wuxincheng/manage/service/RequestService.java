@@ -40,5 +40,7 @@ public interface RequestService {
 	 * 更新IP区域为空的IP地址
 	 */
 	public abstract void processNullIpAddressTask() throws Exception;
+
+	public abstract void delete(String requestTime);
 	
 }

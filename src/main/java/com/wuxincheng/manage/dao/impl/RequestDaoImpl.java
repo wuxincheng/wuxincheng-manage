@@ -39,4 +39,9 @@ public class RequestDaoImpl extends BaseDao implements RequestDao {
 		this.getSqlMapClientTemplate().update("Request.updateIpAddress", params);
 	}
 
+	@Override
+	public void delete(String requestTime) {
+		this.getSqlMapClientTemplate().delete("Request.delete", requestTime);
+	}
+
 }

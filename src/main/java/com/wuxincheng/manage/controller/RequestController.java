@@ -114,4 +114,15 @@ public class RequestController extends BaseController {
 		return list(request, "1", model, null);
 	}
 	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request, String requestTime, Model model) {
+		try {
+			requestService.delete(requestTime);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:list";
+	}
+	
 }

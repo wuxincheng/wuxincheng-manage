@@ -86,4 +86,9 @@ public class RequestServiceImpl implements RequestService {
 		logger.info("定时任务: 结束处理访问请求IP区域信息");
 	}
 
+	@Override
+	public void delete(String requestTime) {
+		requestDao.delete(requestTime);
+	}
+
 }

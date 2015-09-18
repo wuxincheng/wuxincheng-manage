@@ -1,74 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 <sqlMap namespace="Request">
-	<typeAlias alias="Request" type="com.wuxincheng.manage.model.Request" />
+  <typeAlias alias="Request" type="com.wuxincheng.manage.model.Request" />
 
-	<resultMap class="Request" id="RequestMapping">
-		<result property="requestTime" column="REQUEST_TIME" />
-		<result property="webType" column="WEB_TYPE" />
-		<result property="requestIp" column="REQUEST_IP" />
-		<result property="ipAddress" column="IP_ADDRESS" />
-		<result property="country" column="IP_COUNTRY" />
-		<result property="region" column="IP_REGION" />
-		<result property="city" column="IP_CITY" />
-		<result property="systemPath" column="SYSTEM_PATH" />
-		<result property="blogId" column="BLOG_ID" />
-		<result property="socialType" column="SOCIAL_TYPE" />
-		<result property="param" column="PARAM" />
-		<result property="state" column="STATE" />
-		<result property="note" column="NOTE" />
-		<result property="blogTitle" column="BLOG_TITLE" />
-	</resultMap>
-	
-	<resultMap class="java.util.HashMap" id="SocialCountMap">
-  		<result property="blogId" column="BLOG_ID"/>
-  		<result property="socialType" column="SOCIAL_TYPE"/>
-  		<result property="socialRead" column="SOCIAL_READ"/>
-	</resultMap>
-	
-	<resultMap class="java.util.HashMap" id="NullIpAddressMap">
-  		<result property="requestIp" column="REQUEST_IP"/>
-  		<result property="rcount" column="RCOUNT"/>
-	</resultMap>
-	
-	<select id="queryPager" parameterClass="java.util.Map" resultMap="RequestMapping">
-		SELECT 
-			r.WEB_TYPE, r.REQUEST_IP, r.SYSTEM_PATH, r.BLOG_ID, r.IP_ADDRESS, r.IP_COUNTRY, 
-			r.IP_REGION, r.IP_CITY, r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE, 
-			i.BLOG_TITLE, DATE_FORMAT(r.REQUEST_TIME,'%Y%m%d %H:%i:%S') AS REQUEST_TIME
-		FROM T_SYSTEM_REQUEST r LEFT JOIN T_BLOG_DETAIL_INFO i ON r.BLOG_ID = i.BLOG_ID
-		WHERE 1=1
-			<dynamic>
-				<isNotNull prepend=" AND " property="requestIp">
-					r.REQUEST_IP = #requestIp# 
-				</isNotNull>
-			</dynamic>
-		ORDER BY REQUEST_TIME DESC LIMIT #start#, #end#
-	</select>
-	
-	<select id="queryCount" resultClass="java.lang.Integer">
-		SELECT COUNT(*) AS queryCount FROM T_SYSTEM_REQUEST
-	</select>
-	
-	<select id="countBySocial" parameterClass="java.lang.String" resultMap="SocialCountMap">
-		SELECT * FROM (
-			SELECT BLOG_ID, SOCIAL_TYPE, COUNT(*) AS SOCIAL_READ 
-			FROM T_SYSTEM_REQUEST 
-			WHERE BLOG_ID = #blogId# 
-			GROUP BY SOCIAL_TYPE, BLOG_ID
-		) cbs ORDER BY cbs.SOCIAL_READ DESC
-	</select>
-	
-	<select id="queryNullIpAddress" resultMap="NullIpAddressMap">
-		SELECT REQUEST_IP, COUNT(*) AS RCOUNT FROM T_SYSTEM_REQUEST 
-		WHERE IP_ADDRESS IS NULL OR IP_COUNTRY IS NULL OR IP_REGION IS NULL OR IP_CITY IS NULL
-		GROUP BY REQUEST_IP
-	</select>
-	
-	<update id="updateIpAddress" parameterClass="java.util.Map">
-		UPDATE T_SYSTEM_REQUEST 
-			SET IP_ADDRESS = #ipAddress#, IP_COUNTRY = #country#, IP_REGION = #region#, IP_CITY = #city#
-		WHERE REQUEST_IP = #requestIp#
-	</update>
-	
+  <resultMap class="Request" id="RequestMapping">
+    <result property="requestTime" column="REQUEST_TIME" />
+    <result property="webType" column="WEB_TYPE" />
+    <result property="requestIp" column="REQUEST_IP" />
+    <result property="ipAddress" column="IP_ADDRESS" />
+    <result property="country" column="IP_COUNTRY" />
+    <result property="region" column="IP_REGION" />
+    <result property="city" column="IP_CITY" />
+    <result property="systemPath" column="SYSTEM_PATH" />
+    <result property="blogId" column="BLOG_ID" />
+    <result property="socialType" column="SOCIAL_TYPE" />
+    <result property="param" column="PARAM" />
+    <result property="state" column="STATE" />
+    <result property="note" column="NOTE" />
+    <result property="blogTitle" column="BLOG_TITLE" />
+  </resultMap>
+
+  <resultMap class="java.util.HashMap" id="SocialCountMap">
+    <result property="blogId" column="BLOG_ID" />
+    <result property="socialType" column="SOCIAL_TYPE" />
+    <result property="socialRead" column="SOCIAL_READ" />
+  </resultMap>
+
+  <resultMap class="java.util.HashMap" id="NullIpAddressMap">
+    <result property="requestIp" column="REQUEST_IP" />
+    <result property="rcount" column="RCOUNT" />
+  </resultMap>
+
+  <select id="queryPager" parameterClass="java.util.Map" resultMap="RequestMapping">
+    SELECT
+    r.WEB_TYPE, r.REQUEST_IP, r.SYSTEM_PATH, r.BLOG_ID, r.IP_ADDRESS, r.IP_COUNTRY,
+    r.IP_REGION, r.IP_CITY, r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE,
+    i.BLOG_TITLE, DATE_FORMAT(r.REQUEST_TIME,'%Y%m%d %H:%i:%S') AS REQUEST_TIME
+    FROM T_SYSTEM_REQUEST r LEFT JOIN T_BLOG_DETAIL_INFO i ON r.BLOG_ID = i.BLOG_ID
+    WHERE 1=1
+    <dynamic>
+      <isNotNull prepend=" AND " property="requestIp">
+        r.REQUEST_IP = #requestIp#
+      </isNotNull>
+    </dynamic>
+    ORDER BY REQUEST_TIME DESC LIMIT #start#, #end#
+  </select>
+
+  <select id="queryCount" resultClass="java.lang.Integer">
+    SELECT COUNT(*) AS queryCount FROM T_SYSTEM_REQUEST
+  </select>
+
+  <select id="countBySocial" parameterClass="java.lang.String" resultMap="SocialCountMap">
+    SELECT * FROM (
+    SELECT BLOG_ID, SOCIAL_TYPE, COUNT(*) AS SOCIAL_READ
+    FROM T_SYSTEM_REQUEST
+    WHERE BLOG_ID = #blogId#
+    GROUP BY SOCIAL_TYPE, BLOG_ID
+    ) cbs ORDER BY cbs.SOCIAL_READ DESC
+  </select>
+
+  <select id="queryNullIpAddress" resultMap="NullIpAddressMap">
+    SELECT REQUEST_IP, COUNT(*) AS RCOUNT FROM T_SYSTEM_REQUEST
+    WHERE IP_ADDRESS IS NULL OR IP_COUNTRY IS NULL OR IP_REGION IS NULL OR IP_CITY IS NULL
+    GROUP BY REQUEST_IP
+  </select>
+
+  <update id="updateIpAddress" parameterClass="java.util.Map">
+    UPDATE T_SYSTEM_REQUEST
+    SET IP_ADDRESS = #ipAddress#, IP_COUNTRY = #country#, IP_REGION = #region#, IP_CITY = #city#
+    WHERE REQUEST_IP = #requestIp#
+  </update>
+
+  <delete id="delete" parameterClass="java.lang.String">
+    DELETE FROM T_SYSTEM_REQUEST WHERE DATE_FORMAT(REQUEST_TIME,'%Y%m%d %H:%i:%S') = #requestTime#
+  </delete>
+
 </sqlMap>
