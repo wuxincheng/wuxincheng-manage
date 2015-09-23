@@ -47,6 +47,6 @@ public interface RequestDao {
 	 */
 	public abstract void updateIpAddress(Map<String, String> params);
 
-	public abstract void delete(String requestTime);
+	public abstract void delete(String requestip);
 	
 }

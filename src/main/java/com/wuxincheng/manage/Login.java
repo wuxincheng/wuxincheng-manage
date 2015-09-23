@@ -1,5 +1,8 @@
 package com.wuxincheng.manage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -28,7 +31,6 @@ public class Login {
 	public String login(Model model) {
 		logger.info("显示后台管理登录页面");
 		
-		/*
 		// 登录背景切换方式
 		List<String> backgrounds = new ArrayList<String>();
 		
@@ -40,7 +42,6 @@ public class Login {
 		int randNum = (int) (Math.random() * (backgrounds.size()-1)); // 产生0-1000的整数随机数
 		
 		model.addAttribute("background", backgrounds.get(randNum));
-		 */
 		
 		return "login";
 	}

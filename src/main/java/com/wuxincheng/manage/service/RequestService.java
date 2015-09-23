@@ -41,6 +41,6 @@ public interface RequestService {
 	 */
 	public abstract void processNullIpAddressTask() throws Exception;
 
-	public abstract void delete(String requestTime);
+	public abstract void delete(String requestip);
 	
 }

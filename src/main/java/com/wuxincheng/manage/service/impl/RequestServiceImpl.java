@@ -87,8 +87,8 @@ public class RequestServiceImpl implements RequestService {
 	}
 
 	@Override
-	public void delete(String requestTime) {
-		requestDao.delete(requestTime);
+	public void delete(String requestip) {
+		requestDao.delete(requestip);
 	}
 
 }

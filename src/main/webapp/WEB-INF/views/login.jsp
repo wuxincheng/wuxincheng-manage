@@ -1,19 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>新成视野后台管理系统 - V1.0 - 登录</title>
+<title>新成视野后台管理系统 - V2.0 - 登录</title>
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon" />
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.min.css" type="text/css"></link>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/bootstrap.css" type="text/css"></link>
 <style type="text/css">
 body {
-  /**
-  background: url(${background}) no-repeat center center fixed;
-   */
-  background-color: #3a7a9f;
+  background-color: #D6E2EB;
+  background: url(${root}/assets/images/back.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -41,7 +40,7 @@ body {
 }
 
 .container {
-  max-width: 370px;
+  max-width: 350px;
   padding: 120px 60px 40px 60px;
 }
 
@@ -54,9 +53,9 @@ body {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 1px 25px rgba(0, 0, 0, .05);
-  -moz-box-shadow: 0 1px 25px rgba(0, 0, 0, .05);
-  box-shadow: 0 1px 25px rgba(0, 0, 0, .05);
+  -webkit-box-shadow: 0 1px 25px rgba(0, 0, 0, .25);
+  -moz-box-shadow: 0 1px 25px rgba(0, 0, 0, .25);
+  box-shadow: 0 1px 25px rgba(0, 0, 0, .25);
 }
 
 .form-signin .form-signin-heading,.form-signin .checkbox {
@@ -107,7 +106,7 @@ body {
               method="post">
               <c:if test="${not empty warning}">
                 <div style="margin: 0px 30px 0px 30px" class="input-group">
-                  <div class="alert alert-warning" style="width: 218px; margin-bottom: 10px;">
+                  <div class="alert alert-warning" style="width: 198px; margin-bottom: 10px;">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     ${warning}
                   </div>
@@ -122,12 +121,12 @@ body {
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> <input id="adminsPwd"
                   type="password" class="form-control" name="adminsPwd" placeholder="请输入密码" />
               </div>
-              <div style="width: 278px;" class="form-group">
+              <div style="width: 258px;" class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm btn-block">登录</button>
               </div>
             </form>
           </div>
-          <div class="panel-footer" style="text-align: right;">新成工作室 版权所有</div>
+          <div class="panel-footer" style="text-align: right;">新成工作室版权所有</div>
         </div>
       </div>
     </div>

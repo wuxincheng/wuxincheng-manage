@@ -11,6 +11,8 @@ import java.io.Serializable;
 public class Request implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	private String requestid;
 
 	private String requestTime;
 
@@ -146,6 +148,14 @@ public class Request implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getRequestid() {
+		return requestid;
+	}
+
+	public void setRequestid(String requestid) {
+		this.requestid = requestid;
 	}
 
 	public String getBlogTitle() {

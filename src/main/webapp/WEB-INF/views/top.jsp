@@ -7,7 +7,7 @@
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="shortcut icon" />
 <link href="<%=request.getContextPath()%>/assets/images/favicon.png" type="image/x-icon" rel="icon" />
 
-<title>后台管理 - 新成博客 - V1.0</title>
+<title>后台管理 - 新成视野 - V2.0</title>
 
 <link href="<%=request.getContextPath()%>/assets/css/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/assets/css/dashboard.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 <style type="text/css">
   .page-target {
     font-weight: bold;
-    color: #3a7a9f;
+    color: #252A2C;
   }
   .tab-bottom-line {
     margin: 0 auto 0;
@@ -44,7 +44,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand"><strong>新成视野管理平台</strong></a>
+        <a class="navbar-brand">管理平台</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
@@ -72,8 +72,10 @@
               <li class="divider"></li>
               <li><a href="<%=request.getContextPath()%>/manage/report/china"><span class="glyphicon glyphicon-th-list"></span> 境内外访问统计报表</a></li>
               <li class="divider"></li>
+              <!-- 
               <li><a href="<%=request.getContextPath()%>/manage/report/IP"><span class="glyphicon glyphicon-th-list"></span> 访问IP统计报表</a></li>
               <li class="divider"></li>
+               -->
               <li><a href="<%=request.getContextPath()%>/manage/report/social"><span class="glyphicon glyphicon-th-list"></span> 社交平台访问统计报表</a></li>
             </ul>
           </li>

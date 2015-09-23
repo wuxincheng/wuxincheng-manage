@@ -4,6 +4,7 @@
   <typeAlias alias="Request" type="com.wuxincheng.manage.model.Request" />
 
   <resultMap class="Request" id="RequestMapping">
+    <result property="requestid" column="REQUEST_ID" />
     <result property="requestTime" column="REQUEST_TIME" />
     <result property="webType" column="WEB_TYPE" />
     <result property="requestIp" column="REQUEST_IP" />
@@ -34,7 +35,7 @@
   <select id="queryPager" parameterClass="java.util.Map" resultMap="RequestMapping">
     SELECT
     r.WEB_TYPE, r.REQUEST_IP, r.SYSTEM_PATH, r.BLOG_ID, r.IP_ADDRESS, r.IP_COUNTRY,
-    r.IP_REGION, r.IP_CITY, r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE,
+    r.IP_REGION, r.IP_CITY, r.SOCIAL_TYPE, r.PARAM, r.STATE, r.NOTE, r.REQUEST_ID, 
     i.BLOG_TITLE, DATE_FORMAT(r.REQUEST_TIME,'%Y%m%d %H:%i:%S') AS REQUEST_TIME
     FROM T_SYSTEM_REQUEST r LEFT JOIN T_BLOG_DETAIL_INFO i ON r.BLOG_ID = i.BLOG_ID
     WHERE 1=1
@@ -72,7 +73,7 @@
   </update>
 
   <delete id="delete" parameterClass="java.lang.String">
-    DELETE FROM T_SYSTEM_REQUEST WHERE DATE_FORMAT(REQUEST_TIME,'%Y%m%d %H:%i:%S') = #requestTime#
+    DELETE FROM T_SYSTEM_REQUEST WHERE REQUEST_ID = #requestip#
   </delete>
 
 </sqlMap>

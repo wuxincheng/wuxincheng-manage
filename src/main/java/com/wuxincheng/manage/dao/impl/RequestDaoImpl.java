@@ -40,8 +40,8 @@ public class RequestDaoImpl extends BaseDao implements RequestDao {
 	}
 
 	@Override
-	public void delete(String requestTime) {
-		this.getSqlMapClientTemplate().delete("Request.delete", requestTime);
+	public void delete(String requestip) {
+		this.getSqlMapClientTemplate().delete("Request.delete", requestip);
 	}
 
 }

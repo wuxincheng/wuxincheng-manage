@@ -29,7 +29,7 @@
 		</form>
 		<hr />
 		<div class="table-responsive">
-			<table class="table table-hover">
+			<table id="requestTab" class="table table-hover">
 				<thead>
 					<tr>
 						<th style="text-align:center;">序号</th>
@@ -46,8 +46,8 @@
 					<c:choose>
 					<c:when test="${not empty pager.pojoList}">
 					<c:forEach items="${pager.pojoList}" var="pojo" varStatus="s">
-					<tr>
-						<td style="text-align:center;">${s.index + 1}</td>
+					<tr id="${pojo.requestid}">
+						<td style="text-align:center;">${pojo.requestid}</td>
 						<td style="text-align:center;">${pojo.requestTime}</td>
 						<td><span class="label label-success">${pojo.requestIp}</span></td>
 						<td><span class="label label-warning">${pojo.ipAddress}</span></td>
@@ -92,8 +92,8 @@
 							</c:if>
 						</td>
                         <td style="text-align:center;">
-                          <button type="button" class="btn btn-danger btn-sm" 
-                            onclick="document.location = '${root}/manage/request/delete?requestTime=${pojo.requestTime}';">删除</button>
+                          <button type="button" id="delreq" name="delreq" class="btn btn-danger btn-sm" 
+                            onclick="delreq('${pojo.requestid}')">删除</button>
                         </td>
 					</tr>
 					</c:forEach>
@@ -140,5 +140,26 @@
 	
 	
 	<jsp:include page="../bottom.jsp" />
+  
+    <script type="text/javascript">
+      function delreq(requestid) {
+      	var url = "${root}/manage/request/delete";
+        	$.ajax({
+            url : url, // 跳转到 action    
+            data : {requestid:requestid},
+            type : 'post',
+            beforeSend:function(){
+            },
+            cache : false,
+            dataType : 'json',
+            success : function() {
+            	$("table#requestTab tr#"+requestid).remove();
+            },
+            error : function() {
+            	alert('异常');
+            }
+          });
+      }
+    </script>
 </body>
 </html>

@@ -89,16 +89,16 @@ $(function(){
 		coordinate:{
 			width:700,
 			height:830,
-			grid_color:'#428bca',
+			grid_color:'#252A2C',
 			axis:{
-				color:'#428bca',
+				color:'#252A2C',
 				width:[0,0,8,1]
 			},
 			scale:[{
 				 position:'bottom',	
 				 start_scale:0,
-				 end_scale:400,
-				 scale_space:500,
+				 end_scale:1000,
+				 scale_space:5000,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){
@@ -133,21 +133,21 @@ $(function(){
 		render : 'canvasUDiv',
 		data: data,
 		width : 950,
-		height : 1150,
+		height : 1650,
 		offsetx:20,
 		coordinate:{
 			width:700,
-			height:1080,
-			grid_color:'#428bca',
+			height:1580,
+			grid_color:'#252A2C',
 			axis:{
-				color:'#428bca',
+				color:'#252A2C',
 				width:[0,0,8,1]
 			},
 			scale:[{
 				 position:'bottom',	
 				 start_scale:0,
-				 end_scale:400,
-				 scale_space:500,
+				 end_scale:1000,
+				 scale_space:5000,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){

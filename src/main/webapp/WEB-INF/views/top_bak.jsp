@@ -15,7 +15,7 @@
 <style type="text/css">
 	.page-target {
 		font-weight: bold;
-		color: #3a7a9f;
+		color: #252A2C;
 	}
 	
 	.panel-title {

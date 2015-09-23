@@ -23,20 +23,20 @@ $(function(){
 		render : 'canvasDiv',
 		data: data,
 		width : 950,
-		height : 1500,
+		height : 4500,
 		offsetx:20,
 		coordinate:{
 			width:500,
-			grid_color:'#428bca',
+			grid_color:'#252A2C',
 			axis:{
-				color:'#428bca',
+				color:'#252A2C',
 				width:[0,0,8,1]
 			},
 			scale:[{
 				 position:'bottom',	
 				 start_scale:0,
-				 end_scale:100,
-				 scale_space:50,
+				 end_scale:500,
+				 scale_space:500,
 				 label:{color:'#4F4F4F'},
 				 listeners:{
 					parseText:function(t,x,y){

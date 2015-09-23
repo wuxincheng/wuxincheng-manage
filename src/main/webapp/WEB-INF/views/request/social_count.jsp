@@ -52,7 +52,7 @@ var data = [
 	{name : '人人网', value : ${social.socialRead}, color:'#005eac' },
 	</c:if>
 	<c:if test="${'wuxincheng' eq social.socialType}">
-	{name : '新成微博', value : ${social.socialRead}, color:'#428BCA' },
+	{name : '新成微博', value : ${social.socialRead}, color:'#252A2C' },
 	</c:if>
    	</c:forEach>
  ];
